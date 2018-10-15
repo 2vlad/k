@@ -6739,10 +6739,6 @@ html.no-isdesktop {
 .mag .mag-pages-container .container .page.page-with-fixeds-sticky-or-mobile .rmwidget {
   pointer-events: all;
 }
-.mag .mag-pages-container .container .page.page-scale-layout-transform .fixed-position-container,
-.mag .mag-pages-container .container .page.page-scale-layout-transform .fixed-position-container-top {
-  transform: scale(1);
-}
 .mag .mag-pages-container .container .page .fixed-position-container,
 .mag .mag-pages-container .container .page .fixed-position-container-top {
   position: absolute;
@@ -6786,6 +6782,9 @@ html.no-isdesktop {
   -ms-transform-origin: 0 0;
   transform-origin: 0 0;
   outline: 0;
+}
+.mag .mag-pages-container .container .page .content-scroll-wrapper .content-bounds .page-content-container.scale-centring {
+  margin: 0 auto;
 }
 .android .mag .mag-pages-container .container .page .content-scroll-wrapper .content-bounds .page-content-container:after {
   content: "";

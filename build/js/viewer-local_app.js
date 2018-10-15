@@ -276,7 +276,6 @@ Modernizr.addTest("retina", function() {
     down: 40,
     del: 46,
     backspace: 8,
-    e: 69,
     f: 70,
     comma: 188,
     g: 71,
@@ -785,7 +784,7 @@ Modernizr.addTest("retina", function() {
         var __t, __p = "", __j = Array.prototype.join, print = function() {
             __p += __j.call(arguments, "");
         };
-        with (obj || {}) __p += '\n\t<div class="header-message section">' + (null == (__t = "mag" == type ? "Сustom domain name" : "Custom domain for profile page") ? "" : __t) + '</div>\n\n\t<div class="initial-preloader rmpreloader section invisible">\n\t\t<div class="shadow"></div>\n\t\t<div class="arc"></div>\n\t</div>\n\n\t<div class="register-switcher section"><span class="registered item active">Use registered</span><span class="dot">•</span><span class="item new">Register new</span></div>\n\n\t<div class="unmap-message section"><span class="unmap-button">Unmap</span> this domain name</div>\n\n\t<div class="test-block section">\n\t\t<input class="domain-input" type="text" spellcheck="false" value="" placeholder="yourdomain.com" />\n\t\t<div class="test-button common-button disabled">Test<div class="rmpreloader"><div class="arc"></div></div></div>\n\t</div>\n\n\t<div class="invalid-domain-message section"><span class="red">Domain name may contain only alphanumeric characters. No directories are allowed.</span><br/><br/><span class="bold">Examples:</span><br/><span class="grey">mydomain.com<br/>www.mydomain.com<br/>readymag.mydomain.com</span></div>\n\n\t<div class="notfound-domain-message section">Domain’s info is not available. Please check if the name is correct. Note, that sometimes it may take few hours for subdomain to be created.</div>\n\n\t<div class="other-user-domain-message section">This domain is already used by <a class="user-button" href="TEMP" target="_blank">TEMP</a>.</div>\n\n\t\x3c!--__magterm--\x3e\n\t<div class="same-user-domain-message section">\n\t\t<span class="red">This domain is already mapped to <span class="entity-type"></span><a class="mag-button" href="TEMP" target="_blank">TEMP</a>. Do you want to switch it to ' + (null == (__t = "mag" == type ? "the current project" : "your profile") ? "" : __t) + '?</span>\n\t\t<div class="switch-button common-button">Yes<div class="rmpreloader"><div class="arc"></div></div></div>\n\t\t<div class="switch-cancel-button">Cancel</div>\n\t</div>\n\n\t<div class="dns-domain-message section">\n\t\t<span class="red">This domain’s <span class="domain-record-type">TEMP</span><span class="domain-set-phrase"> is currently set to </span><span class="domain-set-phrase-unknown invisible"> is not currently set</span><span class="domain-current-value">TEMP</span>. Please change your <span class="domain-record-type">TEMP</span> to <span class="domain-needed-value">TEMP</span> at your registrar settings.</span><br/><br/><span class="grey">After changing the <span class="domain-record-type">TEMP</span> it may take up to 72 hours to update. Please return to these settings after 72 hours and hit “Map Now”.</span>\n\t\t<div class="map-fake-button common-button disabled">Map Now</div>\n\t</div>\n\n\t\x3c!--__magterm--\x3e\n\t<div class="ok-domain-message section">\n\t\t\x3c!--<span class="green">Your domain is pointing to Readymag and can be mapped to this project.</span>--\x3e\n\t\t<span class="green">Your domain is pointing to Readymag and can be mapped to ' + (null == (__t = "mag" == type ? "this project" : "your profile") ? "" : __t) + '.</span>\n\t\t<div class="map-button common-button">Map Now <div class="rmpreloader"><div class="arc"></div></div></div>\n\t\t<div class="map-cancel-button">Cancel</div>\n\t</div>\n\n\t<div class="domain-readonly-block section">\n\t\t<input class="domain-readonly-input" readonly type="text" spellcheck="false" value="" placeholder="yourdomain.com" />\n\t</div>\n\n\n\t<div class="domain-setting favicon section">\n\t\t<div class="caption">\n\t\t\t<span>Favicon</span>\n\t\t</div>\n\t\t<div class="upload-button">\n\t\t\t<span>Clear</span>\n\t\t\t<input class="favicon-uploader" type="file" name="upload" data-url="/api/upload"/>\n\t\t\t<div class="favicon-preloader">\n\t\t\t\t<div class="rmpreloader">\n\t\t\t\t\t<div class="arc"></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\t\t<div class="description">Recommended size 256px</div>\n\n\t</div>\n\n\t<div class="domain-setting ssl-setting section">\n\n\t\t<div class="caption">\n\t\t\t<span>SSL</span>\n\t\t</div>\n\n\t\t<div class="description">Secured with an SSL certificate</div>\n\t\t<div class="switcher"></div>\n\n\t</div>\n\n\t<div class="domain-register-block section">\n\t\t<input class="domain-input" type="text" spellcheck="false" value="" placeholder="iwantmyname.com" />\n\t\t<a class="go-button common-button disabled" href="https://iwantmyname.com" target="_blank">Go</a>\n\t\t<div class="register-message">\n\t\tIf you don’t have a domain name, you can<br/>\n\t\teasly purchase one via our official partner<br/>\n\t\tiwantmyname.com using the search field above<br/>\n\t\tand have it automatically set up to work<br/>\n\t\twith Readymag.</div>\n\t</div>\n\n\t<div class="domain-set-bad-message section">Seems like your DNS settings have been changed. This domain’s <span class="domain-record-type">TEMP</span><span class="domain-set-phrase"> is currently set to </span><span class="domain-set-phrase-unknown invisible"> is not currently set</span><span class="domain-current-value">TEMP</span>. Please change the <span class="domain-record-type">TEMP</span> to: <span class="domain-needed-value">TEMP</span></div>\n\n\t<div class="domain-set-notfound-message section">Domain’s info is not available. Please check if the name is correct. Note, that sometimes it may take few hours for subdomain to be created.</div>\n\n\n\t', 
+        with (obj || {}) __p += '\n\t<div class="header-message section">' + (null == (__t = "mag" == type ? "Сustom domain name" : "Custom domain for profile page") ? "" : __t) + '</div>\n\n\t<div class="initial-preloader rmpreloader section invisible">\n\t\t<div class="shadow"></div>\n\t\t<div class="arc"></div>\n\t</div>\n\n\t<div class="register-switcher section"><span class="registered item active">Use registered</span><span class="dot">•</span><span class="item new">Register new</span></div>\n\n\t<div class="unmap-message section"><span class="unmap-button">Unmap</span> this domain name</div>\n\n\t<div class="test-block section">\n\t\t<input class="domain-input" type="text" spellcheck="false" value="" placeholder="yourdomain.com" />\n\t\t<div class="test-button common-button disabled">Test<div class="rmpreloader"><div class="arc"></div></div></div>\n\t</div>\n\n\t<div class="invalid-domain-message section"><span class="red">Domain name may contain only alphanumeric characters. No directories are allowed.</span><br/><br/><span class="bold">Examples:</span><br/><span class="grey">mydomain.com<br/>www.mydomain.com<br/>readymag.mydomain.com</span></div>\n\n\t<div class="notfound-domain-message section">Domain’s info is not available. Please check if the name is correct. Note, that sometimes it may take few hours for subdomain to be created.</div>\n\n\t<div class="other-user-domain-message section">This domain is already used by <a class="user-button" href="TEMP" target="_blank">TEMP</a>.</div>\n\n\t\x3c!--__magterm--\x3e\n\t<div class="same-user-domain-message section">\n\t\t<span class="red">This domain is already mapped to <span class="entity-type"></span><a class="mag-button" href="TEMP" target="_blank">TEMP</a>. Do you want to switch it to ' + (null == (__t = "mag" == type ? "the current project" : "your profile") ? "" : __t) + '?</span>\n\t\t<div class="switch-button common-button">Yes<div class="rmpreloader"><div class="arc"></div></div></div>\n\t\t<div class="switch-cancel-button">Cancel</div>\n\t</div>\n\n\t<div class="dns-domain-message section">\n\t\t<span class="record-error red">This domain’s <span class="domain-record-type">TEMP</span><span class="domain-set-phrase"> is currently set to </span><span class="domain-set-phrase-unknown invisible"> is not currently set</span><span class="domain-current-value">TEMP</span>. Please change your <span class="domain-record-type">TEMP</span> to <span class="domain-needed-value">TEMP</span> at your registrar settings.</span><span class="ipv6-message red"><br><br>It seems that you have AAAA-record enabled for your domain. Please remove it in your registrar settings.</span><br/><br/><span class="record-delay grey">After changing the <span class="domain-record-type">TEMP</span> it may take up to 72 hours to update. Please return to these settings after 72 hours and hit “Map Now”.</span>\n\t\t<div class="map-fake-button common-button disabled">Map Now</div>\n\t</div>\n\n\t\x3c!--__magterm--\x3e\n\t<div class="ok-domain-message section">\n\t\t\x3c!--<span class="green">Your domain is pointing to Readymag and can be mapped to this project.</span>--\x3e\n\t\t<span class="green">Your domain is pointing to Readymag and can be mapped to ' + (null == (__t = "mag" == type ? "this project" : "your profile") ? "" : __t) + '.</span>\n\t\t<div class="map-button common-button">Map Now <div class="rmpreloader"><div class="arc"></div></div></div>\n\t\t<div class="map-cancel-button">Cancel</div>\n\t</div>\n\n\t<div class="domain-readonly-block section">\n\t\t<input class="domain-readonly-input" readonly type="text" spellcheck="false" value="" placeholder="yourdomain.com" />\n\t</div>\n\n\n\t<div class="domain-setting favicon section">\n\t\t<div class="caption">\n\t\t\t<span>Favicon</span>\n\t\t</div>\n\t\t<div class="upload-button">\n\t\t\t<span>Clear</span>\n\t\t\t<input class="favicon-uploader" type="file" name="upload" data-url="/api/upload"/>\n\t\t\t<div class="favicon-preloader">\n\t\t\t\t<div class="rmpreloader">\n\t\t\t\t\t<div class="arc"></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\t\t<div class="description">Recommended size 256px</div>\n\n\t</div>\n\n\t<div class="domain-setting ssl-setting section">\n\n\t\t<div class="caption">\n\t\t\t<span>SSL</span>\n\t\t</div>\n\n\t\t<div class="description">Secured with an SSL certificate</div>\n\t\t<div class="switcher"></div>\n\n\t</div>\n\n\t<div class="domain-register-block section">\n\t\t<input class="domain-input" type="text" spellcheck="false" value="" placeholder="iwantmyname.com" />\n\t\t<a class="go-button common-button disabled" href="https://iwantmyname.com" target="_blank">Go</a>\n\t\t<div class="register-message">\n\t\tIf you don’t have a domain name, you can<br/>\n\t\teasly purchase one via our official partner<br/>\n\t\tiwantmyname.com using the search field above<br/>\n\t\tand have it automatically set up to work<br/>\n\t\twith Readymag.</div>\n\t</div>\n\n\t<div class="domain-set-bad-message section">Seems like your DNS settings have been changed. This domain’s <span class="domain-record-type">TEMP</span><span class="domain-set-phrase"> is currently set to </span><span class="domain-set-phrase-unknown invisible"> is not currently set</span><span class="domain-current-value">TEMP</span>. Please change the <span class="domain-record-type">TEMP</span> to: <span class="domain-needed-value">TEMP</span></div>\n\n\t<div class="domain-set-notfound-message section">Domain’s info is not available. Please check if the name is correct. Note, that sometimes it may take few hours for subdomain to be created.</div>\n\n\n\t', 
         is_contributor ? __p += '\n\t<div class="expired-subscription-message section">Please upgrade owner’s account to map a custom domain.\n\t<div><a class="pricing-link" href="mailto:' + (null == (__t = owner_email) ? "" : __t) + '">Contact owner</a></div>\n\t</div>\n\t' : __p += '\n\t<div class="expired-subscription-message section">Please <a class="link" href="/settings/subscription/update">upgrade</a> your account<br/>to map a custom domain.\n\t<div><a class="pricing-link" href="/pricing" target="_blank">See the pricing</a></div>\n\t</div>\n\t', 
         __p += '\n\n\t\x3c!--__magterm--\x3e\n\t<div class="unpublished-message section">In order to use custom domain mapping, you need to publish this project first.</div>\n\n\t<div class="confirm-message section">\n\t\t<span class="black">Are you sure you want<br/>to unmap ' + (null == (__t = "mag" == type ? "this project" : "your profile") ? "" : __t) + ' from<br/><span class="domain-name">TEMP</span>?</span>\n\t\t<div class="confirm-unmap-button common-button">Yes<div class="rmpreloader"><div class="arc"></div></div></div>\n\t</div>\n\n\n\t<div class="error-message error-block section">\n\t\t<span class="black">Something went wrong.<br/>Please try again later.</span>\n\t\t<div class="try-again-button common-button">Ok</div>\n\t</div>\n\n\t<div class="dns-not-updated-yet error-block section">\n\t\t<span class="black">Seems like some DNS servers have not been updated yet.<br/>Please try again later.</span>\n\t\t<div class="try-again-button common-button">Ok</div>\n\t</div>\n\n\t<div class="wait-our-dns-server error-block section">\n\t\t<span class="black">Your domain settings are correct, but it seems like our DNS servers have not been updated yet.<br/>Please try again later.</span>\n\t\t<div class="try-again-button common-button">Ok</div>\n\t</div>\n\n\t\x3c!--__magterm--\x3e\n\t<div class="bottom">\n\n\t\t', 
         "mag" == type && (__p += '\n\t\t\t<div class="bottom-ga-gtm-active section">\n\t\t\t\t<div class="input-wrapper ga-block">\n\t\t\t\t\t<div class="caption">Google Analytics</div>\n\t\t\t\t\t<a class="info" target="_blank" href="http://help.readymag.com/ga/"></a>\n\t\t\t\t\t<input autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" type="text" name="ga_id" id="ga_id" placeholder="UA-XXXXXXX-Y">\n\t\t\t\t</div>\n\t\t\t\t<div class="input-wrapper gtm-block">\n\t\t\t\t\t<div class="caption">Google Tag Manager</div>\n\t\t\t\t\t<a class="info" target="_blank" href="http://help.readymag.com/gtm/"></a>\n\t\t\t\t\t<input autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" type="text" name="gtm_id" id="gtm_id" placeholder="GTM-XXXXXX">\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class="bottom-ga-gtm-inactive section">\n\t\t\t\t<div class="input-wrapper ga-block">\n\t\t\t\t\t<div class="caption">Google Analytics</div>\n\t\t\t\t\t<a class="info" target="_blank" href="http://help.readymag.com/ga/"></a>\n\t\t\t\t\t<input disabled readonly type="text" name="ga_id" id="ga_id" placeholder="UA-XXXXXXX-Y">\n\t\t\t\t</div>\n\t\t\t\t<div class="input-wrapper gtm-block">\n\t\t\t\t\t<div class="caption">Google Tag Manager</div>\n\t\t\t\t\t<a class="info" target="_blank" href="http://help.readymag.com/gtm/"></a>\n\t\t\t\t\t<input disabled readonly type="text" name="gtm_id" id="gtm_id" placeholder="GTM-XXXXXX">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t'), 
@@ -944,7 +943,7 @@ Modernizr.addTest("retina", function() {
         var __t, __p = "", __j = Array.prototype.join, print = function() {
             __p += __j.call(arguments, "");
         };
-        with (obj || {}) __p += '\n\n\t<div class="margins-wrapper">\n\t\t<div class="margins-wrapper-inner">\n\t\t</div>\n\t</div>\n\n\t<div class="columns-wrapper">\n\t\t<div class="columns-wrapper-inner">\n\t\t</div>\n\t</div>\n\n\t<textarea id="textarea_' + (null == (__t = _id) ? "" : __t) + '" style="display: none; width:' + (null == (__t = w) ? "" : __t) + "px;height:" + (null == (__t = h) ? "" : __t) + 'px">' + (null == (__t = text) ? "" : _.escape(__t)) + '</textarea>\n\t<div class="text-preview" style="-webkit-nbsp-mode:space; -webkit-line-break:after-white-space;">' + (null == (__t = text) ? "" : __t) + '</div>\n\t<div class="text-mask"></div>\n\n';
+        with (obj || {}) __p += '\n\n\t<div class="margins-wrapper">\n\t\t<div class="margins-wrapper-inner">\n\t\t</div>\n\t</div>\n\n\t<div class="columns-wrapper">\n\t\t<div class="columns-wrapper-inner">\n\t\t</div>\n\t</div>\n\n\t<textarea id="textarea_' + (null == (__t = _id) ? "" : __t) + '" style="display: none; width:' + (null == (__t = w) ? "" : __t) + "px;height:" + (null == (__t = h) ? "" : __t) + 'px">' + (null == (__t = text) ? "" : _.escape(__t)) + '</textarea>\n\t<div class="text-preview" style="-webkit-nbsp-mode:normal; -webkit-line-break:after-white-space;">' + (null == (__t = text) ? "" : __t) + '</div>\n\t<div class="text-mask"></div>\n\n';
         return __p;
     }.apply(this, arguments));
 }, RM.templates["template-constructor-block-text-margins"] = function() {
@@ -1132,7 +1131,7 @@ Modernizr.addTest("retina", function() {
         var __t, __p = "", __j = Array.prototype.join, print = function() {
             __p += __j.call(arguments, "");
         };
-        with (obj || {}) __p += '\n\t<div class="rmwidget"></div>\n';
+        with (obj || {}) __p += '\n\t<div class="rmwidget" data-id="' + (null == (__t = id) ? "" : _.escape(__t)) + '"></div>\n';
         return __p;
     }.apply(this, arguments));
 }, RM.templates["template-viewer-widget-background"] = function() {
@@ -1162,7 +1161,7 @@ Modernizr.addTest("retina", function() {
         with (obj || {}) {
             __p += "\n\t";
             var cc = 1 == column_count ? "auto" : column_count;
-            __p += '\n\t<div style=" -webkit-nbsp-mode:space; -webkit-line-break:after-white-space; column-count:' + (null == (__t = cc) ? "" : __t) + ";-webkit-column-count:" + (null == (__t = cc) ? "" : __t) + " !important;-moz-column-count:" + (null == (__t = cc) ? "" : __t) + ";column-gap:" + (null == (__t = column_gap) ? "" : __t) + "px;-webkit-column-gap:" + (null == (__t = column_gap) ? "" : __t) + "px !important;-moz-column-gap:" + (null == (__t = column_gap) ? "" : __t) + "px;background:" + (null == (__t = bg) ? "" : _.escape(__t)) + '">' + (null == (__t = text) ? "" : __t) + "</div>\n";
+            __p += '\n\t<div style=" -webkit-nbsp-mode:normal; -webkit-line-break:after-white-space; column-count:' + (null == (__t = cc) ? "" : __t) + ";-webkit-column-count:" + (null == (__t = cc) ? "" : __t) + " !important;-moz-column-count:" + (null == (__t = cc) ? "" : __t) + ";column-gap:" + (null == (__t = column_gap) ? "" : __t) + "px;-webkit-column-gap:" + (null == (__t = column_gap) ? "" : __t) + "px !important;-moz-column-gap:" + (null == (__t = column_gap) ? "" : __t) + "px;background:" + (null == (__t = bg) ? "" : _.escape(__t)) + '">' + (null == (__t = text) ? "" : __t) + "</div>\n";
         }
         return __p;
     }.apply(this, arguments));
@@ -2005,7 +2004,7 @@ Modernizr.addTest("retina", function() {
                     Modernizr.sessionstorage && window.sessionStorage.removeItem("rm.loginReturnUrl"), this.$('.login.ljr-panel #login_form input[name="url"]').val(t.constants.readymag_auth_host + (i || "/" + e.uri)), 
                     this.$(".login.ljr-panel #login_form").submit();
                 } else this.hideButtonPreloader(s), clearTimeout(this.wrongTimeout), this.$(".login.ljr-panel").addClass("wrong-login"), 
-                this.$(".login.ljr-panel .error").html("The email address does not have an associated Readymag account"), 
+                this.$(".login.ljr-panel .error").html("Please check that you have entered your login and password correctly."), 
                 this.wrongTimeout = setTimeout(_.bind(function() {
                     this.$(".login.ljr-panel").removeClass("wrong-login");
                 }, this), 3500), this.isdesktop || this.$el.scrollTop(9999);
@@ -2244,6 +2243,16 @@ Modernizr.addTest("retina", function() {
                 editor: [ "p" ],
                 constructor: [ ".used-fonts-test p", ".block.block-text .text-preview p", ".controls .control.text_styles .panel .resizable-scroll-wrapper .resizable-content-wrapper .resizable-content .paragraph-style .style-caption" ]
             },
+            "header-1": {
+                viewer: [ ".used-fonts-test h1", ".rmwidget.text div h1" ],
+                editor: [ "h1" ],
+                constructor: [ ".used-fonts-test h1", ".block.block-text .text-preview h1", ".controls .control.text_styles .panel .resizable-scroll-wrapper .resizable-content-wrapper .resizable-content .paragraph-style .style-caption" ]
+            },
+            "header-2": {
+                viewer: [ ".used-fonts-test h2", ".rmwidget.text div h2" ],
+                editor: [ "h2" ],
+                constructor: [ ".used-fonts-test h2", ".block.block-text .text-preview h2", ".controls .control.text_styles .panel .resizable-scroll-wrapper .resizable-content-wrapper .resizable-content .paragraph-style .style-caption" ]
+            },
             link: {
                 viewer: [ ".rmwidget.text div a" ],
                 editor: [ "a" ],
@@ -2277,51 +2286,61 @@ Modernizr.addTest("retina", function() {
         generateCSS: function(t, e, i, s, n) {
             if (s) {
                 var a = this.STYLE_PREFIXES[t][e], o = (n = n || {}, this), r = "";
-                _.each(s, function(e) {
-                    if ("paragraph" == t && (r += _.map(a, function(t) {
-                        return t + "." + e._name;
-                    }).join(",\n") + " {\n", r += o.generateStylesStr({
-                        tp: t,
-                        style: e,
-                        indentation: !0,
-                        lineBreaks: !0
-                    }), r += "}\n\n"), "link" == t) {
-                        if (n.forcePseudoState && n.forcePseudoClass == e._name) r += _.map(a, function(t) {
-                            return t + "." + e._name;
+                _.each(s, function(i) {
+                    if ("paragraph" == t) {
+                        var s = $.trim(i._name.toLowerCase());
+                        if ("paragraph-1" === s || "paragraph-2" === s) {
+                            var l = s.replace(/\D/g, "");
+                            a = [].concat(o.STYLE_PREFIXES["header-" + l][e], o.STYLE_PREFIXES[t][e]).filter(function(t, e, i) {
+                                return i.indexOf(t) === e;
+                            });
+                        }
+                        r += _.map(a, function(t) {
+                            return t + "." + i._name;
                         }).join(",\n") + " {\n", r += o.generateStylesStr({
                             tp: t,
-                            style: e,
+                            style: i,
+                            indentation: !0,
+                            lineBreaks: !0
+                        }), r += "}\n\n";
+                    }
+                    if ("link" == t) {
+                        if (n.forcePseudoState && n.forcePseudoClass == i._name) r += _.map(a, function(t) {
+                            return t + "." + i._name;
+                        }).join(",\n") + " {\n", r += o.generateStylesStr({
+                            tp: t,
+                            style: i,
                             attrPrefix: n.forcePseudoState + "-",
                             indentation: !0,
                             lineBreaks: !0
                         }), r += "}\n\n"; else r += _.map(a, function(t) {
-                            return t + "." + e._name;
+                            return t + "." + i._name;
                         }).join(",\n") + " {\n", r += o.generateStylesStr({
                             tp: t,
-                            style: e,
+                            style: i,
                             indentation: !0,
                             lineBreaks: !0
-                        }), r += "}\n\n", _.find(_.keys(e), function(t) {
+                        }), r += "}\n\n", _.find(_.keys(i), function(t) {
                             return /^current/.test(t);
                         }) && (r += _.map(a, function(t) {
-                            return t + ".current." + e._name;
+                            return t + ".current." + i._name;
                         }).join(",\n") + " {\n", r += o.generateStylesStr({
                             tp: t,
-                            style: e,
+                            style: i,
                             attrPrefix: "current-",
                             indentation: !0,
                             lineBreaks: !0
                         }), r += "}\n\n"), r += _.map(a, function(t) {
-                            return t + ".hovered." + e._name;
+                            return t + ".hovered." + i._name;
                         }).join(",\n") + " {\n", r += o.generateStylesStr({
                             tp: t,
-                            style: e,
+                            style: i,
                             attrPrefix: "hover-",
                             indentation: !0,
                             lineBreaks: !0
                         }), r += "}\n\n";
                         r += _.map(a, function(t) {
-                            return t + "." + e._name + " *";
+                            return t + "." + i._name + " *";
                         }).join(",\n") + " {\n", r += "\tcolor: inherit !important;\n", r += "\ttext-decoration: none !important;\n", 
                         r += "}\n\n";
                     }
@@ -2933,7 +2952,7 @@ Modernizr.addTest("retina", function() {
         max_height: 201600,
         caption: "Phone Portrait",
         shortcut: "3"
-    } ], s = [ "x", "y", "w", "h", "z", "hidden", "angle", "flip_h", "flip_v", "pack_id", "fixed_position", "is_full_width", "sticked", "animation" ], n = {
+    } ], s = [ "x", "y", "w", "h", "z", "hidden", "angle", "flip_h", "flip_v", "pack_id", "fixed_position", "is_full_width", "sticked", "sticked_margin", "animation" ], n = {
         background: e.union([ "color", "opacity", "selectedType", "picture" ], s),
         picture: e.union([ "picture", "cropW", "cropH", "cropX", "cropY", "originalW", "originalH", "ratio", "scale", "pic_opacity", "pic_color", "border_size", "border_color", "border_radius", "border_radius_max", "opacity", "anchor_link_pos" ], s),
         slideshow: e.union([ "images_h", "captions_h" ], s),
@@ -3677,8 +3696,9 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             var a;
             if (n < .001 && (n = .001), this.hasRotation && "scroll" != this.type) a = this.force3d ? "translate3d(" + e + "px," + i + "px,0) rotate(" + s + "deg) scale(" + n + ")" : "translate(" + e + "px," + i + "px) rotate(" + s + "deg) scale(" + n + ")"; else {
                 var o = n, r = 0;
-                s && (s *= t.animationutils.DEG_TO_RAD, o = Math.cos(s) * n, r = Math.sin(s) * n);
-                var l = (o = Math.abs(o) < 1e-6 ? 0 : o) + "," + (r = Math.abs(r) < 1e-6 ? 0 : r), c = -r + "," + o, d = e + "," + i;
+                s && (s *= t.animationutils.DEG_TO_RAD, o = Math.cos(s) * n, r = Math.sin(s) * n), o = Math.abs(o) < 1e-6 ? 0 : o, 
+                r = Math.abs(r) < 1e-6 ? 0 : r, Modernizr.edge && (i *= t.scale.getMag().getScale(t.scale.getMag().viewport));
+                var l = o + "," + r, c = -r + "," + o, d = e + "," + i;
                 a = this.force3d ? "matrix3d(" + l + ",0,0," + c + ",0,0,0,0,1,0," + d + ",0,1)" : "matrix(" + l + "," + c + "," + d + ")";
             }
             return a;
@@ -4869,11 +4889,14 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         hide: function() {
             return this.shown && (this.$el.addClass("hidden"), this.shown = !1), this;
         },
-        destroyAllWidgets: function() {
-            this.loaded = !1, this.videoBGStarted = !1, _.each(this.widgets, function(t) {
-                t.destroy(), t.off();
-            }), this.animations && this.animations.destroy(), delete this.animations, clearTimeout(this.fireReadyTimeout), 
-            this.widgets = null;
+        destroyAllWidgets: function(t) {
+            this.loaded = !1, this.videoBGStarted = !1, _.each(this.widgets, function(e, i) {
+                var s = this.widgetsData.some(function(t) {
+                    var i = t._id === e._id && Boolean(t.animation && t.animation.type && "none" != t.animation.type && !_.isEmpty(t.animation.steps)), s = t._id === e._id && (t.viewport_default && t.viewport_default.hidden || t.viewport_tablet_portrait && t.viewport_tablet_portrait.hidden || t.viewport_phone_portrait && t.viewport_phone_portrait.hidden || t.hidden);
+                    return i || s;
+                });
+                t && t.includes(e.type) && !s || (e.destroy(), e.off(), delete this.widgets[i]);
+            }.bind(this)), this.animations && this.animations.destroy(), delete this.animations, clearTimeout(this.fireReadyTimeout);
         },
         destroy: function() {
             return this.retargetScroll && this.retargetScroll.restore && this.retargetScroll.restore(), this.resetWaitForAnimationEnd(), 
@@ -4941,17 +4964,23 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             });
         },
         createWidgetsForCurrentViewport: function() {
-            this.destroyAllWidgets(), this.BGWidget = null, this.fixedWidgets = [];
+            this.destroyAllWidgets([ "video" ]), this.BGWidget = null, this.fixedWidgets = [];
             var e = this.pageViewport, i = [], s = [], n = 99999, a = this, o = this;
             _.each(this.widgetsData, function(i) {
                 var a = o.getWidgetViewportData(i, e);
                 t.widgets[a.type] && !a.hidden && (!a.fixed_position && a.z && "background" != a.type && (n = Math.min(n, a.z)), 
                 s.push(a));
             }), 99999 == n && (n = 0), _.each(s, function(e) {
-                e.fixed_position && (e.z < n || Modernizr.isdesktop && !this.mag.isStickyVerticalViewer) ? e.$fixedContainer = o.$fixedPositionContainer : e.$fixedContainer = o.$fixedPositionContainerTop;
-                var s = new t.widgets[e.type](e, a);
-                "background" == s.type && (o.BGWidget = s, o.hasVideoBG = s.hasVideoBG()), s.isValid() && (s.fixed_position && o.fixedWidgets.push(s), 
-                i.push(s));
+                var s = t.scale.isAllowed() && t.scale.isTransform();
+                e.fixed_position && (e.z < n || Modernizr.isdesktop && !this.mag.isStickyVerticalViewer && !s) ? e.$fixedContainer = o.$fixedPositionContainer : e.$fixedContainer = o.$fixedPositionContainerTop;
+                var r = null;
+                this.widgets && this.widgets.length && (r = this.widgets.find(function(t) {
+                    return !!t && t._id === e._id;
+                }));
+                var l = r || new t.widgets[e.type](e, a);
+                "video" === l.type && (l.updateWidgetData(e, a), l.applyBoxStyle(), l.updateVideoFrameSize(e.w, e.h)), 
+                "background" == l.type && (o.BGWidget = l, o.hasVideoBG = l.hasVideoBG()), l.isValid() && (l.fixed_position && o.fixedWidgets.push(l), 
+                i.push(l));
             }.bind(this)), this.animations = new t.classes.Animations({
                 page: this,
                 widgets: i
@@ -4960,7 +4989,9 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 return t + (e.hasFontsToLoad() ? 1 : 0);
             }, 0), this._widgetsWithLoadAnimation = _.reduce(this.widgets, function(t, e) {
                 return t + (e.hasLoadAnimation() ? 1 : 0);
-            }, 0), this.hasFixedWidgets = !!this.fixedWidgets.length, this.$el.removeClass("page-with-fixeds-desktop page-with-fixeds-sticky-or-mobile").toggleClass("page-with-fixeds-desktop", this.hasFixedWidgets && Modernizr.isdesktop).toggleClass("page-with-fixeds-sticky-or-mobile", !(!this.hasFixedWidgets || !this.isStickyVerticalViewer && Modernizr.isdesktop)).toggleClass("page-scale-layout-transform", !(!t.scale.isAllowed() || !t.scale.isTransform())), 
+            }, 0), this.hasFixedWidgets = !!this.fixedWidgets.length;
+            var r = t.scale.isAllowed() && t.scale.isTransform();
+            this.$el.removeClass("page-with-fixeds-desktop page-with-fixeds-sticky-or-mobile").toggleClass("page-with-fixeds-desktop", this.hasFixedWidgets && Modernizr.isdesktop).toggleClass("page-with-fixeds-sticky-or-mobile", !(!this.hasFixedWidgets || !this.isStickyVerticalViewer && Modernizr.isdesktop && !r)), 
             this.hasFixedWidgets && !this.retargetScroll && "horizontal" == this.viewerType && Modernizr.isdesktop && (this.retargetScroll = window.RetargetMouseScroll && window.RetargetMouseScroll(this.$fixedPositionContainer.get(0), this.$scrollWrapper.get(0))), 
             this.lastViewportUsedForWidgetsCreation = e;
         },
@@ -4986,23 +5017,25 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             });
         },
         signalOnLoading: function() {
-            var t = this.widgets.length, e = this;
-            function i() {
-                "background" == this.type && e.destroyLQBackground({
+            var e = this.widgets.length, i = this, s = {};
+            function n() {
+                e--, clearTimeout(s[this._id]), "background" == this.type && i.destroyLQBackground({
                     animate: !0
-                }), t--, this.hasLoadAnimation() && (e._widgetsWithLoadAnimation--, e._widgetsWithLoadAnimation || (e.loadAnimationsReady = !0, 
-                e.trigger("loadAnimationsReady"))), t || (e.fireReadyTimeout = setTimeout(s, 200)), e.trigger("loaded" + this._id);
+                }), this.hasLoadAnimation() && (i._widgetsWithLoadAnimation--, i._widgetsWithLoadAnimation || (i.loadAnimationsReady = !0, 
+                i.trigger("loadAnimationsReady"))), e || (i.fireReadyTimeout = setTimeout(a, 200)), i.trigger("loaded" + this._id);
             }
-            function s() {
-                e.loaded = !0, e.trigger("pageLoaded");
+            function a() {
+                i.loaded = !0, i.trigger("pageLoaded");
             }
-            _.each(this.widgets, function(t) {
-                t.on("loaded", i, t);
+            _.each(this.widgets, function(e) {
+                t.screenshot && (s[e._id] = setTimeout(function() {
+                    e.widgetIsLoaded();
+                }, 2e4)), e.on("loaded", n, e);
             }, this), this.BGWidget && this.hasVideoBG && this.BGWidget.on("videoBGStarted", function() {
-                e.videoBGStarted = !0, _.delay(function() {
-                    e.trigger("videoBGStarted");
+                i.videoBGStarted = !0, _.delay(function() {
+                    i.trigger("videoBGStarted");
                 }, 1300);
-            }, this.BGWidget), 0 == t && (this.fireReadyTimeout = setTimeout(s, 200));
+            }, this.BGWidget), 0 == e && (this.fireReadyTimeout = setTimeout(a, 200));
         },
         getFontsVariations: function(e, i) {
             var s = _.reduce(t.viewports, function(t, e) {
@@ -5492,9 +5525,8 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
     t.classes.Widget = Backbone.View.extend({
         template: t.templates["template-viewer-widget"],
         initialize: function(t, e, s) {
-            return _.bindAll(this), _.extend(this, t, t.params), this.page = e, this.mag = this.page.mag, this.$pageContainer = s || this.page.$content, 
-            this.destroyed = !1, this.$document = $(document), this._id = this._id || i++, this.x = this.x || 0, 
-            this.y = this.y || 0, this;
+            return _.bindAll(this), this.updateWidgetData(t, e, s), this.destroyed = !1, this.$document = $(document), 
+            this._id = this._id || i++, this;
         },
         render: function() {
             return this.makeBox("some-widget-class"), this.rendered = !0, this.checkLink(), this;
@@ -5563,16 +5595,24 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         BringToTopZ: function() {
             if (this.animationObj) {
                 var t = this.animationObj.getAnimationContainer();
-                this.savedAnimationContainerZIndex = t.css("z-index"), t.css("z-index", 99999 + this.z);
+                this.animationObj.resetTimeout && clearTimeout(this.animationObj.resetTimeout), this.animationObj.savedAnimationContainerZIndex || (this.animationObj.savedAnimationContainerZIndex = t.css("z-index")), 
+                t.css("z-index", 99999 + this.z);
             }
             this.$el.css("z-index", 99999 + this.z);
         },
         BackToNormalZ: function() {
-            this.animationObj && this.animationObj.getAnimationContainer().css("z-index", this.savedAnimationContainerZIndex || this.z);
-            this.$el.css("z-index", this.z);
+            var t = function() {
+                this.animationObj && this.animationObj.savedAnimationContainerZIndex && (this.animationObj.getAnimationContainer().css("z-index", this.animationObj.savedAnimationContainerZIndex || this.z), 
+                delete this.animationObj.savedAnimationContainerZIndex);
+                delete this.animationObj.resetTimeout;
+            }.bind(this);
+            this.animationObj && this.animationObj.savedAnimationContainerZIndex && (this.animationObj.resetTimeout && clearTimeout(this.animationObj.resetTimeout), 
+            this.animationObj.resetTimeout = setTimeout(t, 200)), this.$el.css("z-index", this.z);
         },
         makeBox: function(t) {
-            this.setElement(this.template());
+            this.setElement(this.template({
+                id: this._id
+            }));
             var e = this.fixed_position ? this.$fixedContainer : this.$pageContainer;
             this.animationObj && (e = this.animationObj.getAnimationContainer()), this.$el.appendTo(e).addClass(t).toggleClass("full-width", !!this.is_full_width).toggleClass("inside-hotspot", !!this.insideHotspot), 
             this.applyBoxStyle(), (this.is_full_width || this.fixed_position || this.sticked) && this.listenTo(this.page, "resize", this.onPageResize), 
@@ -5606,7 +5646,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             if (this.sticked) {
                 l = 0;
                 "horizontal" == this.page.viewerType && (l = this.page.$scrollWrapper.width() - this.page.$scrollWrapper[0].clientWidth), 
-                "left" == this.sticked && (i.left = -this.page.contentPosition.left + n), "right" == this.sticked && (i.left = this.page.mag.getContainerSizeCached().width / a - n - this.w - this.page.contentPosition.left - l / a), 
+                "left" == this.sticked && (i.left = -this.page.contentPosition.left / a + n), "right" == this.sticked && (i.left = this.page.mag.getContainerSizeCached().width / a - n - this.w - this.page.contentPosition.left / a - l / a), 
                 "top" == this.sticked && (i.top = -this.page.contentPosition.top / a + n), "bottom" == this.sticked && (i.top = this.$pageContainer.height() - n - this.h + this.page.contentPosition.top / a);
             }
             if (e.calcBBox) {
@@ -5705,6 +5745,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     g.length ? g.attr(t) : (g = $("<a>").attr(t), this.$el.wrap(g));
                 }
             }
+        },
+        updateWidgetData: function(t, e, i) {
+            _.extend(this, t, t.params), this.page = e, this.mag = this.page.mag, this.$pageContainer = i || this.page.$content, 
+            this.x = this.x || 0, this.y = this.y || 0;
         }
     });
 }(RM), function(t, e) {
@@ -6135,7 +6179,8 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 sharebutton: !0,
                 pagecounter: !0,
                 viewertype: "vertical",
-                slidein: !1
+                slidein: !1,
+                scalewidth: 3600
             };
             (i = _.extend(i, this.model.get("opts"))).viewertype = t.screenshot ? "horizontal" : i.viewertype, (!Modernizr.isdesktop || this.isPreview && "default" !== e) && (i.slidein = !1), 
             "vertical" === i.viewertype && (Modernizr.isdesktop ? this.isStickyVerticalViewer = !i.slidein && !this.isPreview && !this.hasWidgetsWithVerticalOnscrollAnimation : (this.isStickyVerticalViewer = Modernizr.csspositionsticky, 
@@ -6285,7 +6330,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             return this.router.getMagUri(this) + i;
         },
         getPageTransitionTime: function() {
-            var t = this.getContainerSizeCached().width, e = this.getContainerSizeCached().height;
+            var t = Math.min(this.viewOpts.scalewidth, this.getContainerSizeCached().width), e = this.getContainerSizeCached().height;
             return Modernizr.isdesktop ? 550 : Modernizr.istablet ? t > e ? 550 : 470 : t > e ? 520 : 370;
         },
         onPageVisibilityChange: function() {
@@ -6988,8 +7033,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             return e;
         },
         getScale: function(e) {
-            var i = this.getContainerSizeCached(), s = this.getViewportSetting("width", e), n = i.width / s;
-            return t.scale.normalize(n);
+            if (t.screenshot) return 1;
+            var i = Math.min(this.viewOpts.scalewidth, this.getContainerSizeCached().width), s = i / this.getViewportSetting("width", e);
+            return i < this.getContainerSizeCached().width && this.viewOpts.scalableviewer && !Modernizr.firefox && this.$el.find(".page-content-container").addClass("scale-centring"), 
+            t.scale.normalize(s);
         },
         getWidgetById: function(t, e) {
             var i, s, n = e && e.getWidgetDataById(t) ? e : _.find(this.pages, function(e) {
@@ -7071,7 +7118,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 n = r && r.animation;
             }
             s = _.isUndefined(s) ? void 0 : Math.abs(s);
-            var l = this.getContainerSizeCached(), c = function(t, e) {
+            var l = {
+                width: Math.min(this.viewOpts.scalewidth, this.getContainerSizeCached().width),
+                height: this.getContainerSizeCached().height
+            }, c = function(t, e) {
                 return !t.page || e && t.page.pageViewport !== e.pageViewport;
             };
             if (_.isUndefined(s)) {
@@ -7468,8 +7518,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         },
         start: function() {
             s.prototype.start.apply(this, arguments), this.isReady().then(function() {
-                this.timeline.play(), Modernizr.isdesktop && Modernizr.safari && (this.timeline.pause(), window.setTimeout(this.timeline.resume, 17)), 
-                this.started = !0;
+                this.timeline.play(), this.started = !0;
             }.bind(this)).catch(function(t) {
                 t && console.log(t && t.stack);
             });
@@ -7589,7 +7638,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
     t.classes.ShapeSVG = function() {}, t.classes.ShapeSVG.prototype = {
         MAX_ICON_CACHE_SIZE: 30,
         generateShapeSVG: function(t, e, i, s, n) {
-            var a, o = 1e5, r = e.get("bg_color") || e.viewport_default && e.viewport_default.bg_color, l = this.getRGBA(r, e.get("bg_opacity")), c = this.getRGBA(e.get("color"), e.get("opacity"));
+            var a, o = 1e5, r = e.get("bg_color") || e.viewport_default && e.viewport_default.bg_color, l = this.getRGBA(r || "ffffff", e.get("bg_opacity")), c = this.getRGBA(e.get("color"), e.get("opacity"));
             if ("ellipse" == (n = "hotspot" === e.get("type") ? n || e.get("pin_type") : n || e.get("tp"))) {
                 var d = i / 2, h = s / 2, u = e.get("borders");
                 a = P("ellipse", {
@@ -8737,7 +8786,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     for (var p = 0; p < r.items.length; p++) $("<option>").attr("value", r.items[p]).text(r.items[p]).appendTo(h);
                     i.parent().append(u).append(h);
                 }
-                "checkbox" === r.tp && (i.wrap('<label class="input-checkbox-wrapper"></label>'), i.after('\n\t\t\t\t\t\t<div class="input-checkbox-inner">\n\t\t\t\t\t\t\t<span class="label">' + i.attr("placeholder") + '</span>\n\t\t\t\t\t\t\t<span class="tick">' + this.CHECKBOX_TICK.SVG + "</span>\n\t\t\t\t\t\t</div>"));
+                "checkbox" === r.tp && (i.wrap('<label class="input-checkbox-wrapper"></label>'), i.after('\t\t\t\t\t\t<div class="input-checkbox-inner"> \t\t\t\t\t\t\t<span class="label">' + i.attr("placeholder") + '</span> \t\t\t\t\t\t\t<span class="tick">' + this.CHECKBOX_TICK.SVG + "</span> \t\t\t\t\t\t</div>"));
             }
             $(this.buttonTemplate()).appendTo(a), this.$el.html(a.html()).addClass("common-form"), this.$button = this.$(".button"), 
             this.$buttonIcons = this.$(".button svg"), this.$inputs = this.$(".input-wrapper"), this.$triangles = this.$(".form-dropdown-triangle"), 
@@ -8952,34 +9001,45 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             var e = [ parseInt(this.bg_color.substring(0, 2), 16), parseInt(this.bg_color.substring(2, 4), 16), parseInt(this.bg_color.substring(4, 6), 16) ];
             this.bg_opacity > .99 ? this.bg = "rgb(" + e[0] + "," + e[1] + "," + e[2] + ")" : this.bg = "rgba(" + e[0] + "," + e[1] + "," + e[2] + ", " + this.bg_opacity + ")", 
             this.text = this.switchTextToViewport(this.text, this.insideHotspot ? "default" : this.page.pageViewport);
-            var i = t.templates["template-viewer-widget-text"], s = $(i(this));
+            var i = $.parseHTML(this.text);
+            i = i.map(function(t) {
+                var e = $(t), i = e.hasClass("paragraph-1") ? "paragraph-1" : e.hasClass("paragraph-2") ? "paragraph-2" : null;
+                if (i) {
+                    var s = i.replace(/\D/g, "");
+                    return $("<h" + s + ' class="' + i + '" style="' + e.attr("style") + '" />').append(e.contents())[0].outerHTML;
+                }
+                return t.outerHTML;
+            }).filter(function(t) {
+                return t;
+            }), this.text = i.join("");
+            var s = t.templates["template-viewer-widget-text"], n = $(s(this));
             this.seamlessFontsShow(function() {
                 this.$el.removeClass("fonts-pending");
             }.bind(this), function() {
                 this.$el.addClass("fonts-pending");
-            }.bind(this)), this.$el.append(s), this.$el.on(Modernizr.isdesktop ? "mouseenter" : "touchstart", "a", this.onLinkMouseEnter), 
+            }.bind(this)), this.$el.append(n), this.$el.on(Modernizr.isdesktop ? "mouseenter" : "touchstart", "a", this.onLinkMouseEnter), 
             this.$el.on(Modernizr.isdesktop ? "mouseleave" : "touchend", "a", this.onLinkMouseLeave), this.$el.on("click", "a", this.onLinkClick), 
-            s.addClass("v" + (this.version || 1));
-            var n = this;
+            n.addClass("v" + (this.version || 1));
+            var a = this;
             return this.$el.find("a").each(function() {
-                var e = $(this), i = e.attr("data-pid"), s = e.attr("href"), a = i;
-                /^back\sto\stop$/i.test(e.attr("href")) && (a = n.page._id);
-                var o = s && n.page.mag.matchSameDomainLink(s);
-                if ((o == e.attr("href") || a) && (o = void 0), a = a || o) {
-                    var r = n.page.mag.getPageNum(a), l = r && n.page.mag.getPageUri ? "/" + n.page.mag.getPageUri(a) : "javascript:void(0)";
-                    r ? e.attr("href", l).addClass("maglink").attr("target", "") : e.removeAttr("href"), a == n.page._id && (e.addClass("back-to-top"), 
-                    i && (n.is_global || n.hasGlobalParent) && e.addClass("current"));
-                } else if (/^__rm_goback$/i.test(e.attr("href"))) e.attr("href", "javascript:void(0)").addClass("goback-link"); else if (n.mailchimpMatcher.test(e.attr("href"))) {
-                    var c = e.attr("href").match(n.mailchimpMatcher)[1];
+                var e = $(this), i = e.attr("data-pid"), s = e.attr("href"), n = i;
+                /^back\sto\stop$/i.test(e.attr("href")) && (n = a.page._id);
+                var o = s && a.page.mag.matchSameDomainLink(s);
+                if ((o == e.attr("href") || n) && (o = void 0), n = n || o) {
+                    var r = a.page.mag.getPageNum(n), l = r && a.page.mag.getPageUri ? "/" + a.page.mag.getPageUri(n) : "javascript:void(0)";
+                    r ? e.attr("href", l).addClass("maglink").attr("target", "") : e.removeAttr("href"), n == a.page._id && (e.addClass("back-to-top"), 
+                    i && (a.is_global || a.hasGlobalParent) && e.addClass("current"));
+                } else if (/^__rm_goback$/i.test(e.attr("href"))) e.attr("href", "javascript:void(0)").addClass("goback-link"); else if (a.mailchimpMatcher.test(e.attr("href"))) {
+                    var c = e.attr("href").match(a.mailchimpMatcher)[1];
                     e.attr("href", "javascript:void(0)").attr("data-mailchimp", c).addClass("mailchimp-link"), t.initutils.initMailchimpAPI();
-                } else if (n.shareRegexp.test(e.attr("href"))) {
-                    var d = e.attr("href").match(n.shareRegexp);
+                } else if (a.shareRegexp.test(e.attr("href"))) {
+                    var d = e.attr("href").match(a.shareRegexp);
                     e.attr("href", "javascript:void(0)").attr("data-share-provider", d[1]).attr("data-share-type", d[2]).addClass("share-link");
-                } else if (n.anchorRegexp.test(e.attr("href"))) {
+                } else if (a.anchorRegexp.test(e.attr("href"))) {
                     e.attr("href", "javascript:void(0)").addClass("anchor-link");
-                    var h = e.attr("data-page-uri"), u = _.findWhere(n.mag.pages, {
+                    var h = e.attr("data-page-uri"), u = _.findWhere(a.mag.pages, {
                         _id: h
-                    }) || n.page;
+                    }) || a.page;
                     e.attr("data-page-uri", u.uri || u.num);
                 } else e.addClass("external-link");
                 !e.attr("href") || 0 != e.attr("href").indexOf("mailto") && 0 != e.attr("href").indexOf("tel") || e.attr("target", "");
@@ -9077,10 +9137,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             this;
         },
         getPictureUrl: function() {
-            if (!this.picture) return "";
-            var e = t.scale.isOn(this.page.scale) ? this.picture.unscaledUrl || this.picture.final2xUrl || this.picture.finalUrl : Modernizr.retina && this.picture.final2xUrl || this.picture.finalUrl;
-            return (this.is_full_width || this.page.mag.isPreview && this.animation) && (e = this.picture.unscaledUrl || this.picture.final2xUrl || this.picture.finalUrl), 
-            e || this.picture.effectUrl || this.picture.editedVectorUrl || this.picture.url;
+            return this.picture ? (e = t.scale.isOn(this.page.scale) ? this.picture.unscaledUrl || this.picture.final2xUrl || this.picture.finalUrl : Modernizr.retina && (window.devicePixelRatio >= 3 && this.picture.final3xUrl || this.picture.final2xUrl) || this.picture.finalUrl, 
+            (this.is_full_width || this.page.mag.isPreview && this.animation) && (e = this.picture.unscaledUrl || this.picture.final2xUrl || this.picture.finalUrl), 
+            e || this.picture.effectUrl || this.picture.editedVectorUrl || this.picture.url) : "";
+            var e;
         },
         loadVector: function(t) {
             this.$el.addClass("svg"), this.svgAjax = $.get(t + "?c", _.bind(function(e) {
@@ -9129,7 +9189,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             this.videoWidget = null), t.classes.Widget.prototype.destroy.apply(this, arguments);
         },
         hasVideoBG: function() {
-            return !(t.screenshot || !Modernizr.isdesktop || "video" != this.selectedType || !this.video || !this.video.url);
+            return !(t.screenshot || "video" != this.selectedType || !this.video || !this.video.url);
         },
         onResize: function() {
             !this.destroyed && this.$videoContainer && this.video && t.videoutils.setVideoPosition({
@@ -9400,8 +9460,8 @@ window.onYouTubeIframeAPIReady = function() {
         }
     };
     var n = {
-        Vimeo: _.template('<iframe src="https://player.vimeo.com/video/<%=video_id%>?wmode=opaque&api=1&loop=<%=(loop)?1:0%>&player_id=video_<%=id%><%=(!real)?"_c":""%>&title=<%=info?1:0%>&byline=<%=info?1:0%>&portrait=<%=info?1:0%>&color=<%=color%>" id="video_<%=id%><%=(!real)?"_c":""%>" width="<%=w%>" height="<%=h%>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'),
-        YouTube: _.template('<iframe <% if (real) {%>id="yt_<%=video_id%>"<%}%> src="https://www.youtube.com/embed/<%=video_id%>?wmode=opaque&enablejsapi=1&playlist=&autohide=1&loop=<%=(loop)?1:0%>&showinfo=<%=info?1:0%>&theme=<%=theme%>&controls=<%=controls? 1: 0%><%=html5 ? "&html5=1" : ""%>&rel=0&vq=hd1080" width="<%=w%>" height="<%=h%>" frameborder="0" allowfullscreen></iframe>')
+        Vimeo: _.template('<iframe src="https://player.vimeo.com/video/<%=video_id%>?wmode=opaque&api=1&loop=<%=(loop)?1:0%>&muted=<%=(mute)?1:0%>&player_id=video_<%=id%><%=(!real)?"_c":""%>&title=<%=info?1:0%>&byline=<%=info?1:0%>&portrait=<%=info?1:0%>&color=<%=color%>" id="video_<%=id%><%=(!real)?"_c":""%>" width="<%=w%>" height="<%=h%>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'),
+        YouTube: _.template('<iframe <% if (real) {%>id="yt_<%=video_id%>"<%}%> src="https://www.youtube.com/embed/<%=video_id%>?&wmode=opaque&enablejsapi=1&playlist=&autohide=1&loop=<%=(loop)?1:0%>&showinfo=<%=info?1:0%>&theme=<%=theme%>&controls=<%=controls? 1: 0%><%=html5 ? "&html5=1" : ""%>&rel=0&vq=hd1080&playsinline=<%=(autoplay)?1:0%>" width="<%=w%>" height="<%=h%>" frameborder="0" allowfullscreen></iframe>')
     };
     t.widgets.video = t.classes.Widget.extend({
         RESTART_TIMEOUT: 5e3,
@@ -9417,14 +9477,13 @@ window.onYouTubeIframeAPIReady = function() {
             return this.video_id && this.provider_name;
         },
         _needAutoStart: function() {
-            return this.autoplay && Modernizr.isdesktop && !t.utils.PageVisibilityManager.isPageHidden();
+            return this.autoplay && !t.utils.PageVisibilityManager.isPageHidden();
         },
         start: function() {
-            this.started = !0, this.onPlayFired = !1;
-            var e = this.$container && this.page && this.page.mag && "default" != this.page.mag.viewport && !!this.page.mag.viewport;
-            return e && this.trigger("playStarted"), t.screenshot || !this.rendered || this.destroyed || e ? this : (this.playerInitialized || (this.$el.append(this.getEmbed()), 
+            return this.started = !0, this.onPlayFired = !1, t.screenshot || !this.rendered || this.destroyed ? this : (this.playerInitialized || (this.$el.append(this.getEmbed()), 
             this.$iframe = this.$el.find("iframe"), this.$iframe.attr("id", "video_" + this.id), this.player = this.createPlayer(this.provider_name, this.$iframe, {
-                start_time: this.start_time
+                start_time: this.start_time,
+                autoplay: this._needAutoStart()
             }), this.player && this.player.on("ready", this.onPlayerReady), this.playerInitialized = !0), this.player && this._needAutoStart() && this.player.play(), 
             this);
         },
@@ -9507,6 +9566,9 @@ window.onYouTubeIframeAPIReady = function() {
                 this.player = null, this.$iframe && this.$iframe.remove(), !this.destroyed && this.started && this.start(), 
                 delete this.restartTimeout;
             }, this), this.RESTART_TIMEOUT)) : (clearTimeout(this.restartTimeout), delete this.restartTimeout);
+        },
+        updateVideoFrameSize: function(t, e) {
+            this.$iframe && this.$iframe.attr("width", t).attr("height", e);
         }
     });
 }(RM), function(t, e) {
@@ -9540,9 +9602,8 @@ window.onYouTubeIframeAPIReady = function() {
         render: function() {
             if (this.makeBox("widget-shape"), this.hasHoverAnimation && this.$el.addClass("has-onhover-animation"), 
             this.rendered = !0, this.requiresImageLoad()) {
-                if (!this.rasterUrl) return this;
-                if (this.$el.addClass("icon"), this.antialiasRotation = !0, !this.rasterUrl) return this.widgetIsLoaded(), 
-                this;
+                if (!this.rasterUrl) return this.widgetIsLoaded(), this;
+                this.$el.addClass("icon"), this.antialiasRotation = !0;
                 var e = $("<img>");
                 e.on("load", _.bind(function() {
                     this.$el.html(e), this.widgetIsLoaded();
@@ -9680,6 +9741,9 @@ window.onYouTubeIframeAPIReady = function() {
                         this.widgetIsLoaded();
                     }.bind(this)), "custom" == this.current_type && this.custom_json && this.map.setOptions({
                         styles: JSON.parse(this.custom_json)
+                    }), t.screenshot || t.constructorRouter && t.constructorRouter.preview || t.analytics && t.analytics.sendEvent("Google Maps Widget Rendered", {
+                        label: this.page && this.page.mag && this.page.mag.num_id,
+                        value: this.page && this.page.mag && this.page.mag.user && this.page.mag.user.num_id
                     }));
                 }.bind(this));
             }.bind(this)), this;
@@ -9941,9 +10005,8 @@ window.onYouTubeIframeAPIReady = function() {
             this.$phoneTipWrapper.off("touchstart", this.onTipTouchStart), this.$phoneTipWrapper.off("touchmove", this.onTipTouchMove), 
             _.delay(function() {
                 this.$tip.detach().appendTo(this.$tipParent), this.$phoneTipWrapper && this.$phoneTipWrapper.detach();
-            }.bind(this), 200)) : (this.$tip.addClass("invisible"), _.delay(function() {
-                this.BackToNormalZ();
-            }.bind(this), 200), $("body").off("keydown", this.onBodyKeyDown)), this.stopListening(this.page.mag, "change:viewport"));
+            }.bind(this), 200)) : (this.$tip.addClass("invisible"), this.BackToNormalZ(), $("body").off("keydown", this.onBodyKeyDown)), 
+            this.stopListening(this.page.mag, "change:viewport"));
         },
         onTipTouchStart: function(t) {
             this.tipScrollY = t.originalEvent.touches.item(0).clientY;
@@ -10051,6 +10114,10 @@ window.onYouTubeIframeAPIReady = function() {
 
                   case "number":
                     this.NUMBER_TEST_REGEX.test(n) && !isNaN(parseFloat(n)) || (o = !1);
+                    break;
+
+                  case "checkbox":
+                    a.optional || s.prop("checked") || (o = !1);
                 } else o = a.optional;
                 o || (this.formWidget.applyInputsStyle(s.closest(".input-wrapper"), {
                     invalid: !0
@@ -10564,15 +10631,19 @@ window.onYouTubeIframeAPIReady = function() {
                 }, this)
             });
         },
-        getSSLState: function(t) {
+        getSSLState: function(t, e) {
             return $.ajax({
                 type: "GET",
                 url: this.SSLDOMAIN_URL + this.get("num_id") + "/ssl",
-                success: _.bind(function(e) {
-                    t.success && t.success(e);
+                data: {
+                    domain: t,
+                    type: "mag"
+                },
+                success: _.bind(function(t, i) {
+                    console.log("xhr : ", i), e.success && e.success(t);
                 }),
-                error: _.bind(function(e) {
-                    return e && e.status >= 500 ? t.error(null) : t.error && t.error(e.responseJSON);
+                error: _.bind(function(t) {
+                    return t && t.status >= 500 ? e.error(null) : e.error && e.error(t.responseJSON);
                 })
             });
         },
@@ -10895,15 +10966,19 @@ window.onYouTubeIframeAPIReady = function() {
                 }, this)
             });
         },
-        getSSLState: function(t) {
+        getSSLState: function(t, e) {
             return $.ajax({
                 type: "GET",
                 url: this.SSLDOMAIN_URL,
-                success: _.bind(function(e) {
-                    t.success && t.success(e);
+                data: {
+                    domain: t,
+                    type: "user"
+                },
+                success: _.bind(function(t) {
+                    e.success && e.success(t);
                 }),
-                error: _.bind(function(e) {
-                    return e && e.status >= 500 ? t.error(null) : t.error && t.error(e.responseJSON);
+                error: _.bind(function(t) {
+                    return t && t.status >= 500 ? e.error(null) : e.error && e.error(t.responseJSON);
                 })
             });
         },
