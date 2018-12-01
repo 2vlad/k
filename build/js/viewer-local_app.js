@@ -142,13 +142,13 @@ Modernizr.addTest("retina", function() {
                 var r = i.attr("data-alt") || a.text;
                 if (r) {
                     var l, c, d, h = '<div class="rmalttext-wrapper">\t\t\t\t\t\t\t\t\t\t<div class="rmalttext-content">' + r + '</div>\t\t\t\t\t\t\t\t\t\t<div class="rmalttext-corner-wrapper"><div class="rmalttext-corner"></div></div>\t\t\t\t\t\t\t\t\t</div>';
-                    return a.manual || i.on("mouseenter", u).on("mouseleave", p).on("click", w).on("rmalt-hide", w), i.on("DOMNodeRemovedFromDocument", w), 
+                    return a.manual || i.on("mouseenter", p).on("mouseleave", u).on("click", w).on("rmalt-hide", w), i.on("DOMNodeRemovedFromDocument", w), 
                     {
                         hide: w,
                         show: g,
                         update: v,
                         destroy: function() {
-                            w(), i.removeClass(s), i.off("mouseenter", u).off("mouseleave", p).off("click", w).off("rmalt-hide", w).off("DOMNodeRemovedFromDocument", w);
+                            w(), i.removeClass(s), i.off("mouseenter", p).off("mouseleave", u).off("click", w).off("rmalt-hide", w).off("DOMNodeRemovedFromDocument", w);
                         },
                         getElement: function() {
                             return l;
@@ -156,12 +156,12 @@ Modernizr.addTest("retina", function() {
                     };
                 }
             }
-            function u(e) {
+            function p(e) {
                 var i = t(e.currentTarget), s = 800, n = !1;
                 window.rmalt_current_shown && window.rmalt_current_shown !== i && (window.rmalt_current_shown.trigger("rmalt-hide"), 
                 s = 0, n = !0), c = setTimeout(g.bind(i[0], n), s);
             }
-            function p() {
+            function u() {
                 clearTimeout(c), clearInterval(d), c = setTimeout(function() {
                     window.rmalt_current_shown = null, l && l.fadeOut(150, function() {
                         l.remove(), l = void 0;
@@ -296,7 +296,7 @@ Modernizr.addTest("retina", function() {
     for (var s in t.SOUNDCITE_CONFIG) i[s] = t.SOUNDCITE_CONFIG[s];
     t.soundcite = {}, /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? soundcite.mobile = !0 : soundcite.mobile = !1;
     var n, a, o = e.head || e.getElementsByTagName("head").item(0) || e.documentElement.childNodes[0], r = [], l = "none", c = "none", d = [], h = [];
-    function u(t) {
+    function p(t) {
         var i = {
             r: 0,
             g: 0,
@@ -322,7 +322,7 @@ Modernizr.addTest("retina", function() {
         }
         return i;
     }
-    var p = function(t, e) {
+    var u = function(t, e) {
         var i = Array.prototype.slice, s = i.call(arguments, 2);
         return function() {
             return t.apply(e, s.concat(i.call(arguments)));
@@ -346,13 +346,13 @@ Modernizr.addTest("retina", function() {
     function v(t) {
         this.el = t, this.start = t.hasAttribute("data-start") ? t.getAttribute("data-start") : 0, this.end = t.hasAttribute("data-end") ? t.getAttribute("data-end") : null, 
         this.plays = t.hasAttribute("data-plays") ? parseInt(t.getAttribute("data-plays")) : 1, this.plays_left = this.plays, 
-        this.playing = !1, this.sound = null, this.click_handler_binded = p(this.click_handler, this), r.push(this);
+        this.playing = !1, this.sound = null, this.click_handler_binded = u(this.click_handler, this), r.push(this);
     }
     function _(t) {
         v.apply(this, Array.prototype.slice.call(arguments)), this.id = t.getAttribute("data-id"), "initialized" !== l && (n.initialize({
             client_id: "5ba7fd66044a60db41a97cb9d924996a"
-        }), l = "initialized"), n.stream(this.id, p(function(t) {
-            this.destroyed ? t._player.kill && t._player.kill() : (this.sound = t, this.sound._player.on("positionChange", p(function(t) {
+        }), l = "initialized"), n.stream(this.id, u(function(t) {
+            this.destroyed ? t._player.kill && t._player.kill() : (this.sound = t, this.sound._player.on("positionChange", u(function(t) {
                 this.track_progress(), this.playing && (t < this.start && this.sound.seek(this.start), t >= this.end && (this.plays ? (this.plays_left--, 
                 this.plays_left > 0 ? this.play() : this.stop()) : this.play(), this.track_progress()), this.prevPos = t);
             }, this)), null === this.end && (this.end = this.sound.getDuration()), this.sound_loaded());
@@ -366,7 +366,7 @@ Modernizr.addTest("retina", function() {
         this.audio.id = this.id, this.audio.setAttribute("src", this.url), this.audio.setAttribute("preload", "none"), 
         soundcite.mobile = !0, soundcite.audio_container.appendChild(this.audio), this.sound = a("#" + this.id, {
             frameAnimation: !0
-        }), this.sound.on("loadeddata", p(function() {
+        }), this.sound.on("loadeddata", u(function() {
             null === this.end && (this.end = this.sound.duration()), soundcite.mobile || this.sound_loaded();
         }, this)), soundcite.mobile ? this.sound_loaded() : this.sound.readyState() > 1 && this.sound_loaded();
     }
@@ -386,7 +386,7 @@ Modernizr.addTest("retina", function() {
         this.stop_sound();
     }, v.prototype.track_progress = function() {
         var t = this.end - this.start, e = 100 * (this.sound_position() - this.start) / t;
-        this.color || (this.color = u(this.el)), i.update_playing_element(this.el, e, this.color);
+        this.color || (this.color = p(this.el)), i.update_playing_element(this.el, e, this.color);
     }, v.prototype.click_handler = function(t) {
         t.preventDefault(), function(t) {
             for (var e = 0; e < r.length; e++) r[e].playing && (t && t.el === r[e].el || r[e].pause());
@@ -414,25 +414,25 @@ Modernizr.addTest("retina", function() {
         this.sound.off("timeupdate"), this.sound.pause();
     }, w.prototype._play_sound = function() {
         m(this.el, "soundcite-loading soundcite-play"), f(this.el, "soundcite-pause"), this.sound.play(), this.playing = !0, 
-        this.sound.on("timeupdate", p(function() {
+        this.sound.on("timeupdate", u(function() {
             this.track_progress(), this.playing && this.sound.currentTime() >= this.end && (this.plays ? (this.plays_left--, 
             this.plays_left > 0 ? this.play_sound() : this.stop()) : this.play_sound(), this.track_progress());
         }, this));
     }, w.prototype.play_sound = function() {
         var t = this.sound.currentTime();
-        t < this.start || t >= this.end ? (this.sound.on("seeked", p(function() {
+        t < this.start || t >= this.end ? (this.sound.on("seeked", u(function() {
             this.sound.off("seeked"), this._play_sound();
         }, this)), this.sound.currentTime(this.start)) : this._play_sound();
     }, w.prototype.play = function() {
         /soundcite\-loading/.test(this.el.className) || (soundcite.mobile ? (m(this.el, "soundcite-play"), f(this.el, "soundcite-loading"), 
-        this.startedLoading ? this.play_sound() : (this.sound.on("canplaythrough", p(function() {
+        this.startedLoading ? this.play_sound() : (this.sound.on("canplaythrough", u(function() {
             this.play_sound();
         }, this)), e.getElementById(this.id).load()), this.startedLoading = !0) : this.play_sound());
     }, w.prototype.destroy = function() {
         this.sound && a.destroy(this.sound), this.audio && soundcite.audio_container.removeChild(this.audio), 
         v.prototype.destroy.apply(this, arguments);
     }, soundcite.createPlayer = function(s) {
-        f(s, "soundcite-initializing"), f(s, "soundcite-force-bg-color"), i.update_playing_element(s, 0, u(s)), 
+        f(s, "soundcite-initializing"), f(s, "soundcite-force-bg-color"), i.update_playing_element(s, 0, p(s)), 
         s.getAttribute("data-url") && ("none" == c ? (h.push(s), function(i, s) {
             var n, a, r = t.Popcorn;
             if (c = "loading", !r || g(i, r.version) > 0 || s(r, c = "loaded")) {
@@ -466,7 +466,7 @@ Modernizr.addTest("retina", function() {
     }, soundcite.pausePlayer = function(t) {
         for (var e = 0; e < r.length; e++) t == r[e].el && r[e].playing && r[e].pause();
     }, soundcite.setElementsColor = function(t) {
-        i.update_playing_element(t, 0, u(t));
+        i.update_playing_element(t, 0, p(t));
     };
 }(window, document), function(t, e) {
     t.fn.RMScroll = function(e) {
@@ -695,6 +695,18 @@ Modernizr.addTest("retina", function() {
         with (obj || {}) __p += '\n\t<div class="common-audio-player-engine">\n\t\t<object height="100%" width="100%" id="' + (null == (__t = id) ? "" : _.escape(__t)) + '" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" data="' + (null == (__t = swf) ? "" : _.escape(__t)) + '">\n\t\t\t<param name="movie" value="' + (null == (__t = swf) ? "" : _.escape(__t)) + '" />\n\t\t\t<param name="allowscriptaccess" value="always" />\n\t\t</object>\n\t</div>\n';
         return __p;
     }.apply(this, arguments));
+}, RM.templates["template-collector-blurb-discount-hint"] = function() {
+    return $.trim(function(obj) {
+        var __t, __p = "", __j = Array.prototype.join, print = function() {
+            __p += __j.call(arguments, "");
+        };
+        with (obj || {}) {
+            __p += "\n\t";
+            var innerLink = "link";
+            "homepage" == tp && (innerLink = ""), __p += '\n\n\t<div class="blurb-discount-hint invisible ' + (null == (__t = location) ? "" : _.escape(__t)) + '">\n\t\t<a class="blurb-hint-link ' + (null == (__t = innerLink) ? "" : __t) + '" href="/settings/subscription/update">25% off</a>\n\t\t<div class="blurb-hint-corner-wrapper">\n\t\t\t<div class="corner"></div>\n\t\t</div>\n\t\t<div class="blurb-hint-close-button">\n\t\t\t<div class="blurb-close-cross"></div>\n\t\t</div>\n\t</div>\n';
+        }
+        return __p;
+    }.apply(this, arguments));
 }, RM.templates["template-common-button-widget"] = function() {
     return $.trim(function(obj) {
         var __t, __p = "", __j = Array.prototype.join, print = function() {
@@ -724,7 +736,7 @@ Modernizr.addTest("retina", function() {
         var __t, __p = "", __j = Array.prototype.join, print = function() {
             __p += __j.call(arguments, "");
         };
-        with (obj || {}) __p += '\n\t<div class="button">\n\t\t<div class="caption"></div>\n\t\t<svg class="error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 26"><path d="M17 19.8c-1.4 0-2.6 1.1-2.6 2.6s1.1 2.6 2.6 2.6c1.4 0 2.6-1.1 2.6-2.6S18.4 19.8 17 19.8zM19 0.4h-4L15 17.4h4L19 0.4z"/></svg>\n\t\t<svg class="submitted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 26"><path d="M31.4 3C30.6 2.3 29.4 2.3 28.6 3l0 0L13.1 18.6l-7.8-7.8 0 0c-0.8-0.7-2-0.7-2.7 0 -0.8 0.8-0.8 2 0 2.7l0 0L13.1 24.1l0.4-0.4h0L31.4 5.8l0 0C32.1 5 32.1 3.8 31.4 3z"/></svg>\n\t</div>\n';
+        with (obj || {}) __p += '\n\t<div class="button">\n\t\t<div class="caption"></div>\n\t\t<svg class="error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 26"><path d="M17 19.8c-1.4 0-2.6 1.1-2.6 2.6s1.1 2.6 2.6 2.6c1.4 0 2.6-1.1 2.6-2.6S18.4 19.8 17 19.8zM19 0.4h-4L15 17.4h4L19 0.4z"/></svg>\n\t\t<svg class="show-if-empty-submitted-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 26"><path d="M31.4 3C30.6 2.3 29.4 2.3 28.6 3l0 0L13.1 18.6l-7.8-7.8 0 0c-0.8-0.7-2-0.7-2.7 0 -0.8 0.8-0.8 2 0 2.7l0 0L13.1 24.1l0.4-0.4h0L31.4 5.8l0 0C32.1 5 32.1 3.8 31.4 3z"/></svg>\n\t</div>\n';
         return __p;
     }.apply(this, arguments));
 }, RM.templates["template-common-gift"] = function() {
@@ -871,7 +883,7 @@ Modernizr.addTest("retina", function() {
         var __t, __p = "", __j = Array.prototype.join, print = function() {
             __p += __j.call(arguments, "");
         };
-        with (obj || {}) __p += '\n\t<div class="whats-new">\n\t\t<div class="panel-wrapper">\n\t\t\t<div class="panel">\n\t\t\t\t<div class="content">\n\t\t\t\t\t<div class="wn-page" data-date="2013-11-19">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">November 19<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing Domain Mapping<br/>and New Price.</div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/p43952/" target="blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2013-12-16">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">December 16<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t\x3c!--__magterm--\x3e\n\t\t\t\t\t\t<div class="text">Duplicating projects, Instagram<br/>and SVG support.</div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/p53035/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2014-01-20">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">January 20<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Rotation tool.<br/>Grouping widgets.<br/>Faster background images loading.<br/>Bug fixes.</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2014-02-03">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">February 4<span>th</span></div>\n\t\t\t\t\t\t<div class="picture">\n\t\t\t\t\t\t\t<div class="line"></div>\n\t\t\t\t\t\t\t<div class="line"></div>\n\t\t\t\t\t\t\t<div class="line"></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Viewer 1.0</div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/p67765/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2014-03-04">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">March 4<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Custom Templates<br/>and iFrame</div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/p85654/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2014-03-19">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">March 19<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Track your audience with<br/>Google Analytics</div>\n\t\t\t\t\t\t<a class="learn-more" href="http://help.readymag.com/ga/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n                    <div class="wn-page" data-date="2014-04-14">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">April 14<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>Viewport & Mobile Viewer</div>\n                        <a class="learn-more" href="https://readymag.com/p100897/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-06-24">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">June 24<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>Font Explorer</div>\n                        <a class="learn-more" href="https://readymag.com/p151687/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-08-04">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">August 4<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing New<br/>Webfonts</div>\n                        <a class="learn-more" href="https://readymag.com/p156787/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-09-04">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">September 4<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>Template Center</div>\n                        <a class="learn-more" href="https://readymag.com/p172473/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-09-30">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">September 30<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>PDF Export</div>\n                        <a class="learn-more" href="https://readymag.com/p185021/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-11-05">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">November 5<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>100,000 icons</div>\n                        <a class="learn-more" href="https://readymag.com/p220371/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-12-09">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">December 9<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>Link Styles & Fix Position</div>\n                        <a class="learn-more" href="https://readymag.com/p243325/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2015-01-29">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">January 29<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>New Embeds</div>\n                        <a class="learn-more" href="https://readymag.com/p288252/" target="_blank">Learn More</a>\n                    </div>\n\t\t\t\t\t<div class="wn-page" data-date="2015-02-10">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">February 10<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <div class="text">2 Little Things:<br/>Trash & Pages URLs</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p304538/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2015-03-04">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">March 4<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Viewer 2.0</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p325057/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2015-04-14">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">April 14<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Scroll Navigation</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p360474/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2015-05-14">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">May 14<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Buttons, Anchors &amp; Full Width</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p430667/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t\x3c!-- Special terms agree message. For next terms change just increase version number in backend config and set new data-date to show. This block position inside template does not matter --\x3e\n\t\t\t\t\t<div class="wn-page agree-terms" data-version="' + (null == (__t = RM.constants.CURRENT_TERMS_VERSION) ? "" : __t) + '" data-date="2015-09-02">\n\t\t\t\t\t    <div class="caption">UPDATE</div>\n\t\t\t\t\t    <div class="date">Terms of Service</div>\n\t\t\t\t\t\t<div class="text">Hey!<br/>We’ve recently slightly updated our <a href="https://readymag.com/readymag/terms-and-privacy/" target="_blank">Terms of Service</a> due to launching the new Teamwork feature. Please review the changes, as by continuing to use Readymag you automatically accept them. Have a great day!</div>\n\t\t\t\t\t    <div class="learn-more agree-terms-button">I agree</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\x3c!-- Special terms agree message end --\x3e\n\n\t\t\t\t\t<div class="wn-page" data-date="2015-09-03">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Sep 3<span>rd</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Teamwork</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p683180/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class="wn-page" data-date="2015-10-09">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Oct 9<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Hotspot</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p921047/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class="wn-page" data-date="2015-11-18">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Nov 18<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>5 Tiny Features</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1016246/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-01-20">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Jan 19<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Animations</div>\n\t\t\t\t\t    <a class="learn-more" href="http://animations.readymag.com/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-04-12">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Apr 12<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1351980/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-08-04">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Aug 4<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1617587/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-09-29">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Sep 29<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1730817/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-12-01">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Dec 1<span>st</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1921011/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-02-07">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Feb 7<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p2117051/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-05-03">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">May 3<span>rd</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p2346155/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-08-08">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">August 8<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p2674515/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-09-20">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Sep 20<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p2809932/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-11-30">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Nov 30<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://help.readymag.com/domains/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-12-15">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Dec 15<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://medium.com/@readymag/readymag-under-the-hood-faster-vertical-viewer-implementation-8615457fdf25" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-02-15">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Feb 15<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p3276335/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-03-29">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Mar 29<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p3488378/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-05-24">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">May 24<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/readymag/terms-and-privacy/2/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-06-28">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">June 28<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p3857571/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="close"></div>\n\t\t\t\t<div class="arrow up disabled"></div>\n\t\t\t\t<div class="arrow down"></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n';
+        with (obj || {}) __p += '\n\t<div class="whats-new">\n\t\t<div class="panel-wrapper">\n\t\t\t<div class="panel">\n\t\t\t\t<div class="content">\n\t\t\t\t\t<div class="wn-page" data-date="2013-11-19">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">November 19<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing Domain Mapping<br/>and New Price.</div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/p43952/" target="blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2013-12-16">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">December 16<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t\x3c!--__magterm--\x3e\n\t\t\t\t\t\t<div class="text">Duplicating projects, Instagram<br/>and SVG support.</div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/p53035/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2014-01-20">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">January 20<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Rotation tool.<br/>Grouping widgets.<br/>Faster background images loading.<br/>Bug fixes.</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2014-02-03">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">February 4<span>th</span></div>\n\t\t\t\t\t\t<div class="picture">\n\t\t\t\t\t\t\t<div class="line"></div>\n\t\t\t\t\t\t\t<div class="line"></div>\n\t\t\t\t\t\t\t<div class="line"></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Viewer 1.0</div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/p67765/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2014-03-04">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">March 4<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Custom Templates<br/>and iFrame</div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/p85654/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2014-03-19">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">March 19<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Track your audience with<br/>Google Analytics</div>\n\t\t\t\t\t\t<a class="learn-more" href="http://help.readymag.com/ga/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n                    <div class="wn-page" data-date="2014-04-14">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">April 14<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>Viewport & Mobile Viewer</div>\n                        <a class="learn-more" href="https://readymag.com/p100897/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-06-24">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">June 24<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>Font Explorer</div>\n                        <a class="learn-more" href="https://readymag.com/p151687/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-08-04">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">August 4<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing New<br/>Webfonts</div>\n                        <a class="learn-more" href="https://readymag.com/p156787/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-09-04">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">September 4<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>Template Center</div>\n                        <a class="learn-more" href="https://readymag.com/p172473/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-09-30">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">September 30<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>PDF Export</div>\n                        <a class="learn-more" href="https://readymag.com/p185021/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-11-05">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">November 5<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>100,000 icons</div>\n                        <a class="learn-more" href="https://readymag.com/p220371/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2014-12-09">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">December 9<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>Link Styles & Fix Position</div>\n                        <a class="learn-more" href="https://readymag.com/p243325/" target="_blank">Learn More</a>\n                    </div>\n                    <div class="wn-page" data-date="2015-01-29">\n                        <div class="caption">What\'s new</div>\n                        <div class="date">January 29<span>th</span></div>\n                        <div class="picture"></div>\n                        <div class="text">Introducing<br/>New Embeds</div>\n                        <a class="learn-more" href="https://readymag.com/p288252/" target="_blank">Learn More</a>\n                    </div>\n\t\t\t\t\t<div class="wn-page" data-date="2015-02-10">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">February 10<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <div class="text">2 Little Things:<br/>Trash & Pages URLs</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p304538/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2015-03-04">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">March 4<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Viewer 2.0</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p325057/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2015-04-14">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">April 14<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Scroll Navigation</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p360474/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2015-05-14">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">May 14<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Buttons, Anchors &amp; Full Width</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p430667/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t\x3c!-- Special terms agree message. For next terms change just increase version number in backend config and set new data-date to show. This block position inside template does not matter --\x3e\n\t\t\t\t\t<div class="wn-page agree-terms" data-version="' + (null == (__t = RM.constants.CURRENT_TERMS_VERSION) ? "" : __t) + '" data-date="2015-09-02">\n\t\t\t\t\t    <div class="caption">UPDATE</div>\n\t\t\t\t\t    <div class="date">Terms of Service</div>\n\t\t\t\t\t\t<div class="text">Hey!<br/>We’ve recently slightly updated our <a href="https://readymag.com/readymag/terms-and-privacy/" target="_blank">Terms of Service</a> due to launching the new Teamwork feature. Please review the changes, as by continuing to use Readymag you automatically accept them. Have a great day!</div>\n\t\t\t\t\t    <div class="learn-more agree-terms-button">I agree</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\x3c!-- Special terms agree message end --\x3e\n\n\t\t\t\t\t<div class="wn-page" data-date="2015-09-03">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Sep 3<span>rd</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Teamwork</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p683180/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class="wn-page" data-date="2015-10-09">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Oct 9<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Hotspot</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p921047/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class="wn-page" data-date="2015-11-18">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Nov 18<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>5 Tiny Features</div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1016246/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-01-20">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Jan 19<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t\t<div class="text">Introducing<br/>Animations</div>\n\t\t\t\t\t    <a class="learn-more" href="http://animations.readymag.com/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-04-12">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Apr 12<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1351980/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-08-04">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Aug 4<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1617587/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-09-29">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Sep 29<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1730817/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2016-12-01">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Dec 1<span>st</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p1921011/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-02-07">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Feb 7<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p2117051/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-05-03">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">May 3<span>rd</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p2346155/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-08-08">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">August 8<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p2674515/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-09-20">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Sep 20<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p2809932/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-11-30">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Nov 30<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://help.readymag.com/domains/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2017-12-15">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Dec 15<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://medium.com/@readymag/readymag-under-the-hood-faster-vertical-viewer-implementation-8615457fdf25" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-02-15">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Feb 15<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p3276335/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-03-29">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Mar 29<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p3488378/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-05-24">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">May 24<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/readymag/terms-and-privacy/2/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-06-28">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">June 28<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/p3857571/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-10-18">\n\t\t\t\t\t    <div class="caption">What\'s new</div>\n\t\t\t\t\t    <div class="date">Oct 18<span>th</span></div>\n\t\t\t\t\t    <div class="picture"></div>\n\t\t\t\t\t    <a class="learn-more" href="https://readymag.com/readymag/terms-and-privacy/2/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="wn-page" data-date="2018-11-07">\n\t\t\t\t\t\t<div class="caption">What\'s new</div>\n\t\t\t\t\t\t<div class="date">Nov 7<span>th</span></div>\n\t\t\t\t\t\t<div class="picture"></div>\n\t\t\t\t\t\t<a class="learn-more" href="https://readymag.com/readymag/newsletter/" target="_blank">Learn More</a>\n\t\t\t\t\t</div>\n\t\t\t\t<div class="close"></div>\n\t\t\t\t<div class="arrow up disabled"></div>\n\t\t\t\t<div class="arrow down"></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n';
         return __p;
     }.apply(this, arguments));
 }, RM.templates["template-constructor-block-audio"] = function() {
@@ -1015,30 +1027,11 @@ Modernizr.addTest("retina", function() {
         var __t, __p = "", __j = Array.prototype.join, print = function() {
             __p += __j.call(arguments, "");
         };
-        with (obj || {}) {
-            if (__p += '\r\n\r\n\t<div class="final-page offscreen hidden ' + (null == (__t = isStickyVerticalViewer ? "" : "has-vertical-scroll") ? "" : __t) + '">\r\n\t\t<div class="final-page-wrapper tp-' + (null == (__t = tp) ? "" : _.escape(__t)) + '">\r\n\t\t\t<div class="final-page-container">\r\n\r\n\t\t\t\t<div class="main-container">\r\n\t\t\t\t\t<div class="social-wrapper">\r\n\r\n\t\t\t\t\t\t<a href="' + (null == (__t = mag.model.user.getLink()) ? "" : _.escape(__t)) + '" class="link userpic ' + (null == (__t = RM.common.isDownloadedSource ? "inactive-link" : "") ? "" : __t) + '" style="background-image:url(\'' + (null == (__t = mag.model.user.getUserpic(128)) ? "" : __t) + '\')"></a>\r\n\r\n\t\t\t\t\t\t<div class="mag-title selectable">' + (null == (__t = mag.title) ? "" : _.escape(__t)) + '</div>\r\n\r\n\t\t\t\t\t\t<div class="user-name selectable">by <a href="' + (null == (__t = mag.model.user.getLink()) ? "" : _.escape(__t)) + '" class="full-name link ' + (null == (__t = RM.common.isDownloadedSource ? "inactive-link" : "") ? "" : __t) + '">' + (null == (__t = mag.user.name) ? "" : _.escape(__t)) + '</a></div>\r\n\r\n\t\t\t\t\t\t<div class="share-wrapper">\r\n\t\t\t\t\t\t\t<div class="share-caption">Share</div>\r\n\t\t\t\t\t\t\t<div class="like-tweet ' + (null == (__t = disableSocials ? "disabled" : "") ? "" : __t) + '">\r\n\t\t\t\t\t\t\t\t<div id="fb-root"></div>\r\n\t\t\t\t\t\t\t\t<div class="fb-like" data-href="' + (null == (__t = magLink) ? "" : _.escape(__t)) + '" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>\r\n\t\t\t\t\t\t\t\t<div class="spacer"></div>\r\n\t\t\t\t\t\t\t\t<a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-url="' + (null == (__t = magLink) ? "" : _.escape(__t)) + '" data-text="' + (null == (__t = tweetText) ? "" : _.escape(__t)) + '">Tweet</a>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class="share-facebook sprite ' + (null == (__t = disableSocials ? "disabled" : "") ? "" : __t) + ' share-button" data-tp="facebook"></div>\r\n\t\t\t\t\t\t\t<div class="share-twitter sprite ' + (null == (__t = disableSocials ? "disabled" : "") ? "" : __t) + ' share-button" data-tp="twitter"></div>\r\n\t\t\t\t\t\t\t<div class="share-pinterest sprite ' + (null == (__t = disableSocials ? "disabled" : "") ? "" : __t) + ' share-button" data-tp="pinterest"></div>\r\n\t\t\t\t\t\t\t<div class="share-gplus sprite ' + (null == (__t = disableSocials ? "disabled" : "") ? "" : __t) + ' share-button" data-tp="gplus"></div>\r\n\t\t\t\t\t\t\t<div class="share-mail sprite ' + (null == (__t = disableSocials ? "disabled" : "") ? "" : __t) + ' share-button" data-tp="email"></div>\r\n\r\n\t\t\t\t\t\t\t', 
-            Modernizr.isboxversion || RM.common.isDownloadedSource || (__p += '\r\n\t\t\t\t\t\t\t\t<div class="share-embed ' + (null == (__t = disableSocials ? "disabled" : "") ? "" : __t) + '">Embed</div>\r\n\t\t\t\t\t\t\t\t<div class="share-report sprite ' + (null == (__t = disableSocials ? "disabled" : "") ? "" : __t) + ' share-button" data-tp="report"></div>\r\n\t\t\t\t\t\t\t'), 
-            __p += '\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class="embed-wrapper hidden">\r\n\t\t\t\t\t\t<div class="caption">Embed</div>\r\n\r\n\t\t\t\t\t\t<div class="size-selector" data-selected="responsive">\r\n\t\t\t\t\t\t\t<div class="size responsive" data-size="responsive">Responsive</div>\r\n\t\t\t\t\t\t\t<div class="size big" data-size="big">512×383</div>\r\n\t\t\t\t\t\t\t<div class="size small" data-size="small">288×236</div>\r\n\t\t\t\t\t\t\t<div class="arrow sprite"></div>\r\n\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t<div class="code-block">\r\n\t\t\t\t\t\t\t<img class="thumb-pic" src="" alt=""/>\r\n\r\n\t\t\t\t\t\t\t', 
-            Modernizr.isphone ? __p += '\r\n\t\t\t\t\t\t\t<input type="text" class="embed-code">\r\n\t\t\t\t\t\t\t' : __p += '\r\n\t\t\t\t\t\t\t<textarea class="embed-code" wrap="off"></textarea>\r\n\t\t\t\t\t\t\t', 
-            __p += '\r\n\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t<div class="embed-close">Close</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t', 
-            "recent" == tp) {
-                if (__p += '\r\n\t\t\t\t\t<div class="dop-container-recent">\r\n\t\t\t\t\t\t<div class="caption">More from</div>\r\n\t\t\t\t\t\t<div class="sub-caption"><a href="' + (null == (__t = mag.model.user.getLink()) ? "" : _.escape(__t)) + '" class="link" ' + (null == (__t = RM.common.embedMode ? 'target="_blank"' : "") ? "" : __t) + ">" + (null == (__t = mag.user.name) ? "" : _.escape(__t)) + "</a></div>\r\n\t\t\t\t\t\t", 
-                specialRecentView) {
-                    var mag = recentMags.models[0];
-                    __p += '\r\n\t\t\t\t\t\t\t<div class="recent-mag-special">\r\n\t\t\t\t\t\t\t\t<a class="overlay related-link" href="' + (null == (__t = mag.getLink()) ? "" : _.escape(__t)) + '" ' + (null == (__t = RM.common.embedMode ? 'target="_blank"' : "") ? "" : __t) + '>\r\n\t\t\t\t\t\t\t\t\t<div class="mag-cover" style="background-image:url(\'' + (null == (__t = mag.getPageScreenshot(304, {
-                        cover: !0
-                    })) ? "" : __t) + '\')"></div><br/>\r\n\t\t\t\t\t\t\t\t\t<div class="mag-title">' + (null == (__t = mag.get("title")) ? "" : _.escape(__t)) + '</div><br/>\r\n\t\t\t\t\t\t\t\t\t<div class="mag-pages">' + (null == (__t = mag.getPagesCount()) ? "" : __t) + " " + (null == (__t = RM.utils.declination("pages", "page", "pages", mag.getPagesCount())) ? "" : __t) + "</div>\r\n\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t";
-                } else recentMags.each(function(t) {
-                    __p += '<div class="recent-mag">\r\n\t\t\t\t\t\t\t\t<div class="cover" style="background-image:url(\'' + (null == (__t = t.getPageScreenshot(144, {
-                        cover: !0
-                    })) ? "" : __t) + '\')"></div>\r\n\t\t\t\t\t\t\t\t<a class="overlay related-link" href="' + (null == (__t = t.getLink()) ? "" : _.escape(__t)) + '" ' + (null == (__t = RM.common.embedMode ? 'target="_blank"' : "") ? "" : __t) + '>\r\n\t\t\t\t\t\t\t\t\t<div class="overlay-wrapper">\r\n\t\t\t\t\t\t\t\t\t\t<div class="overflow-block">' + (null == (__t = t.get("title")) ? "" : _.escape(__t)) + "</div>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t</div>";
-                });
-                __p += "\r\n\t\t\t\t\t</div>\r\n\t\t\t\t";
-            }
-            __p += "\r\n\r\n\r\n\t\t\t\t", "join" == tp && (__p += '\r\n\t\t\t\t\t<div class="dop-container-join">\r\n\t\t\t\t\t\t<a class="made-with" href="' + (null == (__t = RM.constants.readymag_host) ? "" : __t) + '">Made with<div class="icon sprite"></div></a>\r\n\r\n\t\t\t\t\t\t<div class="join ljr-panel">\r\n\t\t\t\t\t\t\t<div class="buttons-panel">\r\n\t\t\t\t\t\t\t\t<div class="panel-caption">Create your own <br/>web publications!</div>\r\n\t\t\t\t\t\t\t\t<div class="social-auth" data-provider=\'facebook\'>\r\n\t\t\t\t\t\t\t\t\t<span class="icon-facebook"></span>\r\n\t\t\t\t\t\t\t\t\t<span class="buttonText">Continue with Facebook</span>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class="social-auth" data-provider=\'google\'>\r\n\t\t\t\t\t\t\t\t\t<span class="icon-google"></span>\r\n\t\t\t\t\t\t\t\t\t<span class="buttonText">Sign in with Google</span>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\x3c!-- временно пока редиректится на окно регистрации --\x3e\r\n\t\t\t\t\t\t\t\t\x3c!-- <div class="use-email" data-provider=\'native\'><div class="icon sprite"></div>Use your Email</div> --\x3e\r\n\t\t\t\t\t\t\t\t<a href="https://readymag.com/join/" class="use-email" data-provider=\'native\'><div class="icon sprite"></div>Use your Email</a>\r\n\r\n\t\t\t\t\t\t\t\t<a class="learn-more" href="' + (null == (__t = RM.constants.readymag_host) ? "" : __t) + '">Learn More</a>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t<div class="native-join">\r\n\t\t\t\t\t\t\t\t<input autocapitalize="on"  autocorrect="off" required="required" class="fullname-input input-template"  maxlength="24" type="text"     spellcheck="false" value="" placeholder="Name" />\r\n\t\t\t\t\t\t\t\t<input autocapitalize="off" autocorrect="off" required="required" class="email-input input-template"     type="email"    spellcheck="false" value="" placeholder="Email" />\r\n\t\t\t\t\t\t\t\t<input autocapitalize="off" autocorrect="off" required="required" class="password-input input-template"  type="password" spellcheck="false" value="" placeholder="Password" />\r\n\t\t\t\t\t\t\t\t<div class="go">Join</div>\r\n\r\n\t\t\t\t\t\t\t\t<div class="cancel">Cancel</div>\r\n\t\t\t\t\t\t\t\t<div class="error"></div>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t'), 
-            __p += "\r\n\r\n\r\n\t\t\t\t", "join" != tp && (__p += '\r\n\t\t\t\t\t<a class="logo" href="' + (null == (__t = RM.constants.readymag_host) ? "" : __t) + '">Powered by<div class="icon sprite"></div></a>\r\n\t\t\t\t'), 
-            __p += "\r\n\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\r\n";
-        }
+        with (obj || {}) __p += '\r\n\r\n\t<div class="final-page offscreen hidden ' + (null == (__t = isStickyVerticalViewer ? "" : "has-vertical-scroll") ? "" : __t) + '">\r\n\t\t<div class="final-page-wrapper tp-' + (null == (__t = tp) ? "" : _.escape(__t)) + '">\r\n\t\t\t<div class="final-page-container">\r\n\r\n\t\t\t\t<div class="dop-container-text">\r\n\t\t\t\t\t<div class="main-container">\r\n\t\t\t\t\t\t<a class="made-with" href="' + (null == (__t = RM.constants.readymag_host) ? "" : __t) + '">Made with <div class="logo"></div></a>\r\n\t\t\t\t\t\t<p class="bottom-text">Design from scratch and publish online, immediately.</p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class="dop-container-join">\r\n\t\t\t\t\t\t<div class="join ljr-panel ">\r\n\t\t\t\t\t\t\t<div class="header"><span>Join</span> or <a href="/login/" class="link">Log in</a></div>\r\n\t\t\t\t\t\t\t<input autocapitalize="on"  autocorrect="off" required="required" class="fullname-input input-template for-validate"  maxlength="24" type="text"     spellcheck="false" value="" placeholder="Name" />\r\n\t\t\t\t\t\t\t<input autocapitalize="off" autocorrect="off" required="required" class="email-input input-template for-validate"     type="email"    spellcheck="false" value="" placeholder="Email" />\r\n\t\t\t\t\t\t\t<input autocapitalize="off" autocorrect="off" required="required" class="password-input input-template for-validate"  type="password" spellcheck="false" value="" placeholder="Password" />\r\n\r\n\t\t\t\t\t\t\t<div class="checkbox-container">\r\n\t\t\t\t\t\t\t\t<label>\r\n\t\t\t\t\t\t\t\t\t<input type="checkbox" class="terms-checkbox for-validate" required="required">\r\n\t\t\t\t\t\t\t\t\t<span class="checkmark"></span>\r\n\t\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t\t<p>I accept Readymag\r\n\t\t\t\t\t\t\t\t\t<a href="https://readymag.com/readymag/terms-and-privacy/" target="_blank">Terms & Privacy Policy</a>\r\n\t\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\r\n\t\t\t\t\t\t\t<div class="checkbox-container second">\r\n\t\t\t\t\t\t\t\t<label>\r\n\t\t\t\t\t\t\t\t\t<input type="checkbox" class="subscribe-checkbox">\r\n\t\t\t\t\t\t\t\t\t<span class="checkmark"></span>\r\n\t\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t\t<p>Keep me updated on new features</p>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\r\n\t\t\t\t\t\t\t<div class="go">Join</div>\r\n\r\n\t\t\t\t\t\t\t<div class="social-caption">Sign up with</div>\r\n\t\t\t\t\t\t\t<div class="social-auth" data-provider=\'facebook\'>\r\n\t\t\t\t\t\t\t\t<span class="icon"></span>\r\n\t\t\t\t\t\t\t\t<span class="buttonText">Facebook</span>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class="social-auth" data-provider=\'google\'>\r\n\t\t\t\t\t\t\t\t<span class="icon"></span>\r\n\t\t\t\t\t\t\t\t<span class="buttonText">Google</span>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class="error"></div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class="login ljr-panel hidden">\r\n\t\t\t\t\t\t', 
+        Modernizr.isboxversion ? __p += '\r\n\t\t\t\t\t\t\t<div class="header"><span>Log in</span></div>\r\n\t\t\t\t\t\t' : __p += '\r\n\t\t\t\t\t\t\t<div class="header"><a href="/join/" class="link">Join</a> or <span>Log in</span></div>\r\n\t\t\t\t\t\t', 
+        __p += '\r\n\t\t\t\t\t\t<form method="post" action="/api/redirect" id="login_form">\r\n\t\t\t\t\t\t\t<input name="username" autocapitalize="off" autocorrect="off" required="required" class="email-input input-template"  autocomplete="on" type="email" spellcheck="false" value="" placeholder="Email"/>\r\n\t\t\t\t\t\t\t<input name="password" autocapitalize="off" autocorrect="off" required="required" class="password-input input-template" autocomplete="on"  type="password" spellcheck="false" value=""  placeholder="Password" />\r\n\t\t\t\t\t\t\t<input name="url" type="hidden" value="" />\r\n\t\t\t\t\t\t\t<div class="go">Log in</div>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t\t', 
+        Modernizr.isboxversion || (__p += '\r\n\t\t\t\t\t\t\t<div class="social-caption">Log in with</div>\r\n\t\t\t\t\t\t\t<div class="social-auth" data-provider=\'facebook\'>\r\n\t\t\t\t\t\t\t\t<span class="icon"></span>\r\n\t\t\t\t\t\t\t\t<span class="buttonText">Facebook</span>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class="social-auth" data-provider=\'google\'>\r\n\t\t\t\t\t\t\t\t<span class="icon"></span>\r\n\t\t\t\t\t\t\t\t<span class="buttonText">Google</span>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t'), 
+        __p += '\r\n\t\t\t\t\t\t<a href="/recover/" class="link forgot">Forgot password?</a>\r\n\t\t\t\t\t\t<div class="error">Invalid email or password</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class="recover ljr-panel hidden">\r\n\t\t\t\t\t\t<div class="header"><span>Reset password</span></div>\r\n\t\t\t\t\t\t<div class="wrapper">\r\n\t\t\t\t\t\t\t<input name="username" autocapitalize="off" autocorrect="off" required="required" class="email-input input-template"  autocomplete="on" type="email" spellcheck="false" value="" placeholder="What’s your email?"/>\r\n\t\t\t\t\t\t\t<div class="go">Submit</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class="send-message">We sent a message to <span class="recover-email">emailaddress@gmail.com</span><br/>so you can set a new password.</div>\r\n\t\t\t\t\t\t<div class="go-back">Go back</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\r\n';
         return __p;
     }.apply(this, arguments));
 }, RM.templates["template-viewer-mag-menu"] = function() {
@@ -1498,6 +1491,38 @@ Modernizr.addTest("retina", function() {
         setNoTransitions: function(e) {
             return e = !!e || void 0 === e, t.constants.noanimations = e, $("html").toggleClass("notransitions"), 
             "Transitions are " + (e ? "disabled" : "enabled");
+        },
+        sendAnalyticsCustomEvent: function(e, i, s, n, a) {
+            var o = {
+                v: "1",
+                t: "event",
+                tid: t.constants.GA_ID
+            }, r = _.extend({}, o, {
+                ec: encodeURIComponent(e),
+                ea: encodeURIComponent(i)
+            });
+            s && _.extend(r, {
+                el: encodeURIComponent(s)
+            }), n && _.extend(r, {
+                ev: encodeURIComponent(n)
+            }), _.extend(r, {
+                cid: a || this.getGAcid()
+            });
+            var l = Object.keys(r).map(function(t) {
+                return t + "=" + r[t];
+            }).join("&");
+            $.ajax({
+                url: "https://www.google-analytics.com/collect",
+                method: "POST",
+                data: l,
+                processData: !1,
+                contentType: "text/plain"
+            });
+        },
+        getGAcid: function() {
+            var t = this.getCookie("_ga"), e = null;
+            return t && (t = t.match(/GA[0-9]+\.[0-9]+\.(.*)/)).length > 1 && (e = t[1]), e || (e = this.generateUUID()), 
+            e;
         }
     }, $.expr[":"].icontains = function(t, e, i, s) {
         var n = i[3] + "", a = t.textContent || t.innerText || jQuery(t).text() || "", o = new RegExp("(" + n + ")", "i");
@@ -1678,16 +1703,16 @@ Modernizr.addTest("retina", function() {
             return t && e && !(e.left > t.right || e.right < t.left || e.top > t.bottom || e.bottom < t.top);
         },
         calcBoundingBox: function(e, i, s) {
-            var n = t.mathutils.calcRotatedBox(e), a = _.pluck(n, "x"), o = _.pluck(n, "y"), r = Math.min.apply(null, a), l = Math.max.apply(null, a), c = Math.min.apply(null, o), d = r, h = c, u = l - r, p = Math.max.apply(null, o) - c;
+            var n = t.mathutils.calcRotatedBox(e), a = _.pluck(n, "x"), o = _.pluck(n, "y"), r = Math.min.apply(null, a), l = Math.max.apply(null, a), c = Math.min.apply(null, o), d = r, h = c, p = l - r, u = Math.max.apply(null, o) - c;
             return i && ([ "n", "c", "s" ].indexOf(i) > -1 && (d = e.left), [ "w", "c", "e" ].indexOf(i) > -1 && (h = e.top)), 
             s ? {
-                width: u,
-                height: p,
+                width: p,
+                height: u,
                 left: d,
                 top: h
             } : {
-                bb_width: u,
-                bb_height: p,
+                bb_width: p,
+                bb_height: u,
                 bb_left: d,
                 bb_top: h
             };
@@ -1719,8 +1744,8 @@ Modernizr.addTest("retina", function() {
         calcRotatedBox: function(t) {
             var e = [], i = [ 0, 1, 1, 0 ], s = [ 0, 0, 1, 1 ], n = t.left + t.width / 2, a = t.top + t.height / 2, o = t.sinAngle, r = t.cosAngle;
             return _.each(i, function(l, c) {
-                var d = t.left + t.width * i[c], h = t.top + t.height * s[c], u = d - n, p = a - h;
-                d = n + r * u + o * p, h = a + o * u - r * p;
+                var d = t.left + t.width * i[c], h = t.top + t.height * s[c], p = d - n, u = a - h;
+                d = n + r * p + o * u, h = a + o * p - r * u;
                 e.push({
                     x: d,
                     y: h
@@ -1939,7 +1964,7 @@ Modernizr.addTest("retina", function() {
         changeCheckboxState: function(t) {
             var e = $(t.target).siblings("input[type='checkbox']");
             e.is(":checked") ? e.prop("checked", !1) : e.prop("checked", !0), $(t.target).toggleClass("checked"), 
-            this.validateForm(), t.preventDefault();
+            $(t.target).parent().siblings("p").toggleClass("checked"), this.validateForm(), t.preventDefault();
         },
         validateForm: function() {
             "" !== this.$nameInput.val() && this.$pswInput.is(":valid") && this.$emailInput.is(":valid") && this.$termsCheckbox.is(":checked") ? this.$joinButton.addClass("active") : this.$joinButton.removeClass("active");
@@ -1961,13 +1986,13 @@ Modernizr.addTest("retina", function() {
         onBodyKeyUp: function(t) {
             27 == t.keyCode && this.closePopup();
         },
-        switchTo: function(t) {
-            var e = this.$(".ljr-panel." + t), i = e.siblings(".ljr-panel");
-            "recover" == t && this.$(".recover.ljr-panel .email-input").val(this.$(".login.ljr-panel .email-input").val()), 
-            e.removeClass("hidden"), Modernizr.isdesktop && setTimeout(function() {
-                e.find("input").eq(0).focus();
-            }, 0), this.disableAnimations ? i.addClass("hidden") : _.delay(function() {
-                i.addClass("hidden");
+        switchTo: function(e) {
+            var i = this.$(".ljr-panel." + e), s = window.matchMedia("(max-width: 768px)").matches, n = i.siblings(".ljr-panel"), a = ("recover" == e || "login" == e) && ".dop-container-join" === this.$el.selector && s;
+            "recover" == e && this.$(".recover.ljr-panel .email-input").val(this.$(".login.ljr-panel .email-input").val()), 
+            i.removeClass("hidden"), Modernizr.isdesktop && setTimeout(function() {
+                i.find("input").eq(0).focus();
+            }, 0), this.disableAnimations ? (n.addClass("hidden"), a && t.viewerRouter.mag.onResize()) : _.delay(function() {
+                n.addClass("hidden"), a && t.viewerRouter.mag.onResize();
             }, this.animationSpeed / 4), this.onResize();
         },
         onResize: function() {
@@ -2228,7 +2253,7 @@ Modernizr.addTest("retina", function() {
         putStorageData: function(e) {
             var i = {}, s = new Date();
             i.type = e, i.utm_campaign = t.utils.queryUrlGetParam("utm_campaign"), i.utm_source = t.utils.queryUrlGetParam("utm_source"), 
-            i.utm_medium = t.utils.queryUrlGetParam("utm_medium"), i.rm_url = window.location.href, i.rm_referrer = document.referrer, 
+            i.utm_medium = t.utils.queryUrlGetParam("utm_medium"), i.rm_url = encodeURI(window.location.href), i.rm_referrer = document.referrer, 
             i.timestamp = s.valueOf(), i._ga = t.utils.getCookie("_ga");
             var n = btoa(JSON.stringify(i));
             t.utils.createCookie("send_join_event", n, 10);
@@ -2428,8 +2453,8 @@ Modernizr.addTest("retina", function() {
                 $("head").append(e);
             }
             _.each(o, function(s, n) {
-                var a, o, r, l, d, u = "custom" == n ? 1 : "google" == n ? 22 : s.length, p = Math.ceil(s.length / u), g = 0, m = function() {
-                    if (o = a * u, r = Math.min((a + 1) * u, s.length), l = s.slice(o, r), d = _.pluck(l, "data"), fontsAndVariations = _.pluck(l, "fontAndVariations"), 
+                var a, o, r, l, d, p = "custom" == n ? 1 : "google" == n ? 22 : s.length, u = Math.ceil(s.length / p), g = 0, m = function() {
+                    if (o = a * p, r = Math.min((a + 1) * p, s.length), l = s.slice(o, r), d = _.pluck(l, "data"), fontsAndVariations = _.pluck(l, "fontAndVariations"), 
                     $("link, style").addClass("existing"), "google" == n && (v = (t.constants.IS_FILE_PROTOCOL ? "http://" : "//") + "fonts.googleapis.com/css?family=", 
                     f = d.join("%7C"), h(v + f + "&subset=latin,vietnamese,khmer,cyrillic-ext,greek-ext,greek,devanagari,latin-ext,cyrillic")), 
                     "typekit" == n && !Modernizr.isboxversion) {
@@ -2449,19 +2474,19 @@ Modernizr.addTest("retina", function() {
                             } catch (t) {}
                         }));
                     }
-                    var p;
+                    var u;
                     function m(e) {
                         e.addClass("fonts").attr("data-id", t.utils.generateUUID()).attr("data-provider", n).attr("data-fonts-and-variations", fontsAndVariations.join("||"));
                     }
                     "webtype" == n && (v = t.common.isDownloadedSource ? t.constants.readymag_host : "", $('link.fonts[data-provider="webtype"]').length || (w = window.ServerData && window.ServerData.fonts && window.ServerData.fonts.webtype, 
                     h(v + w))), "typetoday" != n || c || (v = t.common.isDownloadedSource ? t.constants.readymag_host : "", 
                     $('link.fonts[data-provider="typetoday"]').length || (w = window.ServerData && window.ServerData.fonts && window.ServerData.fonts.typetoday, 
-                    h(v + w))), "custom" == n && (y = d[0].signed_css_url || d[0].css_url, /^\/api\/fonts\//i.test(y) ? (p = $("<style>").attr("type", "text/css"), 
-                    $("head").append(p), $.get(y, function(t) {
-                        p.text(t), ++g >= s.length && _.isFunction(i) && i();
+                    h(v + w))), "custom" == n && (y = d[0].signed_css_url || d[0].css_url, /^\/api\/fonts\//i.test(y) ? (u = $("<style>").attr("type", "text/css"), 
+                    $("head").append(u), $.get(y, function(t) {
+                        u.text(t), ++g >= s.length && _.isFunction(i) && i();
                     })) : h(y)), m($("link:not(.existing), style:not(.existing)")), $("link, style").removeClass("existing");
                 };
-                for (a = 0; a < p; a++) {
+                for (a = 0; a < u; a++) {
                     var f, v, w, y;
                     m();
                 }
@@ -2515,7 +2540,7 @@ Modernizr.addTest("retina", function() {
             return s;
         },
         exactWaitForFontLoad: function(t, s, n, a) {
-            var o = n + " " + s + " 12px " + t + ", Arial", r = n + " " + s + " 12px Arial", l = 20, c = 20, d = $('<canvas width="' + l + '" height="' + c + '"></canvas>'), h = d[0], u = h.getContext("2d"), p = "", g = "", m = +new Date();
+            var o = n + " " + s + " 12px " + t + ", Arial", r = n + " " + s + " 12px Arial", l = 20, c = 20, d = $('<canvas width="' + l + '" height="' + c + '"></canvas>'), h = d[0], p = h.getContext("2d"), u = "", g = "", m = +new Date();
             d.appendTo("body").css({
                 position: "absolute",
                 left: 0,
@@ -2523,13 +2548,13 @@ Modernizr.addTest("retina", function() {
             }), function f() {
                 var v = +new Date() - m > i, _ = function() {
                     var t = o;
-                    u.clearRect(0, 0, l, c), p || (p = h.toDataURL("image/png"), t = r);
-                    u.font = t, u.fillStyle = "000", u.fillText("a1-&q", 0, 20);
+                    p.clearRect(0, 0, l, c), u || (u = h.toDataURL("image/png"), t = r);
+                    p.font = t, p.fillStyle = "000", p.fillText("a1-&q", 0, 20);
                     var e = h.toDataURL("image/png");
                     g || (g = e);
-                    return e != p && e != g;
+                    return e != u && e != g;
                 }();
-                if (_ || v) return u = void 0, d.remove(), void a(_, t, s, n);
+                if (_ || v) return p = void 0, d.remove(), void a(_, t, s, n);
                 setTimeout(f, e);
             }();
         },
@@ -2566,8 +2591,8 @@ Modernizr.addTest("retina", function() {
                     h["font-style"] = "inherit" == h["font-style"] ? d["font-style"] : h["font-style"], h["font-weight"] = "inherit" == h["font-weight"] ? d["font-weight"] : h["font-weight"]), 
                     a[d["font-family"] + "|" + d["font-style"] + "|" + d["font-weight"]] = 1, h && (a[h["font-family"] + "|" + h["font-style"] + "|" + h["font-weight"]] = 1), 
                     j = 0; j < t.viewports.length; j++) {
-                        var u = l["viewport_" + t.viewports[j].name];
-                        u && (d = u["style-" + u.style + "-fields"], h = _.clone(u["style-" + u.style + "-button-default"]), 
+                        var p = l["viewport_" + t.viewports[j].name];
+                        p && (d = p["style-" + p.style + "-fields"], h = _.clone(p["style-" + p.style + "-button-default"]), 
                         _.isEmpty(h) || (h["font-family"] = "inherit" == h["font-family"] ? d["font-family"] : h["font-family"], 
                         h["font-style"] = "inherit" == h["font-style"] ? d["font-style"] : h["font-style"], h["font-weight"] = "inherit" == h["font-weight"] ? d["font-weight"] : h["font-weight"]), 
                         d && (a[d["font-family"] + "|" + d["font-style"] + "|" + d["font-weight"]] = 1), h && (a[h["font-family"] + "|" + h["font-style"] + "|" + h["font-weight"]] = 1));
@@ -2579,8 +2604,8 @@ Modernizr.addTest("retina", function() {
                     s && _.extend(i, this.scanTextForFontsAndVariationsRaw(s, w(t, "version"), e.excludeUnusedDefault));
                 }, this));
             }
-            var p = _.extend({}, i, s, n, a), g = {};
-            _.each(p, function(t, e) {
+            var u = _.extend({}, i, s, n, a), g = {};
+            _.each(u, function(t, e) {
                 var i = e.split("|"), s = i[0], n = i[1].toLowerCase(), a = i[2].toLowerCase();
                 g[s] = g[s] || [], g[s].push(("italic" == n ? "i" : "n") + Math.floor(a / 100));
             });
@@ -2666,7 +2691,7 @@ Modernizr.addTest("retina", function() {
             return a;
         },
         scanTextForFontsAndVariationsRaw: function(e, i, s, n) {
-            var a, o, r, l, c, d, h, u, p, g, m, f = {}, v = {}, w = [], y = document.defaultView.getComputedStyle;
+            var a, o, r, l, c, d, h, p, u, g, m, f = {}, v = {}, w = [], y = document.defaultView.getComputedStyle;
             for (a = 0; a < t.viewports.length; a++) if (e.split("-" + t.viewports[a].name).length > 1) {
                 if (n && -1 === n.indexOf(t.viewports[a].name)) continue;
                 w.push(t.viewports[a].name);
@@ -2688,8 +2713,8 @@ Modernizr.addTest("retina", function() {
             x = x || b === k, f[c.fontFamily + "|" + c.fontStyle + "|" + c.fontWeight] = 1;
             var S = P(o);
             for (!s || x || S || delete f[k], a = 0; a < w.length; a++) if ("default" != (g = w[a])) {
-                for (l = 0; l < h; l++) (u = (m = d[l]).getAttribute("data-style-" + g)) && ("empty" == u ? m.removeAttribute("style") : m.setAttribute("style", u)), 
-                (p = m.getAttribute("data-class-" + g)) && ("empty" == p ? m.removeAttribute("class") : m.setAttribute("class", p)), 
+                for (l = 0; l < h; l++) (p = (m = d[l]).getAttribute("data-style-" + g)) && ("empty" == p ? m.removeAttribute("style") : m.setAttribute("style", p)), 
+                (u = m.getAttribute("data-class-" + g)) && ("empty" == u ? m.removeAttribute("class") : m.setAttribute("class", u)), 
                 (m.getAttribute("style") || m.getAttribute("class")) && (f[(c = y(m, null)).fontFamily + "|" + c.fontStyle + "|" + c.fontWeight] = 1);
                 a < w.length - 1 && (o.innerHTML = e, h = (d = o.querySelectorAll("span,p,a")).length);
             }
@@ -2701,11 +2726,11 @@ Modernizr.addTest("retina", function() {
         },
         calcBrowserUsedVariation: function(t, e) {
             for (var i = {}, s = 0; s < t.length; s++) {
-                for (var n, a, o, r = t[s], l = r.substr(1, 1), c = r.substr(0, 1), d = 99999, h = "", u = 0; u < e.length; u++) n = e[u].substr(1, 1) - 0, 
-                a = e[u].substr(0, 1), l < 4 && (o = 10 * Math.abs(n - l) + (a == c ? 0 : 1e3) + (n <= l ? 0 : 100)), 
+                for (var n, a, o, r = t[s], l = r.substr(1, 1), c = r.substr(0, 1), d = 99999, h = "", p = 0; p < e.length; p++) n = e[p].substr(1, 1) - 0, 
+                a = e[p].substr(0, 1), l < 4 && (o = 10 * Math.abs(n - l) + (a == c ? 0 : 1e3) + (n <= l ? 0 : 100)), 
                 l > 5 && (o = 10 * Math.abs(n - l) + (a == c ? 0 : 1e3) + (n >= l ? 0 : 100)), 4 == l && (o = 5 == n ? 0 + (a == c ? 0 : 1e3) + 0 : 10 * Math.abs(n - l) + (a == c ? 0 : 1e3) + (n <= l ? 0 : 100)), 
                 5 == l && (o = 10 * Math.abs(n - l) + (a == c ? 0 : 1e3) + (n <= l ? 0 : 100)), l == n && c == a && (o = 0), 
-                o < d && (d = o, h = e[u]);
+                o < d && (d = o, h = e[p]);
                 i[h] = 1;
             }
             return _.keys(i);
@@ -2783,8 +2808,6 @@ Modernizr.addTest("retina", function() {
             this.lastTrackedUrl = "", this.shortlink_redirect = t.utils.getCookie("shortlink_redirect"), this._saveFirstInteraction(), 
             t.common.readymagTracker && t.utils.loadLoggedUser(_.bind(function(t) {
                 t._id && window.ga && (window.ga && ga("readymag.set", "&uid", t._id), this.userId = t._id);
-            }, this)), $(_.bind(function() {
-                this.trackPage();
             }, this));
         },
         sendEvent: function(e, i, s, n) {
@@ -2868,7 +2891,7 @@ Modernizr.addTest("retina", function() {
         _saveFirstInteraction: function() {
             var e = t.utils.getCookie("_rmdata") || Modernizr.localstorage && window.localStorage && window.localStorage.getItem("_rmdata");
             if (e) this._rmdata = JSON.parse(atob(e)); else {
-                var i = document.referrer || "direct", s = window.location.href, n = t.utils.queryUrlGetParam("utm_campaign"), a = t.utils.queryUrlGetParam("utm_source"), o = t.utils.queryUrlGetParam("utm_medium"), r = {
+                var i = document.referrer || "direct", s = encodeURI(window.location.href), n = t.utils.queryUrlGetParam("utm_campaign"), a = t.utils.queryUrlGetParam("utm_source"), o = t.utils.queryUrlGetParam("utm_medium"), r = {
                     dimension: [ n, a, o, i, s ].join("|"),
                     first_medium: o,
                     first_campaign: n,
@@ -3259,10 +3282,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     if (r) return void this.setPosterInsteadOfVideo(r, n, i, s);
                 }
                 i.html(e);
-                var l, c, d, h, u, p = 0, g = !1;
-                u = setInterval(function() {
-                    if (p++, l = i.children(this.containerSelector), (c = l.height()) || p > 20) {
-                        if (c || p > 50) return c && "constructor" === t.common.mode && (d = l.width(), h = l.height()), clearInterval(u), 
+                var l, c, d, h, p, u = 0, g = !1;
+                p = setInterval(function() {
+                    if (u++, l = i.children(this.containerSelector), (c = l.height()) || u > 20) {
+                        if (c || u > 50) return c && "constructor" === t.common.mode && (d = l.width(), h = l.height()), clearInterval(p), 
                         void s(d, h);
                         if (g) return;
                         g = !0, s();
@@ -3418,20 +3441,20 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             return d.onload = function() {
                 l = d.width, c = d.height, o = 200, r = Math.floor(o * (c / l)), n = $('<canvas id="qqq" width="' + o + '" height="' + r + '"></canvas>').css("visibility", "hidden").appendTo("body"), 
                 (a = n[0].getContext("2d")).drawImage(d, 0, 0, o, r);
-                var t, i, h = a.getImageData(0, 0, o, r), u = 0, p = 0, g = 0, m = 0;
+                var t, i, h = a.getImageData(0, 0, o, r), p = 0, u = 0, g = 0, m = 0;
                 for (i = 0; i <= r / 2; i++) {
                     if (w(i, "row").isContrast) {
-                        (i <= 1 || w(i - 1, "row").isBlack || w(i - 2, "row").isBlack) && (u = i);
+                        (i <= 1 || w(i - 1, "row").isBlack || w(i - 2, "row").isBlack) && (p = i);
                         break;
                     }
                 }
                 for (i = r - 1; i > r / 2; i--) {
                     if (w(i, "row").isContrast) {
-                        (i >= r - 2 || w(i + 1, "row").isBlack || w(i + 2, "row").isBlack) && (p = r - 1 - i);
+                        (i >= r - 2 || w(i + 1, "row").isBlack || w(i + 2, "row").isBlack) && (u = r - 1 - i);
                         break;
                     }
                 }
-                var f = Math.max(u, p), v = 0;
+                var f = Math.max(p, u), v = 0;
                 if (!f) {
                     for (t = 0; t <= o / 2; t++) {
                         if (w(t, "column").isContrast) {
@@ -3450,12 +3473,12 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 f > r / 3 && (f = 0), v > o / 3 && (v = 0);
                 var _ = l / c;
                 function w(t, e) {
-                    var i, s, n, a, l, c = "row" == e ? o : r, d = 0, u = 0;
+                    var i, s, n, a, l, c = "row" == e ? o : r, d = 0, p = 0;
                     for (i = 0; i < c; i++) s = ("row" == e ? t * o + i : i * o + t) << 2, d += (n = h.data[s]) + (a = h.data[s + 1]) + (l = h.data[s + 2]), 
-                    n < 20 && a < 20 && l < 20 && u++;
+                    n < 20 && a < 20 && l < 20 && p++;
                     return {
-                        isBlack: (d /= 3 * c) < 5 && c - u < 3,
-                        isContrast: u < c / 2
+                        isBlack: (d /= 3 * c) < 5 && c - p < 3,
+                        isContrast: p < c / 2
                     };
                 }
                 f ? _ = o / (r - 2 * f) : v && (_ = (o - 2 * v) / r), n.remove(), s.aspect_poster = l / c, s.aspect_real = _, 
@@ -3472,25 +3495,25 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     var s = t.mag.getContainerSizeCached();
                     e = s.width, i = s.height;
                 }
-                var n, a, o = t.aspect_poster, r = t.aspect_real || o, l = t.controls_remove ? 5 : 0, c = e + 2 * l, d = i + 2 * l, h = c, u = d;
-                if (o) c / d > r ? a = (n = c) / r : n = (a = d) * r, o < r ? u = (h = n) / o : h = (u = a) * o;
+                var n, a, o = t.aspect_poster, r = t.aspect_real || o, l = t.controls_remove ? 5 : 0, c = e + 2 * l, d = i + 2 * l, h = c, p = d;
+                if (o) c / d > r ? a = (n = c) / r : n = (a = d) * r, o < r ? p = (h = n) / o : h = (p = a) * o;
                 if ("vimeo" == t.provider.toLowerCase() && t.controls_remove) {
-                    var p = (u - d) / 2;
-                    if (v = 50, minRightPadding = 46, diffBottom = v - p, diffRight = minRightPadding - (h - c) / 2, diffBottom > 0 || diffRight > 0) {
-                        var g = (u + 2 * diffBottom) / u, m = (h + 2 * diffRight) / h, f = Math.max(g, m);
-                        h *= f, u *= f;
+                    var u = (p - d) / 2;
+                    if (v = 50, minRightPadding = 46, diffBottom = v - u, diffRight = minRightPadding - (h - c) / 2, diffBottom > 0 || diffRight > 0) {
+                        var g = (p + 2 * diffBottom) / p, m = (h + 2 * diffRight) / h, f = Math.max(g, m);
+                        h *= f, p *= f;
                     }
                 }
                 if ("youtube" == t.provider.toLowerCase() && t.controls_remove) {
-                    var v = 103, _ = v - (p = (u - d) / 2);
-                    _ > 0 && (h = (u += 2 * _) * o);
+                    var v = 103, _ = v - (u = (p - d) / 2);
+                    _ > 0 && (h = (p += 2 * _) * o);
                 }
-                var w = -l - (h - c) / 2, y = -l - (u - d) / 2;
+                var w = -l - (h - c) / 2, y = -l - (p - d) / 2;
                 t.$media.css({
                     left: w,
                     top: y,
                     width: h,
-                    height: u
+                    height: p
                 });
             }
         }
@@ -3506,7 +3529,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         ANIMATION_BLOCK_EXCLUDE: [ "facebook", "twitter" ],
         POINTER_EVENTS_BLOCK_EXCLUDE: [ "form", "gmaps", "slideshow", "audio", "video" ],
         DEFAULT_LOOP_TYPE: "swing",
-        TRIGGER_HIGHLIGHT_CLASS: "animation-trigger-highlight",
+        ACTIVE_TRIGGER_CLASS: "active-trigger",
+        ACTIVE_TRIGGER_REMOVE_CLASS: "active-trigger-remove",
+        ACTIVE_TRIGGER_HIGHLIGHT_CLASS: "active-trigger-highlight",
+        ANIMATIONS_PLAYED_STORAGE_KEY: "animationsPlayed",
         DEG_TO_RAD: Math.PI / 180,
         ANIMATION_PROPERTIES: function() {
             var t = !1, e = "animation", i = "AnimationIteration", s = "AnimationEnd", n = "animation-timing-function", a = "@keyframes", o = "transform", r = "transform", l = "Webkit Moz O ms Khtml".split(" "), c = "webkit moz o MS кhtml".split(" "), d = document.createElement("div");
@@ -3561,7 +3587,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 1 != n && i && (d.dx *= n, d.dy *= n), "scroll" == r.type ? (d.calcedDuration = h(d, l), d.calcedDelay = d.delay_px ? d.delay_px * t.scale.normalize(n) : 0) : (d.calcedDuration = d.duration || .001, 
                 d.calcedDelay = d.delay || 0), d.acceleration = d.acceleration || "none", r.steps.push(d), l = d;
             }
-            return r;
+            return r.trigger = e.trigger && !_.isArray(e.trigger) ? [ e.trigger ] : _.clone(e.trigger) || [], r;
             function h(t, e) {
                 var i, s = t.dx - e.dx, n = t.dy - e.dy;
                 return i = 0 != s || 0 != n ? Math.pow(s * s + n * n, .5) / t.speed : 300 / t.speed, Math.ceil(i);
@@ -3572,6 +3598,9 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         },
         isExternalTriggerAllowed: function(t) {
             return this.isPointerEvent(t);
+        },
+        normalizeAnimationTriggers: function(t) {
+            return t && !_.isArray(t) ? [ t ] : _.clone(t) || [];
         },
         isPointerEvent: function(t) {
             return -1 !== this.POINTER_EVENTS.indexOf(t);
@@ -3613,6 +3642,28 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         },
         canBeAccelerated: function(t) {
             return !Modernizr.isdesktop || !this.isScaleUp(t);
+        },
+        getPermanentAnimationId: function(t) {
+            return t.fixed_position || t.is_full_width || t.sticked ? t._id : t.animation && t.animation.UUID;
+        },
+        getAnimationsPlayed: function() {
+            if (_.isUndefined(this._animationsPlayed)) try {
+                var e = Modernizr.localstorage ? window.localStorage.getItem(this.ANIMATIONS_PLAYED_STORAGE_KEY) : t.utils.getCookie(this.ANIMATIONS_PLAYED_STORAGE_KEY), i = e && JSON.parse(e);
+                this._animationsPlayed = _.isArray(i) ? i : [];
+            } catch (t) {
+                this._animationsPlayed = [];
+            }
+            return this._animationsPlayed;
+        },
+        persistHasPlayed: function(e) {
+            if (!this.hasPlayed(e)) try {
+                var i = JSON.stringify([].concat(this.getAnimationsPlayed(), e));
+                Modernizr.localstorage ? window.localStorage.setItem(this.ANIMATIONS_PLAYED_STORAGE_KEY, i) : t.utils.createCookie(this.ANIMATIONS_PLAYED_STORAGE_KEY, i), 
+                delete this._animationsPlayed;
+            } catch (t) {}
+        },
+        hasPlayed: function(t) {
+            return t && -1 !== this.getAnimationsPlayed().indexOf(t);
         }
     };
     var e = 0, i = t.animationutils.ANIMATION_PROPERTIES, s = Backbone.View.extend({
@@ -3711,7 +3762,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 this.$el[0].style[i.transformJS] = this.getTransformString(s.dx, s.dy, s.rotate, s.scale / 100), e = s.opacity, 
                 this.$el[0].style.opacity = 0 == e ? 0 : e / 100;
             }
-            ("initial" != t || this.animationTrigger) && 0 === e && "hover" != this.type && this.$el.addClass("invisible");
+            ("initial" != t || this.animationTrigger.length > 0) && 0 === e && "hover" != this.type && this.$el.addClass("invisible");
         },
         play: function() {
             if (!this.screenshotMode && i.animationSupported) {
@@ -4018,12 +4069,12 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             }.bind(this));
         },
         getFormData: function() {
-            var e = this.$(".period-selector .period.active"), i = this.$(".field-wrapper.email"), s = this.$(".field-wrapper.from"), n = this.$(".field-wrapper.message"), a = this.$(".field-wrapper.send"), o = this.$(".card-wrapper:not(.hidden)"), r = this.$(".card-wrapper.new-card .field-wrapper.card-name"), l = this.$(".card-wrapper.new-card .field-wrapper.card-number"), c = this.$(".card-wrapper.new-card .field-wrapper.card-date"), d = this.$(".card-wrapper.new-card .field-wrapper.card-cvc"), h = new Date(a.find("input").val()), u = h.getDate(), p = h.getMonth() + 1, g = h.getFullYear(), m = {
+            var e = this.$(".period-selector .period.active"), i = this.$(".field-wrapper.email"), s = this.$(".field-wrapper.from"), n = this.$(".field-wrapper.message"), a = this.$(".field-wrapper.send"), o = this.$(".card-wrapper:not(.hidden)"), r = this.$(".card-wrapper.new-card .field-wrapper.card-name"), l = this.$(".card-wrapper.new-card .field-wrapper.card-number"), c = this.$(".card-wrapper.new-card .field-wrapper.card-date"), d = this.$(".card-wrapper.new-card .field-wrapper.card-cvc"), h = new Date(a.find("input").val()), p = h.getDate(), u = h.getMonth() + 1, g = h.getFullYear(), m = {
                 plan_id: e.attr("data-plan"),
                 deliver_email: $.trim(i.find("input").val()),
                 from_name: $.trim(s.find("input").val()),
                 deliver_message: $.trim(n.find("textarea").val()),
-                deliver_at: g + "-" + (p < 10 ? "0" : "") + p + "-" + (u < 10 ? "0" : "") + u,
+                deliver_at: g + "-" + (u < 10 ? "0" : "") + u + "-" + (p < 10 ? "0" : "") + p,
                 useExistingCard: o.hasClass("existing-card"),
                 period: e.hasClass("month") ? "month" : "year"
             }, f = $();
@@ -4155,7 +4206,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             var a = i.emptyTitle ? "" : i.title, o = "", r = "";
             return s.customDomain ? t && t.num > 1 ? o = (a ? a + " — " : "") + (t.title || "Page " + t.num) : (o = a || "Project", 
             r = i.description || "") : (t && t.num > 1 ? o = (t.title ? "‘" + t.title + "’" : "Page " + t.num) + " from " : r = i.description || n.defaultDescription, 
-            o += (a ? "‘" + a + "’" : "Project") + " by " + i.user.name + " | Readymag"), {
+            o = a || "Project"), {
                 title: o || "",
                 description: r || "",
                 keywords: ""
@@ -4472,17 +4523,17 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 var i, s, n = (e = e.originalEvent).touches, a = n[0], o = this.data, r = this.options, l = r.tolerance, c = o && o.constraints, d = this;
                 if (!this.animating && o && 1 == n.length && !(e.scale && 1 !== e.scale && r.disableOnScaled || a.identifier != o.id)) {
                     if (!this.started || o.noActionConstraints && !o.isTargetScrollable) {
-                        var h = 0, u = "";
+                        var h = 0, p = "";
                         (s = {
                             up: o.clientY - a.clientY,
                             down: a.clientY - o.clientY,
                             left: o.clientX - a.clientX,
                             right: a.clientX - o.clientX
-                        }).up > h && (u = "up", h = s.up), s.down > h && (u = "down", h = s.down), s.left > h && (u = "left", 
-                        h = s.left), s.right > h && (u = "right", h = s.right);
-                        var p = !1;
-                        if (this.started && (p = c.up && s.up > l || c.down && s.down > l || c.left && s.left > l || c.right && s.right > l), 
-                        h >= l) if (this.started = !0, c[u] || p) {
+                        }).up > h && (p = "up", h = s.up), s.down > h && (p = "down", h = s.down), s.left > h && (p = "left", 
+                        h = s.left), s.right > h && (p = "right", h = s.right);
+                        var u = !1;
+                        if (this.started && (u = c.up && s.up > l || c.down && s.down > l || c.left && s.left > l || c.right && s.right > l), 
+                        h >= l) if (this.started = !0, c[p] || u) {
                             var g = o.$referenceItem[0].getBoundingClientRect();
                             o.targetX == g.left && o.targetY == g.top || (o.noActionMovement = !0);
                             var m = c.left || c.right ? Math.abs(o.clientX - a.clientX) : 0, f = c.up || c.down ? Math.abs(o.clientY - a.clientY) : 0;
@@ -4492,15 +4543,15 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     }
                     if (this.started && (o.isTargetScrollable && o.noActionConstraints && !o.noActionMovement || e.preventDefault()), 
                     this.started && !o.noActionConstraints && !o.noActionMovement) {
-                        "x" == o.axis ? (i = a.clientX - o.clientX) < 0 ? (u = "left", i = -w(-i, c.left)) : i > 0 && (u = "right", 
-                        i = w(i, c.right)) : (i = a.clientY - o.clientY) < 0 ? (u = "up", i = -w(-i, c.up)) : i > 0 && (u = "down", 
+                        "x" == o.axis ? (i = a.clientX - o.clientX) < 0 ? (p = "left", i = -w(-i, c.left)) : i > 0 && (p = "right", 
+                        i = w(i, c.right)) : (i = a.clientY - o.clientY) < 0 ? (p = "up", i = -w(-i, c.up)) : i > 0 && (p = "down", 
                         i = w(i, c.down)), o.$moveItems.each(function(e, s) {
                             var n = o.translate[e], a = n[o.translateInd];
                             r.customMoveCheck && !r.customMoveCheck(t(this), i) || (n[o.translateInd] += i), d.applyTransform(this, o.oldStyle[e], n, 0), 
                             n[o.translateInd] = a;
                         });
                         var v = o.shift, _ = Math.abs(v - i) / (+new Date() + 1 - o.lastTime);
-                        o.shift = i, o.curDir = u, o.velocity = .8 * _ + .2 * o.velocity;
+                        o.shift = i, o.curDir = p, o.velocity = .8 * _ + .2 * o.velocity;
                     }
                     o.lastTime = +new Date();
                 }
@@ -4515,16 +4566,16 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                         var r = n.beforeAutoAnimation ? n.beforeAutoAnimation(s.curDir, s.shift) : null, l = r ? r.autoAnimate : n.autoAnimate, c = r ? r.immediateCallback : n.immediateCallback;
                         if (l) {
                             this.animating = !0;
-                            var d = Math.abs(Math.abs(s.shift) - a[s.curDir].max) / s.velocity, h = n.getMaxTransitionSpeed ? n.getMaxTransitionSpeed() : n.maxTransitionSpeed, u = Math.max(Math.min(h, d), n.minTransitionSpeed), p = !1;
+                            var d = Math.abs(Math.abs(s.shift) - a[s.curDir].max) / s.velocity, h = n.getMaxTransitionSpeed ? n.getMaxTransitionSpeed() : n.maxTransitionSpeed, p = Math.max(Math.min(h, d), n.minTransitionSpeed), u = !1;
                             s.$moveItems.each(function(e, i) {
                                 if (!n.customMoveCheck || n.customMoveCheck(t(this), s.shift)) {
                                     var r = s.translate[e];
                                     "up" == s.curDir || "left" == s.curDir ? r[s.translateInd] -= a[s.curDir].max : r[s.translateInd] += a[s.curDir].max, 
-                                    p || (RM.utils.waitForTransitionEnd(t(this), u + 1e3, "transform", function() {
+                                    u || (RM.utils.waitForTransitionEnd(t(this), p + 1e3, "transform", function() {
                                         o.animating = !1, c || n.callback(s.curDir), s.$moveItems.each(function(t, e) {
                                             this.style.cssText = s.oldStyle[t] || " ";
                                         }), s.$moveItems.removeClass("swiping");
-                                    }), p = !0), o.applyTransform(this, s.oldStyle[e], r, u);
+                                    }), u = !0), o.applyTransform(this, s.oldStyle[e], r, p);
                                 } else this.style.cssText = s.oldStyle[e] || " ";
                             }), c && n.callback(s.curDir);
                         } else s.$moveItems.each(function(t, e) {
@@ -4936,13 +4987,13 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             if (!this.widgets) return [];
             var e, i, s, n = this.visibleWidgetsCoords, a = (n.top + (n.scrollTop || 0)) / n.scale, o = 1 / ((n.bottom + (n.scrollTop || 0)) / n.scale - a), r = [], l = [];
             if (!this.BGWidget || this.BGWidget.rendered || this.BGWidget.loaded || l.push(this.BGWidget), this.fixedWidgets && this.fixedWidgets.length) for (e = 0; e < this.fixedWidgets.length; e++) (s = this.fixedWidgets[e]).rendered || s.loaded || s.canRenderImmediately() || l.push(s);
-            var c, d, h = [], u = 99999, p = -99999, g = !1;
+            var c, d, h = [], p = 99999, u = -99999, g = !1;
             for (e = 0; e < this.widgets.length; e++) (i = this.widgets[e]).rendered || i.loaded || "background" == i.type || i.fixed_position || (c = (d = t.classes.Page.getScreenIndex(i, a, o, !0)).index, 
-            u = Math.min(d.start, u), p = Math.max(d.end, p), i.screenIndex = c, c !== 1 / 0 && (h[c] = h[c] || [], 
+            p = Math.min(d.start, p), u = Math.max(d.end, u), i.screenIndex = c, c !== 1 / 0 && (h[c] = h[c] || [], 
             h[c].push(i)), g = !0);
             if (g) {
-                for (h[0] && r.push(h[0]), h[1] && r.push(h[1]), h[-1] && r.push(h[-1]), e = 2; e <= p; e++) h[e] && r.push(h[e]);
-                for (e = -2; e >= u; e--) h[e] && r.push(h[e]);
+                for (h[0] && r.push(h[0]), h[1] && r.push(h[1]), h[-1] && r.push(h[-1]), e = 2; e <= u; e++) h[e] && r.push(h[e]);
+                for (e = -2; e >= p; e--) h[e] && r.push(h[e]);
             }
             return l.length && (r.length ? r[0] = l.concat(r[0]) : r = [ l ]), r;
         },
@@ -4967,10 +5018,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             this.destroyAllWidgets([ "video" ]), this.BGWidget = null, this.fixedWidgets = [];
             var e = this.pageViewport, i = [], s = [], n = 99999, a = this, o = this;
             _.each(this.widgetsData, function(i) {
-                var a = o.getWidgetViewportData(i, e);
-                t.widgets[a.type] && !a.hidden && (!a.fixed_position && a.z && "background" != a.type && (n = Math.min(n, a.z)), 
+                var a = o.getWidgetViewportData(i, e), r = t.animationutils.getPermanentAnimationId(a), l = !this.mag.isPreview && a.animation && a.animation.playOnce && t.animationutils.hasPlayed(r);
+                !t.widgets[a.type] || a.hidden || l || (!a.fixed_position && a.z && "background" != a.type && (n = Math.min(n, a.z)), 
                 s.push(a));
-            }), 99999 == n && (n = 0), _.each(s, function(e) {
+            }.bind(this)), 99999 == n && (n = 0), _.each(s, function(e) {
                 var s = t.scale.isAllowed() && t.scale.isTransform();
                 e.fixed_position && (e.z < n || Modernizr.isdesktop && !this.mag.isStickyVerticalViewer && !s) ? e.$fixedContainer = o.$fixedPositionContainer : e.$fixedContainer = o.$fixedPositionContainerTop;
                 var r = null;
@@ -5695,11 +5746,11 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     bottom: Math.max(0, Math.min(o, h))
                 };
             } else {
-                var u = this.page.contentPosition.left / this.page.scale, p = this.page.contentPosition.top / this.page.scale, g = this.x + this.w / 2, m = this.y + this.h / 2;
-                d = m + p, h = this.page.contentHeight - m + p;
+                var p = this.page.contentPosition.left / this.page.scale, u = this.page.contentPosition.top / this.page.scale, g = this.x + this.w / 2, m = this.y + this.h / 2;
+                d = m + u, h = this.page.contentHeight - m + u;
                 e = {
-                    left: Math.max(0, g + u),
-                    right: Math.max(0, this.page.pageWidth - g + u),
+                    left: Math.max(0, g + p),
+                    right: Math.max(0, this.page.pageWidth - g + p),
                     top: Math.max(0, Math.min(a, d)),
                     bottom: Math.max(0, Math.min(o, h))
                 };
@@ -5725,15 +5776,15 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 }
                 if (n) {
                     o = "javascript:void(0)", t["data-anchor-link-pos"] = this.anchor_link_pos;
-                    var u = _.findWhere(this.mag.pages, {
+                    var p = _.findWhere(this.mag.pages, {
                         _id: this.clickPage
                     }) || this.page;
-                    t["data-page-uri"] = u.uri || u.num;
+                    t["data-page-uri"] = p.uri || p.num;
                 }
                 if (a) {
                     o = "javascript:void(0)";
-                    var p = this.clickLink.match(this.shareRegexp);
-                    t["data-share-provider"] = p[1], t["data-share-type"] = p[2];
+                    var u = this.clickLink.match(this.shareRegexp);
+                    t["data-share-provider"] = u[1], t["data-share-type"] = u[2];
                 }
                 if (0 != o.indexOf("mailto") && 0 != o.indexOf("tel") && "maglink" != l || (r = ""), o) {
                     _.extend(t, {
@@ -5749,6 +5800,9 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         updateWidgetData: function(t, e, i) {
             _.extend(this, t, t.params), this.page = e, this.mag = this.page.mag, this.$pageContainer = i || this.page.$content, 
             this.x = this.x || 0, this.y = this.y || 0;
+        },
+        getAnimationTriggers: function() {
+            return t.animationutils.normalizeAnimationTriggers(this.animation && this.animation.trigger);
         }
     });
 }(RM), function(t, e) {
@@ -5977,22 +6031,15 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
     t.classes.FinalPage = Backbone.View.extend({
         template: t.templates["template-viewer-final-page"],
         events: {
-            "click .share-button": "share",
-            "click .share-embed": "openEmbed",
-            "click .embed-wrapper .embed-close": "closeEmbed",
-            "click .embed-wrapper .embed-code": "selectEmbedCode",
-            "keyup .embed-wrapper .embed-code": "onKeyUp",
-            "click .full-name": "toProfile",
-            "click .logo": "toHomepage",
-            "click .related-link": "toRelated",
-            "click .size-selector": "onSizeSelectorClick"
+            "click .recover .go": "onClickRecoverSubmit",
+            "click .join.ljr-panel .go": "onJoinButtonClick"
         },
         initialize: function(t) {
             return _.bindAll(this), _.extend(this, t), this;
         },
         render: function() {
             var e = "empty";
-            return "recent" == this.finalPageType && this.recentMags.length && (e = "recent"), "join" == this.finalPageType && (e = "join"), 
+            return "join" != this.finalPageType || this.me || (e = "join"), "join" == this.finalPageType && (e = "join"), 
             this.setElement(this.template({
                 mag: this.mag,
                 disableSocials: this.isPrivate,
@@ -6011,31 +6058,44 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 useNavigate: !1,
                 $node: this.$(".dop-container-join"),
                 router: this.router
-            }).render(), this.updateEmbedPreview(), this.updateEmbed(), "horizontal" == this.viewerType ? (this.listenTo(this.mag, "pageChanged", this.onPageChange), 
-            this.listenTo(this.mag, "keypress-" + $.keycodes.esc, this.hide)) : this.show(), this;
+            }).render(), "horizontal" == this.viewerType ? (this.listenTo(this.mag, "pageChanged", this.onPageChange), 
+            this.listenTo(this.mag, "keypress-" + $.keycodes.esc, this.hide)) : this.show(), this.setRecoverPanelTop(), 
+            this;
+        },
+        onJoinButtonClick: function() {
+            !this.$(".join.ljr-panel input").hasClass("err") && this.$(".join.ljr-panel .go").hasClass("active") && t.utils.sendAnalyticsCustomEvent("Final Page", "Final Page Registration");
+        },
+        onClickRecoverSubmit: function() {
+            var t = this.$(".recover.ljr-panel .email-input").val();
+            $(".recover.ljr-panel .send-message .recover-email").text(t);
+        },
+        setRecoverPanelTop: function() {
+            var t = window.matchMedia("(max-width: 768px)").matches, e = (this.getHeight() - $(".join.ljr-panel").outerHeight()) / 2 + "px";
+            $(".recover.ljr-panel").css({
+                top: t ? "0" : e
+            });
         },
         show: function() {
-            return this.shown || (this.$el.removeClass("offscreen hidden"), this.shown = !0, "horizontal" == this.viewerType && this.mag.trigger("finalPageShown"), 
-            this.selectEmbedCode(), Modernizr.isphone || this.socialsInitialized || _.delay(_.bind(function() {
-                this.socialsInitialized = !0, t.initutils.initTwitterAPI(function() {
-                    window.twttr && window.twttr.widgets && _.isFunction(window.twttr.widgets.load) && window.twttr.widgets.load();
-                }), t.initutils.initFacebookAPI(_.bind(function() {
-                    window.FB.XFBML.parse(this.$el.get(0));
-                }, this));
-            }, this), 300)), this;
+            return this.shown || (this.$el.removeClass("offscreen hidden"), this.shown = !0, "horizontal" == this.viewerType && this.mag.trigger("finalPageShown")), 
+            this;
         },
         hide: function() {
-            return this.shown && (this.$el.addClass("offscreen"), this.shown = !1, this.closeEmbed(), this.mag.trigger("finalPageHidden")), 
+            return this.shown && (this.$el.addClass("offscreen"), this.shown = !1, this.mag.trigger("finalPageHidden")), 
             this;
         },
         destroy: function() {
             return this.remove();
         },
         setSizeAndPosForStickyVersion: function(t) {
-            t = t || {}, this.$el.css({
-                height: this.getHeight(),
+            var e = window.matchMedia("(max-width: 768px)").matches;
+            t = t || {}, this.$(".recover.ljr-panel").hasClass("hidden") ? (this.$(".dop-container-text").removeClass("hidden"), 
+            this.$el.css({
+                height: e ? this.$(".final-page-container").height() : "100vh",
                 top: t.absolutePosition
-            });
+            })) : (this.$(".dop-container-text").addClass("hidden"), this.$el.css({
+                height: "100vh",
+                top: t.absolutePosition
+            }));
         },
         scrollOnVerticalMode: function(e) {
             this.hasScrollOnVerticalMode = !0, this.$el.css("top", 0), t.utils.applyTransform(this.$(".final-page-wrapper"), "translateY(" + -e + "px)");
@@ -6049,74 +6109,8 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         onPageChange: function(t, e) {
             this.$el.toggleClass("hidden", !this.mag.isLastPage()), this.hide();
         },
-        showNativeJoin: function() {
-            this.$(".dop-container-join .buttons-panel").fadeOut(300), this.$(".dop-container-join .native-join").fadeIn(300);
-        },
-        hideNativeJoin: function() {
-            this.$(".dop-container-join .buttons-panel").fadeIn(300), this.$(".dop-container-join .native-join").fadeOut(300);
-        },
-        toProfile: function() {
-            this.router.analytics && this.router.analytics.sendEvent("Profile", "final page");
-        },
-        toHomepage: function() {
-            this.router.analytics && this.router.analytics.sendEvent("Logo", "final page");
-        },
-        toRelated: function(t) {
-            var e = $(t.target), i = e.attr("href") || e.parent().attr("href"), s = e.find(".overflow-block").text();
-            this.router.analytics && this.router.analytics.sendEvent("Final Page Related Mags", s + " (" + i + ")");
-        },
         onKeyUp: function(t) {
             t.stopPropagation();
-        },
-        openEmbed: function(t) {
-            $(t.currentTarget).hasClass("disabled") || (this.router.analytics && this.router.analytics.sendEvent("Embed", "final page"), 
-            this.$(".embed-wrapper").removeClass("hidden"));
-        },
-        closeEmbed: function(t) {
-            this.$(".embed-wrapper").addClass("hidden");
-        },
-        updateEmbedPreview: function() {
-            var t = this.mag.model.getPageScreenshot(Modernizr.retina ? 256 : 512, {
-                _id: this.mag.coverPid
-            });
-            this.$(".embed-wrapper .thumb-pic").attr("src", t);
-        },
-        updateEmbed: function() {
-            var e = this.$(".size-selector").attr("data-selected");
-            this.$(".embed-wrapper .embed-code").val(t.classes.Share.getEmbedCode({
-                shareMode: "full",
-                mag_num_id: this.mag.num_id,
-                size: {
-                    responsive: "responsive",
-                    big: 512,
-                    small: 288
-                }[e]
-            }));
-        },
-        onSizeSelectorClick: function(t) {
-            var e, i, s = $(t.currentTarget), n = s.attr("data-selected");
-            i = (i = (e = _.map(s.find(".size"), function(t) {
-                return $(t).attr("data-size");
-            })).indexOf(n) + 1) >= e.length ? 0 : i, s.attr("data-selected", e[i]), this.updateEmbed();
-        },
-        selectEmbedCode: function(t) {
-            Modernizr.isdesktop && this.$(".embed-wrapper .embed-code").get(0).setSelectionRange(0, 9999), !Modernizr.isdesktop && t && (t.stopPropagation(), 
-            t.preventDefault());
-        },
-        share: function(e) {
-            $(e.currentTarget).hasClass("disabled") || t.shareutils.share({
-                host: (t.common.embedDomainName || window.location.protocol + "//" + window.location.hostname) + "/",
-                tp: $(e.currentTarget).attr("data-tp"),
-                source: "final page",
-                page: null,
-                mag: _.extend(this.mag.model.toJSON(), {
-                    user: this.mag.user
-                }),
-                forProject: !0,
-                customDomain: !(!t.common.isDomainViewer && !t.common.embedDomainName),
-                customDomainProfile: !(!t.common.customDomainProfile && "User" != t.common.embedDomainType),
-                analytics: this.router.analytics
-            });
         }
     });
 }(RM), function(t, e) {
@@ -6180,18 +6174,21 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 pagecounter: !0,
                 viewertype: "vertical",
                 slidein: !1,
-                scalewidth: 3600
+                scalewidth: 3600,
+                endpage: !0,
+                endpagetype: "join"
             };
             (i = _.extend(i, this.model.get("opts"))).viewertype = t.screenshot ? "horizontal" : i.viewertype, (!Modernizr.isdesktop || this.isPreview && "default" !== e) && (i.slidein = !1), 
             "vertical" === i.viewertype && (Modernizr.isdesktop ? this.isStickyVerticalViewer = !i.slidein && !this.isPreview && !this.hasWidgetsWithVerticalOnscrollAnimation : (this.isStickyVerticalViewer = Modernizr.csspositionsticky, 
             this.isStickyVerticalViewer || (i.viewertype = "horizontal", this.pages.length > 1 && (i.arrows = !0)))), 
             i.sharebutton = i.sharebutton && !this.isPreview && !!this.published && !this.is_private, i.pagecounter = i.pagecounter && !this.isPreview && this.pages.length > 1, 
-            this.model.user && this.model.user.get && "540dc7a3a5c9259a383b910b" == this.model.user.get("_id") && (i = _.extend(i, {
+            i.endpage = i.endpage && !this.isPreview && !!this.published, this.model.user && this.model.user.get && "540dc7a3a5c9259a383b910b" == this.model.user.get("_id") && (i = _.extend(i, {
                 arrows: !0,
                 menubutton: this.isPreview,
                 sharebutton: !1,
-                pagecounter: !1
-            })), this.viewOpts = i, this.PRELOAD_COUNT = "horizontal" == this.viewOpts.viewertype ? this.PRELOAD_COUNT_HORIZONTAL : this.PRELOAD_COUNT_VERTICAL;
+                pagecounter: !1,
+                endpage: !1
+            })), t.common.isDomainViewer && (i.endpage = !1), this.viewOpts = i, this.PRELOAD_COUNT = "horizontal" == this.viewOpts.viewertype ? this.PRELOAD_COUNT_HORIZONTAL : this.PRELOAD_COUNT_VERTICAL;
         },
         setViewerClasses: function() {
             this.$el.removeClass("viewer-type-horizontal viewer-type-vertical").addClass("viewer-type-" + this.viewOpts.viewertype).removeClass("pages-pos-normal pages-pos-overlap").addClass("pages-pos-" + (this.viewOpts.slidein ? "overlap" : "normal")), 
@@ -6245,7 +6242,19 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     router: this.router,
                     $container: this.$el,
                     isPreview: this.isPreview,
+                    hasFinalPage: this.viewOpts.endpage,
                     viewerType: this.viewOpts.viewertype
+                }).render()), this.viewOpts.endpage && (this.finalPage = new t.classes.FinalPage({
+                    me: this.router.me,
+                    mag: this,
+                    router: this.router,
+                    $container: this.$pages_container,
+                    isPreview: this.isPreview,
+                    isPrivate: this.is_private,
+                    viewerType: this.viewOpts.viewertype,
+                    finalPageType: this.viewOpts.endpagetype,
+                    isStickyVerticalViewer: this.isStickyVerticalViewer,
+                    recentMags: this.model.recentMags || _([])
                 }).render()), this.toolbar = new t.classes.Toolbar({
                     mag: this,
                     pages: this.pages,
@@ -6354,7 +6363,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             }
         },
         onFinalPageShow: function() {
-            this.currentPage && this.currentPage.stop({
+            t.utils.sendAnalyticsCustomEvent("Final Page", "Final Page View"), this.currentPage && this.currentPage.stop({
                 widgetTypes: [ "audio", "video", "background", "iframe" ]
             }), "horizontal" == this.viewOpts.viewertype && (this.$pages_container.removeClass("disable-transitions"), 
             this.$pages_container.addClass("fade-last-page-on-final-page"));
@@ -6545,13 +6554,13 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 }, d = _.bind(function() {
                     var t = this.magPagesPos[this.currentPage.num];
                     return Math.abs(o - t.y);
-                }, this), h = this.currentPage.pageHeight, u = 0 === r && !this.isFirstPage();
-                if (i) c(s = h - r - a) ? n = h - r : n = (e = s) > l && e < a ? s : a, u && this.viewOpts.slidein && (n += d()); else {
-                    if (u) {
-                        var p = this.magPagesPos[this.currentPage.num - 1];
-                        r = p ? p.h : 0;
+                }, this), h = this.currentPage.pageHeight, p = 0 === r && !this.isFirstPage();
+                if (i) c(s = h - r - a) ? n = h - r : n = (e = s) > l && e < a ? s : a, p && this.viewOpts.slidein && (n += d()); else {
+                    if (p) {
+                        var u = this.magPagesPos[this.currentPage.num - 1];
+                        r = u ? u.h : 0;
                     }
-                    n = c(s = r - a) || r < a ? -r : -a, u && this.viewOpts.slidein && (n -= this.SCROLL_SNAP - d());
+                    n = c(s = r - a) || r < a ? -r : -a, p && this.viewOpts.slidein && (n -= this.SCROLL_SNAP - d());
                 }
                 this.setScrollPosition({
                     delta: n,
@@ -6588,25 +6597,27 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             this.$magScrollContainer && this.$magScrollContainer.scrollTop(t);
         },
         onMagScroll: function() {
-            _.isFunction(this._resetUrlStringTimeoutFunc) && this._resetUrlStringTimeoutFunc(), this.pauseWidgetsLoadingOnScroll();
-            var t = this.findPageOnCurrentMagScroll({
-                pageStartsOnBottom: this.isStickyVerticalViewer && !Modernizr.isdesktop
-            }), e = this.getScrollParams(t);
-            if (this.lastPageScroll = e.pageScroll, this.lastPageScrollPercent = e.pageScrollPercent, this.showPage(t.page.num, e), 
-            this.finalPage && !this.isStickyVerticalViewer && (void 0 != t.finalPageScroll ? this.finalPage.scrollOnVerticalMode(t.finalPageScroll) : this.finalPage.resetScrollOnVerticalMode()), 
-            this.aboveGlobalAnimations && this.aboveGlobalAnimations.onScroll({
-                forceApply: !0,
-                scroll: this.getScroll()
-            }), this.finalPage) {
-                var i = t.finalPageShown;
-                i != !!this.lastFinalPageState && this.trigger(i ? "finalPageShown" : "finalPageHidden"), this.lastFinalPageState = i;
-            }
-            if (this.$bottomArrow && +this.magOpenTime + 2e3 < +new Date()) {
-                this.$bottomArrow.addClass("offscreen");
-                var s = this.$bottomArrow;
-                delete this.$bottomArrow, setTimeout(function() {
-                    s.remove();
-                }, 400);
+            if (!(document.fullscreenElement || document.webkitFullscreenElement || document.webkitCurrentFullScreenElement || document.mozFullScreenElement || document.msFullscreenElement)) {
+                _.isFunction(this._resetUrlStringTimeoutFunc) && this._resetUrlStringTimeoutFunc(), this.pauseWidgetsLoadingOnScroll();
+                var t = this.findPageOnCurrentMagScroll({
+                    pageStartsOnBottom: this.isStickyVerticalViewer && !Modernizr.isdesktop
+                }), e = this.getScrollParams(t);
+                if (this.lastPageScroll = e.pageScroll, this.lastPageScrollPercent = e.pageScrollPercent, this.showPage(t.page.num, e), 
+                this.finalPage && !this.isStickyVerticalViewer && (void 0 != t.finalPageScroll ? this.finalPage.scrollOnVerticalMode(t.finalPageScroll) : this.finalPage.resetScrollOnVerticalMode()), 
+                this.aboveGlobalAnimations && this.aboveGlobalAnimations.onScroll({
+                    forceApply: !0,
+                    scroll: this.getScroll()
+                }), this.finalPage) {
+                    var i = t.finalPageShown;
+                    i != !!this.lastFinalPageState && this.trigger(i ? "finalPageShown" : "finalPageHidden"), this.lastFinalPageState = i;
+                }
+                if (this.$bottomArrow && +this.magOpenTime + 2e3 < +new Date()) {
+                    this.$bottomArrow.addClass("offscreen");
+                    var s = this.$bottomArrow;
+                    delete this.$bottomArrow, setTimeout(function() {
+                        s.remove();
+                    }, 400);
+                }
             }
         },
         scrollMagALittle: function() {
@@ -6754,7 +6765,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             } else e.animation = !1;
             this.pauseLoading("page-change-animation"), this.currentPage = i, s && s.resetWaitForAnimationEnd(), 
             clearInterval(this.showPageCompleteInterval), this.$pages_container.toggleClass("disable-transitions", !e.animation), 
-            e.animation && (this.viewOpts.slidein && s && s.num > i.num ? s.waitForAnimationEnd(u) : i.waitForAnimationEnd(u)), 
+            e.animation && (this.viewOpts.slidein && s && s.num > i.num ? s.waitForAnimationEnd(p) : i.waitForAnimationEnd(p)), 
             this.direction = !s || s.num < i.num ? "forward" : "backward";
             var l = i.num - ("forward" == this.direction ? this.PRELOAD_COUNT.backward : this.PRELOAD_COUNT.forward), c = i.num + ("forward" == this.direction ? this.PRELOAD_COUNT.forward : this.PRELOAD_COUNT.backward);
             "horizontal" != this.opts.viewertype || this.opts.arrows || (l = c = i.num);
@@ -6763,7 +6774,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 h.num < i.num ? h.setPosition("prev", h.num + 1 == i.num) : h.num > i.num ? h.setPosition("next", h.num - 1 == i.num) : h.setPosition("center", h.num == i.num), 
                 h.num >= l && h.num <= c && h.show(), "vertical" == this.viewOpts.viewertype && (h.num < i.num || h.num > i.num + 1) && h.resetScrollOnVerticalMode();
             }
-            function u() {
+            function p() {
                 function t() {
                     for (var t = 0; t < a.pages.length; t++) {
                         var e = a.pages[t];
@@ -6778,20 +6789,21 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     a.loadingPaused || (clearInterval(a.showPageCompleteInterval), t());
                 }, 17) : t();
             }
-            !e.animation && u(), this.scheduleSetUrlString({
+            !e.animation && p(), this.scheduleSetUrlString({
                 replace: !o,
                 skipInternalHistory: e.skipInternalHistory
-            }), this.router.trackPage(), this.router.setTitle(), this.trigger("pageChanged", i, {
+            }), this.router.setTitle(), this.trigger("pageChanged", i, {
                 showPageCounter: e.animation || e.bySwipe || o || "scroll" == e.initiator,
                 initial: o
             }), i.trigger("changedTo"), "vertical" == this.viewOpts.viewertype && this.updateArrowsColor(i);
         },
         scheduleSetUrlString: function() {
-            if (!Modernizr.chrome) return this.router.setUrlString.apply(this.router, arguments), void (this._resetUrlStringTimeoutFunc = !1);
+            if (!Modernizr.chrome) return this.router.setUrlString.apply(this.router, arguments), this.router.trackPage(), 
+            void (this._resetUrlStringTimeoutFunc = !1);
             var t = arguments;
             this._resetUrlStringTimeoutFunc = function() {
                 clearTimeout(this._urlStrigScheduleTimeout), this._urlStrigScheduleTimeout = setTimeout(function() {
-                    this._resetUrlStringTimeoutFunc = null, this.router.setUrlString.apply(this.router, t);
+                    this._resetUrlStringTimeoutFunc = null, this.router.setUrlString.apply(this.router, t), this.router.trackPage();
                 }.bind(this), 100);
             }.bind(this), this._resetUrlStringTimeoutFunc();
         },
@@ -6925,23 +6937,23 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             }, this)), this.finalPage && (this.isStickyVerticalViewer && this.finalPage.setSizeAndPosForStickyVersion({
                 absolutePosition: this.magHeight
             }), this.magHeight += this.finalPage.getHeight()), "vertical" == this.viewOpts.viewertype && this.magHeight) {
-                var h = this.$magScrollSizer.width(), u = 0;
-                if (this.isPreview && "default" != this.viewport && (u = Math.max(this.$el.height() - this.getViewportSetting("min_height"), 0)), 
-                this.$magScrollSizer.css("height", this.magHeight + u), h != this.$magScrollSizer.width() && Modernizr.isdesktop && this.onResize(), 
+                var h = this.$magScrollSizer.width(), p = 0;
+                if (this.isPreview && "default" != this.viewport && (p = Math.max(this.$el.height() - this.getViewportSetting("min_height"), 0)), 
+                this.$magScrollSizer.css("height", this.magHeight + p), h != this.$magScrollSizer.width() && Modernizr.isdesktop && this.onResize(), 
                 this.currentPage) if (this.isStickyVerticalViewer) {
                     if (r) {
-                        var p = this.getScrollPosForNewSize();
+                        var u = this.getScrollPosForNewSize();
                         setTimeout(_.bind(function() {
-                            this.setScroll(p);
+                            this.setScroll(u);
                         }, this), 0);
                     }
                 } else this.setScroll(this.getScrollPosForNewSize()), this.onMagScroll();
                 this.$bottomArrow && this.$bottomArrow.toggleClass("offscreen", this.getScroll() + a.height + this.SCROLLABLE_TRESHOLD > this.magHeight);
             }
             if ("horizontal" == this.viewOpts.viewertype && this.currentPage && r) {
-                p = this.getScrollPosForNewSize();
+                u = this.getScrollPosForNewSize();
                 setTimeout(_.bind(function() {
-                    this.currentPage.$scrollWrapper.scrollTop(p);
+                    this.currentPage.$scrollWrapper.scrollTop(u);
                 }, this), 0);
             }
             this.currentPage && this.loadPages.__debounced();
@@ -7133,9 +7145,9 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             } else {
                 var h = Math.abs(s);
                 _.each(this.aboveGlobalWidgets, function(s) {
-                    var n = !t.globalwidgets.getUniqueValue("hidden", s, e._id), a = i && !t.globalwidgets.getUniqueValue("hidden", s, i._id), o = n && a && e.pageViewport === i.pageViewport, r = this.getAboveGlobalBoxMemoized(s._id, e, l), d = this.getAboveGlobalBoxMemoized(s._id, i || e, l), u = n && h > r.top + r.height, p = i && a && d.top > h;
-                    if (u || p || o) {
-                        var g = u ? e : p ? i : s.page, m = c(s, g);
+                    var n = !t.globalwidgets.getUniqueValue("hidden", s, e._id), a = i && !t.globalwidgets.getUniqueValue("hidden", s, i._id), o = n && a && e.pageViewport === i.pageViewport, r = this.getAboveGlobalBoxMemoized(s._id, e, l), d = this.getAboveGlobalBoxMemoized(s._id, i || e, l), p = n && h > r.top + r.height, u = i && a && d.top > h;
+                    if (p || u || o) {
+                        var g = p ? e : u ? i : s.page, m = c(s, g);
                         s.updatePage(g), m ? (s.rendered = !1, t.globalwidgets.hide(s).then(function() {
                             this.updateAboveGlobalViewport(s, g), t.globalwidgets.show(s);
                         }.bind(this))) : s.wasHidden && t.globalwidgets.show(s);
@@ -7362,7 +7374,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             e = e || {};
             var s, n = (t = _.isArray(t) ? t : [ t ])[0].animation.type;
             this.page.mag;
-            return (Modernizr.isdesktop || "hover" !== n || t[0].animation.trigger) && (s = new i[n]({
+            return (Modernizr.isdesktop || "hover" !== n || t[0].getAnimationTriggers().length) && (s = new i[n]({
                 page: this.page,
                 widgets: t,
                 allowAccelerate: e.allowAccelerate
@@ -7418,7 +7430,8 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             _.bindAll(this), _.extend(this, e), _.each(this.widgets, _.bind(function(t) {
                 t.animationObj = this;
             }, this)), this.isFixed = this.widgets[0].fixed_position, this.isFullwidth = this.widgets[0].is_full_width, 
-            this.isSticked = this.widgets[0].sticked, this.isAbove = this.widgets[0].is_above, this.$container = this.isFixed || this.isAbove ? this.widgets[0].$fixedContainer : this.page.$content, 
+            this.isSticked = this.widgets[0].sticked, this.isAbove = this.widgets[0].is_above, this.playOnce = !this.page.mag.isPreview && this.playOnce, 
+            this.$container = this.isFixed || this.isAbove ? this.widgets[0].$fixedContainer : this.page.$content, 
             !this.isFixed && !this.isAbove && Modernizr.safari && Modernizr.isdesktop && this.page.mag.isStickyVerticalViewer && t.animationutils.isScaleUp(this.widgets[0].animation) && (this.$wrapper = $('<div class="animation-wrapper force3d"/>').appendTo(this.$container)), 
             this.$el.appendTo(this.$wrapper ? this.$wrapper : this.$container), this.createAnimationTimeline(e), 
             this.onResize({
@@ -7480,10 +7493,14 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         },
         withTriggerOrElement: function(t) {
             var e = this.animation.trigger;
-            e ? this.page.mag.getWidgetById(e, this.page).then(function(e) {
-                e.rendered ? t(e.$el) : this.listenToOnce(e, "rendered", function() {
-                    t(e.$el);
-                });
+            e.length ? window.Promise.all(_.map(e, function(t) {
+                return this.page.mag.getWidgetById(t, this.page);
+            }.bind(this))).then(function(e) {
+                _.each(e, function(e) {
+                    e.rendered ? t(e.$el) : this.listenToOnce(e, "rendered", function() {
+                        t(e.$el);
+                    });
+                }.bind(this));
             }.bind(this)).catch(function() {
                 t(this.$el);
             }.bind(this)) : t(this.$el);
@@ -7555,12 +7572,12 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                         this.listenToOnce(this.page, "changedTo", t);
                     }.bind(this)), h = this.isInBounds() ? window.Promise.resolve() : new window.Promise(function(t) {
                         this.listenToOnce(this, "scrolledToBounds", t);
-                    }.bind(this)), u = this.isInBounds() ? window.Promise.resolve() : new window.Promise(function(t) {
+                    }.bind(this)), p = this.isInBounds() ? window.Promise.resolve() : new window.Promise(function(t) {
                         n.then(function() {
                             this.isInBounds() && t();
                         }.bind(this));
-                    }.bind(this)), p = window.Promise.race([ h, u ]);
-                    s = this.startWhenInView ? [ l, d, p ] : [ c, l ];
+                    }.bind(this)), u = window.Promise.race([ h, p ]);
+                    s = this.startWhenInView ? [ l, d, u ] : [ c, l ];
                 }
                 e = window.Promise.all(s);
             }
@@ -7593,12 +7610,18 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 this.lastTimeClick = +new Date();
                 var t = this.timeline;
                 t.active ? (this.waitingForEnd ? t.off("full-cycle-end", this.onCycleEnd) : t.on("full-cycle-end", this.onCycleEnd), 
-                this.waitingForEnd = !this.waitingForEnd) : (this.waitingForEnd = !1, t.reversed ? t.reverse() : t.play());
+                this.waitingForEnd = !this.waitingForEnd) : (this.waitingForEnd = !1, t.reversed ? t.reverse() : t.play(), 
+                this.setHasPlayed());
             }
         },
         onCycleEnd: function() {
             var t = this.timeline;
-            t.off("full-cycle-end", this.onCycleEnd), this.waitingForEnd = !1, t.loop ? t.stop() : t.reversed ? t.reverse() : t.play();
+            t.off("full-cycle-end", this.onCycleEnd), this.waitingForEnd = !1, t.loop ? t.stop() : (t.reversed ? t.reverse() : t.play(), 
+            this.setHasPlayed());
+        },
+        setHasPlayed: function() {
+            var e = t.animationutils.getPermanentAnimationId(this.widgets[0]);
+            this.animation.playOnce && !t.animationutils.hasPlayed(e) && t.animationutils.persistHasPlayed(e);
         },
         destroy: function() {
             this.withTriggerOrElement(function(t) {
@@ -7640,26 +7663,26 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         generateShapeSVG: function(t, e, i, s, n) {
             var a, o = 1e5, r = e.get("bg_color") || e.viewport_default && e.viewport_default.bg_color, l = this.getRGBA(r || "ffffff", e.get("bg_opacity")), c = this.getRGBA(e.get("color"), e.get("opacity"));
             if ("ellipse" == (n = "hotspot" === e.get("type") ? n || e.get("pin_type") : n || e.get("tp"))) {
-                var d = i / 2, h = s / 2, u = e.get("borders");
+                var d = i / 2, h = s / 2, p = e.get("borders");
                 a = P("ellipse", {
                     cx: d,
                     cy: h,
                     rx: d,
                     ry: h
-                }, l, c, u = Math.min(u, d, h), e.id + "_" + t, e.get("opacity"));
+                }, l, c, p = Math.min(p, d, h), e.id + "_" + t, e.get("opacity"));
             }
             if ("rectangle" == n || "polygon" == n) {
                 "hotspot" === e.get("type") && (c = l = "rgba(0, 0, 0, 0)");
-                var p = "rectangle" == n ? 4 : e.get("sides"), g = (u = e.get("borders"), e.get("radius") || 0), m = function(t, e, i, s) {
-                    for (var n, a, r, l = 2 * Math.PI / t, c = Math.PI / 2 - (t % 2 == 1 ? 0 : l / 2), d = [], h = 999999, u = -999999, p = 999999, g = -999999, m = 0; m < t; m++) n = c + m * l, 
+                var u = "rectangle" == n ? 4 : e.get("sides"), g = (p = e.get("borders"), e.get("radius") || 0), m = function(t, e, i, s) {
+                    for (var n, a, r, l = 2 * Math.PI / t, c = Math.PI / 2 - (t % 2 == 1 ? 0 : l / 2), d = [], h = 999999, p = -999999, u = 999999, g = -999999, m = 0; m < t; m++) n = c + m * l, 
                     a = .5 + .5 * Math.cos(n), r = .5 - .5 * Math.sin(n), d.push({
                         x: a,
                         y: r
-                    }), a < h && (h = a), a > u && (u = a), r < p && (p = r), r > g && (g = r);
-                    for (var m = 0; m < t; m++) d[m].x = (d[m].x - h) * (e / (u - h)), d[m].y = (d[m].y - p) * (i / (g - p)), 
+                    }), a < h && (h = a), a > p && (p = a), r < u && (u = r), r > g && (g = r);
+                    for (var m = 0; m < t; m++) d[m].x = (d[m].x - h) * (e / (p - h)), d[m].y = (d[m].y - u) * (i / (g - u)), 
                     d[m].x = Math.round(d[m].x * o) / o, d[m].y = Math.round(d[m].y * o) / o;
                     return d;
-                }(p, i, s), f = function(t) {
+                }(u, i, s), f = function(t) {
                     if (!t) return 99999;
                     for (var e, i = 99999, s = t.length, n = 0; n < s; n++) {
                         var a = t[n].x - t[(n + 1) % s].x, o = t[n].y - t[(n + 1) % s].y;
@@ -7672,14 +7695,14 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     var r = [], l = t.length;
                     e = Math.min(e, i / 2);
                     for (var c = 0; c < l; c++) {
-                        var d, h, u, p, g = t[c], m = t[(c + 1) % l], f = t[c].side, v = (m.x - g.x) / f, _ = (m.y - g.y) / f;
-                        d = g.x + v * e, h = g.y + _ * e, u = m.x - v * e, p = m.y - _ * e, d = Math.round(d * o) / o, h = Math.round(h * o) / o, 
-                        u = Math.round(u * o) / o, p = Math.round(p * o) / o, r.push({
+                        var d, h, p, u, g = t[c], m = t[(c + 1) % l], f = t[c].side, v = (m.x - g.x) / f, _ = (m.y - g.y) / f;
+                        d = g.x + v * e, h = g.y + _ * e, p = m.x - v * e, u = m.y - _ * e, d = Math.round(d * o) / o, h = Math.round(h * o) / o, 
+                        p = Math.round(p * o) / o, u = Math.round(u * o) / o, r.push({
                             x: d,
                             y: h
                         }), r.push({
-                            x: u,
-                            y: p
+                            x: p,
+                            y: u
                         });
                     }
                     return {
@@ -7694,22 +7717,22 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                             var o = 2 * a + 1, r = (2 * a + 2) % (2 * s);
                             if (n += 0 == a ? "M" : "L", e) {
                                 n += e[o].x + " " + e[o].y + " ";
-                                var l = e[o].x - e[r].x, c = e[o].y - e[r].y, d = (l * l + c * c) / 4, h = 1 / d - 1 / (i * i), u = Math.sqrt(1 / h);
-                                n += "A" + u + " " + u + " 0 0 0 " + e[r].x + " " + e[r].y + " ";
+                                var l = e[o].x - e[r].x, c = e[o].y - e[r].y, d = (l * l + c * c) / 4, h = 1 / d - 1 / (i * i), p = Math.sqrt(1 / h);
+                                n += "A" + p + " " + p + " 0 0 0 " + e[r].x + " " + e[r].y + " ";
                             } else n += t[a].x + " " + t[a].y + " ";
                         }
                         return n + " Z ";
                     }(m, v.points, v.radius)
-                }, l, c, u, e.id + "_" + t, e.get("opacity"));
+                }, l, c, p, e.id + "_" + t, e.get("opacity"));
             }
             if ("line" == n) {
-                u = e.get("weight"), h = Math.round(s / 2) + (u % 2 == 1 ? .5 : 0);
-                var _ = "", w = [ 13 * u / 3, 2 * u / 3 ].join(" "), y = u > 1 ? [ .001, 5 * u / 3 ].join(" ") : [ 1, 2 ].join(" "), b = "dotted" == e.get("stroke") ? u / 2 : 0;
-                if (_ = "M" + b + " " + h + " L" + i + " " + h, "solid" == e.get("stroke") && (a = '<path d="' + _ + '" style="fill:none; stroke:' + l + ";stroke-width:" + u + '"/>'), 
-                "double" == e.get("stroke")) a = '<path d="' + ("M" + b + " " + (h - u) + " L" + i + " " + (h - u)) + '" style="fill:none; stroke:' + l + ";stroke-width:" + u + '"/>', 
-                a += '<path d="' + ("M" + b + " " + (h + u) + " L" + i + " " + (h + u)) + '" style="fill:none; stroke:' + l + ";stroke-width:" + u + '"/>';
-                "dotted" == e.get("stroke") && (a = '<path d="' + _ + '" stroke-linecap="round" stroke-dasharray="' + y + '" style=" fill:none; stroke:' + l + ";stroke-width:" + u + '"/>'), 
-                "dashed" == e.get("stroke") && (a = '<path d="' + _ + '" stroke-dasharray="' + w + '" style=" fill:none; stroke:' + l + ";stroke-width:" + u + '"/>');
+                p = e.get("weight"), h = Math.round(s / 2) + (p % 2 == 1 ? .5 : 0);
+                var _ = "", w = [ 13 * p / 3, 2 * p / 3 ].join(" "), y = p > 1 ? [ .001, 5 * p / 3 ].join(" ") : [ 1, 2 ].join(" "), b = "dotted" == e.get("stroke") ? p / 2 : 0;
+                if (_ = "M" + b + " " + h + " L" + i + " " + h, "solid" == e.get("stroke") && (a = '<path d="' + _ + '" style="fill:none; stroke:' + l + ";stroke-width:" + p + '"/>'), 
+                "double" == e.get("stroke")) a = '<path d="' + ("M" + b + " " + (h - p) + " L" + i + " " + (h - p)) + '" style="fill:none; stroke:' + l + ";stroke-width:" + p + '"/>', 
+                a += '<path d="' + ("M" + b + " " + (h + p) + " L" + i + " " + (h + p)) + '" style="fill:none; stroke:' + l + ";stroke-width:" + p + '"/>';
+                "dotted" == e.get("stroke") && (a = '<path d="' + _ + '" stroke-linecap="round" stroke-dasharray="' + y + '" style=" fill:none; stroke:' + l + ";stroke-width:" + p + '"/>'), 
+                "dashed" == e.get("stroke") && (a = '<path d="' + _ + '" stroke-dasharray="' + w + '" style=" fill:none; stroke:' + l + ";stroke-width:" + p + '"/>');
             }
             if ("icon" == n) {
                 var k = this.iconData || this.current_icon_data;
@@ -8405,17 +8428,17 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 if (a.length && -1 != o) {
                     this.currentImageID = t, this.currentPic.$el = a, this.currentPic.num = o, "switch-to-image" == s && (this.disableAutoplayOnUserInteraction = !0, 
                     this.stopAutoplay()), this.$images_wrapper.toggleClass("enable-transitions", i), this.resetWaitForAnimationEnd(), 
-                    i && r.$el && this.waitForAnimationEnd(r.$el, u), this.direction = !r.$el || !r.$el.length || r.num < l ? "forward" : "backward", 
+                    i && r.$el && this.waitForAnimationEnd(r.$el, p), this.direction = !r.$el || !r.$el.length || r.num < l ? "forward" : "backward", 
                     a.data("first-child") && r.$el && r.$el.length && r.$el.data("last-child") ? this.direction = "forward" : a.data("last-child") && r.$el && r.$el.length && r.$el.data("first-child") && (this.direction = "backward");
                     var d = l - ("forward" == this.direction ? this.PREDISPLAY_COUNT.backward : this.PREDISPLAY_COUNT.forward), h = l + ("forward" == this.direction ? this.PREDISPLAY_COUNT.forward : this.PREDISPLAY_COUNT.backward);
                     n.each(function(t) {
                         var e = $(this);
                         t < l ? c.setPicPosition(e, "prev", t + 1 === l) : t > l ? c.setPicPosition(e, "next", t - 1 === l) : c.setPicPosition(e, "center", t === l), 
                         t >= d && t <= h && e.removeClass("hidden");
-                    }), c.$images.find(".counters-text-current").html(o + 1), !i && u();
+                    }), c.$images.find(".counters-text-current").html(o + 1), !i && p();
                 }
             }
-            function u() {
+            function p() {
                 if (n.each(function(t) {
                     var e = $(this);
                     (t < d || t > h) && e.addClass("hidden");
@@ -8425,21 +8448,21 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 }), c.trigger("currentImageChanged", t, i, s), c.handleCounters && !c.initialRender) {
                     var o = c.$counters_container.children('[data-id="' + t + '"]');
                     c.$counters_container.children(".active").removeClass("active"), o.addClass("active");
-                    var r = o.get(0).offsetLeft, l = c.$counters.find(".items-wrapper").width(), u = e;
-                    r + 2 * c.COUNTER_WIDTH - c.$counters.find(".items-wrapper").scrollLeft() > l ? u = r + 2 * c.COUNTER_WIDTH - l : r - c.COUNTER_WIDTH - c.$counters.find(".items-wrapper").scrollLeft() < 0 && (u = r - c.COUNTER_WIDTH), 
-                    u != e && (i ? c.$counters.find(".items-wrapper").stop().animate({
-                        scrollLeft: u
-                    }, 200) : c.$counters.find(".items-wrapper").scrollLeft(u));
+                    var r = o.get(0).offsetLeft, l = c.$counters.find(".items-wrapper").width(), p = e;
+                    r + 2 * c.COUNTER_WIDTH - c.$counters.find(".items-wrapper").scrollLeft() > l ? p = r + 2 * c.COUNTER_WIDTH - l : r - c.COUNTER_WIDTH - c.$counters.find(".items-wrapper").scrollLeft() < 0 && (p = r - c.COUNTER_WIDTH), 
+                    p != e && (i ? c.$counters.find(".items-wrapper").stop().animate({
+                        scrollLeft: p
+                    }, 200) : c.$counters.find(".items-wrapper").scrollLeft(p));
                 }
                 if (c.handleThumbnails && !c.initialRender) {
-                    var p = c.$thumbnails_container.children('[data-id="' + t + '"]');
-                    c.$thumbnails_container.children(".active").removeClass("active"), p.addClass("active");
-                    r = p.position().left, l = c.$thumbnails.find(".items-wrapper").width(), u = e;
-                    r + 2 * (c.THUMBNAIL_WIDTH + c.THUMBNAIL_PADDING) - c.THUMBNAIL_PADDING / 2 - c.$thumbnails.find(".items-wrapper").scrollLeft() > l ? u = r + 2 * (c.THUMBNAIL_WIDTH + c.THUMBNAIL_PADDING) - c.THUMBNAIL_PADDING / 2 - l : l > 2 * (c.THUMBNAIL_WIDTH + c.THUMBNAIL_PADDING) && r - c.THUMBNAIL_WIDTH - c.THUMBNAIL_PADDING / 2 - c.$thumbnails.find(".items-wrapper").scrollLeft() < 0 && (u = r - c.THUMBNAIL_WIDTH - c.THUMBNAIL_PADDING / 2);
+                    var u = c.$thumbnails_container.children('[data-id="' + t + '"]');
+                    c.$thumbnails_container.children(".active").removeClass("active"), u.addClass("active");
+                    r = u.position().left, l = c.$thumbnails.find(".items-wrapper").width(), p = e;
+                    r + 2 * (c.THUMBNAIL_WIDTH + c.THUMBNAIL_PADDING) - c.THUMBNAIL_PADDING / 2 - c.$thumbnails.find(".items-wrapper").scrollLeft() > l ? p = r + 2 * (c.THUMBNAIL_WIDTH + c.THUMBNAIL_PADDING) - c.THUMBNAIL_PADDING / 2 - l : l > 2 * (c.THUMBNAIL_WIDTH + c.THUMBNAIL_PADDING) && r - c.THUMBNAIL_WIDTH - c.THUMBNAIL_PADDING / 2 - c.$thumbnails.find(".items-wrapper").scrollLeft() < 0 && (p = r - c.THUMBNAIL_WIDTH - c.THUMBNAIL_PADDING / 2);
                 }
-                if (u != e && (i ? c.$thumbnails.find(".items-wrapper").stop().animate({
-                    scrollLeft: u
-                }, 200) : c.$thumbnails.find(".items-wrapper").scrollLeft(u)), c.model && "constructor" == c.environment) {
+                if (p != e && (i ? c.$thumbnails.find(".items-wrapper").stop().animate({
+                    scrollLeft: p
+                }, 200) : c.$thumbnails.find(".items-wrapper").scrollLeft(p)), c.model && "constructor" == c.environment) {
                     var g = c.model.get("pictures"), m = _.findWhere(g, {
                         id: c.currentImageID
                     });
@@ -8781,10 +8804,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     l.append(c).append(d);
                 }
                 if (l.appendTo(a), "dropdown" == r.tp && r.items) {
-                    var h = $("<select>"), u = $(this.DROPDOWN_TRIANGLE.SVG);
+                    var h = $("<select>"), p = $(this.DROPDOWN_TRIANGLE.SVG);
                     h.attr("name", r.caption), $('<option value="" selected></option>').prop("disabled", !r.optional).appendTo(h);
-                    for (var p = 0; p < r.items.length; p++) $("<option>").attr("value", r.items[p]).text(r.items[p]).appendTo(h);
-                    i.parent().append(u).append(h);
+                    for (var u = 0; u < r.items.length; u++) $("<option>").attr("value", r.items[u]).text(r.items[u]).appendTo(h);
+                    i.parent().append(p).append(h);
                 }
                 "checkbox" === r.tp && (i.wrap('<label class="input-checkbox-wrapper"></label>'), i.after('\t\t\t\t\t\t<div class="input-checkbox-inner"> \t\t\t\t\t\t\t<span class="label">' + i.attr("placeholder") + '</span> \t\t\t\t\t\t\t<span class="tick">' + this.CHECKBOX_TICK.SVG + "</span> \t\t\t\t\t\t</div>"));
             }
@@ -8826,11 +8849,11 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             }, 0);
         },
         getInputDimensions: function(t) {
-            var e, i, s = this.data, n = s.fields, a = n.length + 1, o = s["style-" + s.style + "-button-default"], r = s["style-" + s.style + "-fields"], l = o.gutter + n.length * r.gutter, c = t && void 0 != t.w ? t.w : s.w, d = t && void 0 != t.h ? t.h : s.h, h = "vertical" === s.layout, u = Math.floor(h ? d : c), p = u - l;
+            var e, i, s = this.data, n = s.fields, a = n.length + 1, o = s["style-" + s.style + "-button-default"], r = s["style-" + s.style + "-fields"], l = o.gutter + n.length * r.gutter, c = t && void 0 != t.w ? t.w : s.w, d = t && void 0 != t.h ? t.h : s.h, h = "vertical" === s.layout, p = Math.floor(h ? d : c), u = p - l;
             if (h) {
-                var g = this.getLineHeight(), m = p - this.getRowsCount(n) * g.input - g.input, f = Math.ceil(m / a);
-                e = g.input + f, i = this.getTotalInputsHeight(n, e) + e + l - u;
-            } else i = (e = Math.ceil(p / a)) * (n.length + 1) + l - u;
+                var g = this.getLineHeight(), m = u - this.getRowsCount(n) * g.input - g.input, f = Math.ceil(m / a);
+                e = g.input + f, i = this.getTotalInputsHeight(n, e) + e + l - p;
+            } else i = (e = Math.ceil(u / a)) * (n.length + 1) + l - p;
             return {
                 overflow: i,
                 itemSize: e,
@@ -8858,11 +8881,11 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         resizeElements: function(t) {
             var e = this.data, i = "vertical" === e.layout, s = e.fields, n = s.length, a = this.getInputDimensions(t), o = a.overflow, r = e["style-" + e.style + "-fields"], l = (r && r["underline-width"] || 0) + 2;
             this.$inputs.add(this.$button).each(function(t, e) {
-                var r = {}, c = a.itemSize, d = t === n - 1, h = t < n, u = s[t], p = $(e), g = t >= n + 1 - o;
+                var r = {}, c = a.itemSize, d = t === n - 1, h = t < n, p = s[t], u = $(e), g = t >= n + 1 - o;
                 if (g && c--, r[i ? "height" : "width"] = c + "px", r[i ? "width" : "height"] = a.itemOtherSize + "px", 
                 h && (r[i ? "margin-bottom" : "margin-right"] = d ? a.lastGutter : a.gutter), r[i ? "margin-right" : "margin-bottom"] = "", 
-                i && u && "text" === u.tp) {
-                    var m = u.rows || 1, f = p.find(".js-input"), v = p.find(".js-add-line"), _ = p.find(".js-remove-line"), w = this.getExtraTextareaDimensions(m, a.itemSize);
+                i && p && "text" === p.tp) {
+                    var m = p.rows || 1, f = u.find(".js-input"), v = u.find(".js-add-line"), _ = u.find(".js-remove-line"), w = this.getExtraTextareaDimensions(m, a.itemSize);
                     r.height = w.height + (g ? -1 : 0) + "px", f.css({
                         top: w.top - l,
                         bottom: w.bottom
@@ -8872,9 +8895,9 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                         top: w.top - l
                     }), _.css({
                         bottom: w.bottom + l
-                    }), p.toggleClass("is-multiline", m > 1);
+                    }), u.toggleClass("is-multiline", m > 1);
                 }
-                p.css(r);
+                u.css(r);
             }.bind(this));
         },
         showInputPlaceholdersAsValues: function(t) {
@@ -8940,6 +8963,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 color: this.getRgba(n("text-color"), n("text-opacity")),
                 "font-size": n("font-size"),
                 "letter-spacing": o,
+                "text-align": n("text-align"),
                 "text-indent": o / 2 || 0
             }), this.$buttonIcons.css({
                 fill: this.getRgba(n("text-color"), n("text-opacity"))
@@ -9037,10 +9061,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     e.attr("href", "javascript:void(0)").attr("data-share-provider", d[1]).attr("data-share-type", d[2]).addClass("share-link");
                 } else if (a.anchorRegexp.test(e.attr("href"))) {
                     e.attr("href", "javascript:void(0)").addClass("anchor-link");
-                    var h = e.attr("data-page-uri"), u = _.findWhere(a.mag.pages, {
+                    var h = e.attr("data-page-uri"), p = _.findWhere(a.mag.pages, {
                         _id: h
                     }) || a.page;
-                    e.attr("data-page-uri", u.uri || u.num);
+                    e.attr("data-page-uri", p.uri || p.num);
                 } else e.addClass("external-link");
                 !e.attr("href") || 0 != e.attr("href").indexOf("mailto") && 0 != e.attr("href").indexOf("tel") || e.attr("target", "");
             }), t.screenshot && !this.insideHotspot ? this.waitForUsedFontsLoad() : this.widgetIsLoaded(), this.$el.find("span.soundcite").each(function(e, i) {
@@ -9536,7 +9560,7 @@ window.onYouTubeIframeAPIReady = function() {
         onPlayerReady: function() {
             !this.destroyed && this.player && (this.$container && (this.mute = !0), this.mute ? this.player.mute() : this.player.unMute(), 
             this.$container || _.delay(_.bind(function() {
-                this.$iframe && this.$iframe.addClass("fade-out"), this.$poster.remove();
+                this.$iframe && this.$iframe.addClass("fade-out"), this.$poster && this.$poster.remove();
             }, this), 600), this.player.on("pause", this.onPause), this.player.on("play", this.onPlay), this.start_time && (this.player.rewind(this.start_time), 
             this.player.pause()), Modernizr.isdesktop && "vimeo" == this.provider_name.toLowerCase() && this.player.on("playProgress", this.onProgress), 
             this.started && this._needAutoStart() && this.player.play(), this.player.setColor && this.player.setColor(this.color));
@@ -9741,10 +9765,7 @@ window.onYouTubeIframeAPIReady = function() {
                         this.widgetIsLoaded();
                     }.bind(this)), "custom" == this.current_type && this.custom_json && this.map.setOptions({
                         styles: JSON.parse(this.custom_json)
-                    }), t.screenshot || t.constructorRouter && t.constructorRouter.preview || t.analytics && t.analytics.sendEvent("Google Maps Widget Rendered", {
-                        label: this.page && this.page.mag && this.page.mag.num_id,
-                        value: this.page && this.page.mag && this.page.mag.user && this.page.mag.user.num_id
-                    }));
+                    }), t.screenshot || t.constructorRouter && t.constructorRouter.preview || t.utils.sendAnalyticsCustomEvent("Google Maps", "Google Maps Widget Rendered", this.page && this.page.mag && this.page.mag.num_id, this.page && this.page.mag && this.page.mag.user && this.page.mag.user.num_id));
                 }.bind(this));
             }.bind(this)), this;
         },
@@ -9912,7 +9933,7 @@ window.onYouTubeIframeAPIReady = function() {
             }, c = {
                 w: this.$tip.width(),
                 h: this.$tip.height()
-            }, d = this.hotspotWidget.TIP_GAP, h = this.tip_pos, u = _.pick(this, "w", "h", "tip_w", "tip_h", "tip_pos"), p = !1, g = !1;
+            }, d = this.hotspotWidget.TIP_GAP, h = this.tip_pos, p = _.pick(this, "w", "h", "tip_w", "tip_h", "tip_pos"), u = !1, g = !1;
             function m(t) {
                 var e, i, s, n;
                 switch (t) {
@@ -9943,14 +9964,14 @@ window.onYouTubeIframeAPIReady = function() {
                     var e = m(t);
                     s = _.min(e), t == i && e[t] > 0 ? (n = t, o = !0) : s > a && e[t] >= 0 && (a = s, n = t);
                 }
-            }), h = n, u.tip_pos = h, e = this.hotspotWidget.apply_tip_position(u), t = m(h), _.each(t, function(t, i) {
+            }), h = n, p.tip_pos = h, e = this.hotspotWidget.apply_tip_position(p), t = m(h), _.each(t, function(t, i) {
                 if (t < 0) switch (i) {
                   case "top":
-                    e.top -= t - this.EDGE_GAP, p = !0;
+                    e.top -= t - this.EDGE_GAP, u = !0;
                     break;
 
                   case "bottom":
-                    p || (e.top += t - this.EDGE_GAP);
+                    u || (e.top += t - this.EDGE_GAP);
                     break;
 
                   case "left":
@@ -10081,7 +10102,8 @@ window.onYouTubeIframeAPIReady = function() {
             Backbone.trigger("form:blur", this._id);
         },
         onButtonClick: function(e) {
-            this.$button.hasClass("submitted") || this.validateForm() && (this.setButtonState("submitted"), t.common.isDownloadedSource ? this.submitToIframe(function(e) {
+            this.$button.hasClass("submitted") || this.validateForm() && (this.setButtonState("submitted"), "Text after submit" !== this.button_caption_after_submit && this.button_caption_after_submit ? this.$button.find(".caption").text(this.button_caption_after_submit) : this.$button.addClass("empty-submitted-text"), 
+            t.common.isDownloadedSource ? this.submitToIframe(function(e) {
                 e && (console.log("err : ", e), this.setButtonState("error"), t.analytics && t.analytics.sendEvent("Form Submit Error", e));
             }) : this.submitForm(function(e) {
                 e && (console.log("err : ", e), this.setButtonState("error"), e.responseJSON && "email_not_confirmed" == e.responseJSON.name && _.delay(function() {
@@ -10469,6 +10491,13 @@ window.onYouTubeIframeAPIReady = function() {
                 return e.get("_id") == t;
             });
             return e && e.get("num");
+        },
+        getWidgetPage: function(t) {
+            return _.find(this.pages.models, function(e) {
+                return _.find(e.widgets.models, function(e) {
+                    return e.get("_id") === t;
+                });
+            });
         },
         deletePage: function(e, i) {
             var s, n, a, o, r = _.reject(this.get("pids"), function(t) {
