@@ -206,28 +206,29 @@ Modernizr.addTest("retina", function() {
                 };
             }
             function v() {
-                l || this.destroy();
-                var t = o[0].getBoundingClientRect(), e = i[0].getBoundingClientRect(), s = i.attr("data-alt-pos") || a.direction, r = {
-                    offset: i.attr("data-alt-offset") ? i.attr("data-alt-offset") - 0 : a.offset,
-                    tipW: l.outerWidth(!1),
-                    tipH: l.outerHeight(!1),
-                    targetX: e.left,
-                    targetY: e.top,
-                    containerX: t.left,
-                    containerY: t.top,
-                    targetW: e.width,
-                    targetH: e.height
-                }, c = f(s, r);
-                if (a.keepInBounds && !m(c)) {
-                    var d = n[s], h = [ d ].concat(_.without(_.keys(n), s, d));
-                    c = f(s = (s = _.find(h, function(t) {
-                        return m(f(t, r));
-                    })) || "top", r);
-                }
-                l.addClass("rmalttext-" + s), l.css({
-                    left: c.relativeLeft,
-                    top: c.relativeTop
-                });
+                if (l) {
+                    var t = o[0].getBoundingClientRect(), e = i[0].getBoundingClientRect(), s = i.attr("data-alt-pos") || a.direction, r = {
+                        offset: i.attr("data-alt-offset") ? i.attr("data-alt-offset") - 0 : a.offset,
+                        tipW: l.outerWidth(!1),
+                        tipH: l.outerHeight(!1),
+                        targetX: e.left,
+                        targetY: e.top,
+                        containerX: t.left,
+                        containerY: t.top,
+                        targetW: e.width,
+                        targetH: e.height
+                    }, c = f(s, r);
+                    if (a.keepInBounds && !m(c)) {
+                        var d = n[s], h = [ d ].concat(_.without(_.keys(n), s, d));
+                        c = f(s = (s = _.find(h, function(t) {
+                            return m(f(t, r));
+                        })) || "top", r);
+                    }
+                    l.addClass("rmalttext-" + s), l.css({
+                        left: c.relativeLeft,
+                        top: c.relativeTop
+                    });
+                } else this.destroy();
             }
             function w() {
                 clearTimeout(c), clearInterval(d), window.rmalt_current_shown = null, l && l.remove(), l = void 0;
@@ -1358,7 +1359,7 @@ Modernizr.addTest("retina", function() {
             }).focus().remove();
         },
         hex2rgb: function(t) {
-            return [ parseInt(t.substring(0, 2), 16), parseInt(t.substring(2, 4), 16), parseInt(t.substring(4, 6), 16) ];
+            if (t) return [ parseInt(t.substring(0, 2), 16), parseInt(t.substring(2, 4), 16), parseInt(t.substring(4, 6), 16) ];
         },
         loadLoggedUser: function(e) {
             if (t.common.isDownloadedSource) return e && e();
@@ -4107,10 +4108,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
     }
     var i = null;
     if (t) {
-        var s = require("path").dirname(require.main.filename);
-        i = require(s + "/tools.coffee");
+        var s = require("path"), n = global.__legacyAppDirForShareUtilsDoNotUseAnywhereElse || s.dirname(require.main.filename);
+        i = require(n + "/tools.coffee");
     }
-    var n = {
+    var a = {
         defaultDescription: "Built with Readymag—a tool to design anything on the web.",
         maxTweetLen: 116,
         addOrigin: function(e, s) {
@@ -4126,60 +4127,60 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         },
         _formatTweet: function(t) {
             var e = t.prefix + t.val + t.suffix;
-            if (t.minLength = void 0 == t.minLength ? 1 : t.minLength, e.length > n.maxTweetLen) {
-                var i = Math.max(t.val.length - (e.length - n.maxTweetLen + 1), t.minLength);
+            if (t.minLength = void 0 == t.minLength ? 1 : t.minLength, e.length > a.maxTweetLen) {
+                var i = Math.max(t.val.length - (e.length - a.maxTweetLen + 1), t.minLength);
                 e = t.prefix + t.val.substring(0, i) + "…" + t.suffix;
             }
             return e;
         },
         getDefaultShare: function(t, i, s) {
             if (s = s || {}, e.isEmpty(i) || !e.isObject(i)) return {};
-            var a = i.emptyTitle ? "" : i.title, o = "", r = i.description || (s.customDomain ? "" : n.defaultDescription), l = "";
-            s.customDomain ? o = s.forProject ? a || "Project" : (a ? a + " — " : "") + (t.title || "Page " + t.num) : (s.forProject || (o = (t.title ? "‘" + t.title + "’" : "Page " + t.num) + " from "), 
-            o += (a ? "‘" + a + "’" : "Project") + " by " + i.user.name, s.forProject && i.description && (o += " | Readymag")), 
-            l = s.forProject ? n.getPageScreenshot(i, e.findWhere(i.pages, {
+            var n = i.emptyTitle ? "" : i.title, o = "", r = i.description || (s.customDomain ? "" : a.defaultDescription), l = "";
+            s.customDomain ? o = s.forProject ? n || "Project" : (n ? n + " — " : "") + (t.title || "Page " + t.num) : (s.forProject || (o = (t.title ? "‘" + t.title + "’" : "Page " + t.num) + " from "), 
+            o += (n ? "‘" + n + "’" : "Project") + " by " + i.user.name, s.forProject && i.description && (o += " | Readymag")), 
+            l = s.forProject ? a.getPageScreenshot(i, e.findWhere(i.pages, {
                 num: 1
-            }), s) : n.getPageScreenshot(i, t, s);
+            }), s) : a.getPageScreenshot(i, t, s);
             var c = "";
-            return s.customDomain ? s.forProject ? c = a ? n._formatTweet({
+            return s.customDomain ? s.forProject ? c = n ? a._formatTweet({
                 prefix: "",
-                val: a,
+                val: n,
                 suffix: ""
-            }) : "Project" : a || t.title ? !a && t.title ? c = n._formatTweet({
+            }) : "Project" : n || t.title ? !n && t.title ? c = a._formatTweet({
                 prefix: "",
                 val: t.title,
                 suffix: ""
-            }) : a && !t.title ? c = n._formatTweet({
+            }) : n && !t.title ? c = a._formatTweet({
                 prefix: "",
-                val: a,
+                val: n,
                 suffix: " — Page " + t.num
-            }) : a && t.title && (c = n._formatTweet({
+            }) : n && t.title && (c = a._formatTweet({
                 prefix: "",
-                val: a,
+                val: n,
                 suffix: " — " + t.title,
                 minLength: 20
-            })).length > n.maxTweetLen && (c = t.title).length > n.maxTweetLen && (c = n._formatTweet({
+            })).length > a.maxTweetLen && (c = t.title).length > a.maxTweetLen && (c = a._formatTweet({
                 prefix: "",
                 val: t.title,
                 suffix: ""
-            })) : c = "Page " + t.num : s.forProject ? c = a ? n._formatTweet({
+            })) : c = "Page " + t.num : s.forProject ? c = n ? a._formatTweet({
                 prefix: "‘",
-                val: a,
+                val: n,
                 suffix: "’ by " + i.user.name
-            }) : "Project by " + i.user.name : a || t.title ? !a && t.title ? c = n._formatTweet({
+            }) : "Project by " + i.user.name : n || t.title ? !n && t.title ? c = a._formatTweet({
                 prefix: "‘",
                 val: t.title,
                 suffix: "’ from Project by " + i.user.name
-            }) : a && !t.title ? c = n._formatTweet({
+            }) : n && !t.title ? c = a._formatTweet({
                 prefix: "Page " + t.num + " from ‘",
-                val: a,
+                val: n,
                 suffix: "’ by " + i.user.name
-            }) : a && t.title && (c = n._formatTweet({
+            }) : n && t.title && (c = a._formatTweet({
                 prefix: "‘" + t.title + "’ from ‘",
-                val: a,
+                val: n,
                 suffix: "’ by " + i.user.name,
                 minLength: 20
-            })).length > n.maxTweetLen && (c = "‘" + t.title + "’ by " + i.user.name).length > n.maxTweetLen && (c = n._formatTweet({
+            })).length > a.maxTweetLen && (c = "‘" + t.title + "’ by " + i.user.name).length > a.maxTweetLen && (c = a._formatTweet({
                 prefix: "‘",
                 val: t.title,
                 suffix: "’ by " + i.user.name
@@ -4192,21 +4193,21 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         },
         getFinalShare: function(t, i, s) {
             if (s = s || {}, e.isEmpty(i) || !e.isObject(i)) return {};
-            var a = n.getDefaultShare(t, i, s), o = i.master_share_pid && e.find(i.pages, function(t) {
+            var n = a.getDefaultShare(t, i, s), o = i.master_share_pid && e.find(i.pages, function(t) {
                 return t._id.toString() == i.master_share_pid.toString();
             }), r = (t = s.forProject ? e.findWhere(i.pages, {
                 num: 1
             }) : t, o || t), l = r.custom_shares;
-            return e.isEmpty(l) || (a.title = l.title || "", a.description = l.description || "", a.tweet = l.tweet || "", 
-            l.image ? a.image = l.image : r.screenshot ? a.image = n.getPageScreenshot(i, r, s) : a.image = ""), 
-            a;
+            return e.isEmpty(l) || (n.title = l.title || "", n.description = l.description || "", n.tweet = l.tweet || "", 
+            l.image ? n.image = l.image : r.screenshot ? n.image = a.getPageScreenshot(i, r, s) : n.image = ""), 
+            n;
         },
         getDefaultSEO: function(t, i, s) {
             if (s = s || {}, e.isEmpty(i) || !e.isObject(i)) return {};
-            var a = i.emptyTitle ? "" : i.title, o = "", r = "";
-            return s.customDomain ? t && t.num > 1 ? o = (a ? a + " — " : "") + (t.title || "Page " + t.num) : (o = a || "Project", 
-            r = i.description || "") : (t && t.num > 1 ? o = (t.title ? "‘" + t.title + "’" : "Page " + t.num) + " from " : r = i.description || n.defaultDescription, 
-            o = a || "Project"), {
+            var n = i.emptyTitle ? "" : i.title, o = "", r = "";
+            return s.customDomain ? t && t.num > 1 ? o = (n ? n + " — " : "") + (t.title || "Page " + t.num) : (o = n || "Project", 
+            r = i.description || "") : (t && t.num > 1 ? o = (t.title ? "‘" + t.title + "’" : "Page " + t.num) + " from " : r = i.description || a.defaultDescription, 
+            o = n || "Project"), {
                 title: o || "",
                 description: r || "",
                 keywords: ""
@@ -4214,38 +4215,38 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         },
         getFinalSEO: function(t, i, s) {
             if (s = s || {}, e.isEmpty(i) || !e.isObject(i)) return {};
-            var a = n.getDefaultSEO(t, i, s);
-            return a.title = t.seo && t.seo.title || a.title, a.description = t.seo && t.seo.description || a.description, 
-            a.keywords = t.seo && t.seo.keywords || a.keywords, a;
+            var n = a.getDefaultSEO(t, i, s);
+            return n.title = t.seo && t.seo.title || n.title, n.description = t.seo && t.seo.description || n.description, 
+            n.keywords = t.seo && t.seo.keywords || n.keywords, n;
         },
         _openShareWindow: function(t, e, i) {
             e = e || 626, i = i || 436, window.open(t, "sharer", "width=" + e + ",height=" + i + ",toolbar=0,status=0");
         },
         share: function(t) {
-            var e, i = n.getFinalShare(t.page, t.mag, {
+            var e, i = a.getFinalShare(t.page, t.mag, {
                 forProject: t.forProject,
                 customDomain: t.customDomain
             }), s = t.mag.emptyTitle ? "" : t.mag.title;
             if (/^https?\:\/\//i.test(t.host) || (t.host = "http://" + t.host), /\/$/i.test(t.host) || (t.host += "/"), 
             e = t.forProject ? t.host + (t.customDomain && !t.customDomainProfile ? "" : t.mag.num_id + "/") : t.host + "p" + t.page.num_id + "/", 
             t.publishedVersion) {
-                var a;
-                if ("facebook" == t.tp && n._openShareWindow("http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(e)), 
-                "twitter" == t.tp) a = s ? n._formatTweet({
+                var n;
+                if ("facebook" == t.tp && a._openShareWindow("http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(e)), 
+                "twitter" == t.tp) n = s ? a._formatTweet({
                     prefix: "I’ve just published a project ‘",
                     val: s,
                     suffix: "’"
-                }) : "I’ve just published a Project", n._openShareWindow("https://twitter.com/share?url=" + encodeURIComponent(e) + "&text=" + encodeURIComponent(a));
+                }) : "I’ve just published a Project", a._openShareWindow("https://twitter.com/share?url=" + encodeURIComponent(e) + "&text=" + encodeURIComponent(n));
                 if ("email" == t.tp) {
                     var o = encodeURIComponent((t.mag.is_private ? "private " : "") + (s ? "project ‘" + s + "’" : "Project")), r = "mailto:", l = "Check out my " + o, c = "Hey, check out my new " + o + ": " + e + (t.mag.is_private ? encodeURIComponent("\n") + "Password: " + t.mag.pass : "");
                     window.location.href = r + "?subject=" + l + "&body=" + c;
                 }
             } else {
-                if ("facebook" == t.tp && n._openShareWindow("http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(e)), 
-                "twitter" == t.tp && n._openShareWindow("https://twitter.com/share?url=" + encodeURIComponent(e) + "&text=" + encodeURIComponent(i.tweet)), 
-                "gplus" == t.tp && n._openShareWindow("https://plus.google.com/share?url=" + encodeURIComponent(e)), 
-                "pinterest" == t.tp && n._openShareWindow("http://pinterest.com/pin/create/button/?url=" + encodeURIComponent(e) + "&media=" + encodeURIComponent(i.image) + "&description=" + encodeURIComponent(i.title)), 
-                "linkedin" == t.tp && n._openShareWindow("http://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(e) + "&title=" + encodeURIComponent(i.title) + (i.description ? "&summary=" + encodeURIComponent(i.description) : ""), 552, 460), 
+                if ("facebook" == t.tp && a._openShareWindow("http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(e)), 
+                "twitter" == t.tp && a._openShareWindow("https://twitter.com/share?url=" + encodeURIComponent(e) + "&text=" + encodeURIComponent(i.tweet)), 
+                "gplus" == t.tp && a._openShareWindow("https://plus.google.com/share?url=" + encodeURIComponent(e)), 
+                "pinterest" == t.tp && a._openShareWindow("http://pinterest.com/pin/create/button/?url=" + encodeURIComponent(e) + "&media=" + encodeURIComponent(i.image) + "&description=" + encodeURIComponent(i.title)), 
+                "linkedin" == t.tp && a._openShareWindow("http://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(e) + "&title=" + encodeURIComponent(i.title) + (i.description ? "&summary=" + encodeURIComponent(i.description) : ""), 552, 460), 
                 "email" == t.tp) {
                     r = "mailto:", c = (l = "Check out " + encodeURIComponent(i.title)) + encodeURIComponent("\n\n") + e + (t.mag.is_private ? encodeURIComponent("\n") + "Password: " + t.mag.pass : "");
                     window.location.href = r + "?subject=" + l + "&body=" + c;
@@ -4261,7 +4262,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             }
         }
     };
-    "undefined" != typeof exports ? "undefined" != typeof module && module.exports && (exports = module.exports = n) : this.RM ? this.RM.shareutils = n : this.shareutils = n;
+    "undefined" != typeof exports ? "undefined" != typeof module && module.exports && (exports = module.exports = a) : this.RM ? this.RM.shareutils = a : this.shareutils = a;
 }.call(this), function(t) {
     var e = window.performance || {}, i = Date.now ? Date.now() : +new Date(), s = [], n = {};
     e.now || (e.now = e.webkitNow || e.mozNow || e.msNow || function() {
@@ -5674,7 +5675,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
         },
         calcBoxStyle: function(e) {
             e = e || {};
-            var i = {
+            var i, s = {
                 left: this.x,
                 top: this.y,
                 width: this.w,
@@ -5684,44 +5685,45 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 "margin-left": "",
                 "margin-top": "",
                 "z-index": this.z || 1
-            }, s = parseInt(this.full_width_margin, 10) || 0, n = parseInt(this.sticked_margin, 10) || 0, a = this.page.scale, o = this.fixed_position;
-            if (this.angle && (i.width = Math.round(this.w), i.height = Math.round(this.h), this.angle % 90 == 0 && i.width % 2 != i.height % 2 && (i.width += 1)), 
-            this.is_full_width && (i.left = -this.page.contentPosition.left + s, i.width = this.page.mag.getContainerSizeCached().width / a - 2 * s, 
-            o)) {
-                if (i.left = s, "horizontal" == this.page.viewerType) {
-                    var r = this.page.$scrollWrapper, l = r.width() - r[0].clientWidth;
-                    i.width -= l / a;
+            }, n = parseInt(this.full_width_margin, 10) || 0, a = parseInt(this.sticked_margin, 10) || 0, o = this.page.scale, r = this.page.mag.getContainerSizeCached().width, l = r - $(window).width(), c = this.fixed_position;
+            if (this.angle && (s.width = Math.round(this.w), s.height = Math.round(this.h), this.angle % 90 == 0 && s.width % 2 != s.height % 2 && (s.width += 1)), 
+            this.is_full_width && (s.left = -this.page.contentPosition.left + n, s.width = this.page.mag.getContainerSizeCached().width / o - 2 * n, 
+            i = -((s.width - this.page.$content[0].clientWidth) / 2).toFixed(3), t.scale.isAllowed() && this.page.mag.getContainerSizeCached().width > this.mag.viewOpts.scalewidth && (Modernizr.msie11 ? (i = -(r - this.page.$content[0].clientWidth) / 2 - l / 2, 
+            s.left = i / o) : Modernizr.firefox ? (s.width = s.width + 1, s.left = i - 1) : s.left = i), c)) {
+                if (s.left = n, "horizontal" == this.page.viewerType) {
+                    var d = this.page.$scrollWrapper, h = d.width() - d[0].clientWidth;
+                    s.width -= h / o;
                 }
-                [ "nw", "n", "ne" ].indexOf(o) > -1 && (o = "nw"), [ "w", "c", "e" ].indexOf(o) > -1 && (o = "w"), [ "sw", "s", "se" ].indexOf(o) > -1 && (o = "sw");
+                [ "nw", "n", "ne" ].indexOf(c) > -1 && (c = "nw"), [ "w", "c", "e" ].indexOf(c) > -1 && (c = "w"), [ "sw", "s", "se" ].indexOf(c) > -1 && (c = "sw");
             }
             if (this.sticked) {
-                l = 0;
-                "horizontal" == this.page.viewerType && (l = this.page.$scrollWrapper.width() - this.page.$scrollWrapper[0].clientWidth), 
-                "left" == this.sticked && (i.left = -this.page.contentPosition.left / a + n), "right" == this.sticked && (i.left = this.page.mag.getContainerSizeCached().width / a - n - this.w - this.page.contentPosition.left / a - l / a), 
-                "top" == this.sticked && (i.top = -this.page.contentPosition.top / a + n), "bottom" == this.sticked && (i.top = this.$pageContainer.height() - n - this.h + this.page.contentPosition.top / a);
+                h = 0;
+                "horizontal" == this.page.viewerType && (h = this.page.$scrollWrapper.width() - this.page.$scrollWrapper[0].clientWidth), 
+                "left" == this.sticked && (s.left = -this.page.contentPosition.left / o + a), "right" == this.sticked && (s.left = this.page.mag.getContainerSizeCached().width / o - a - this.w - this.page.contentPosition.left / o - h / o), 
+                "top" == this.sticked && (s.top = -this.page.contentPosition.top / o + a), "bottom" == this.sticked && (s.top = this.$pageContainer.height() - a - this.h + this.page.contentPosition.top / o);
             }
             if (e.calcBBox) {
-                o && (i.left *= a, i.top *= a, i.width *= a, i.height *= a), i.sinAngle = Math.sin(-(this.angle || 0) * Math.PI / 180), 
-                i.cosAngle = Math.cos(-(this.angle || 0) * Math.PI / 180);
-                var c = t.mathutils.calcBoundingBox(i, o);
-                return i.width = c.bb_width, i.height = c.bb_height, i.left = c.bb_left, i.top = c.bb_top, o && _.extend(i, t.utils.getFixedPositionCSS(o, i, 1)), 
+                c && (s.left *= o, s.top *= o, s.width *= o, s.height *= o), s.sinAngle = Math.sin(-(this.angle || 0) * Math.PI / 180), 
+                s.cosAngle = Math.cos(-(this.angle || 0) * Math.PI / 180);
+                var p = t.mathutils.calcBoundingBox(s, c);
+                return s.width = p.bb_width, s.height = p.bb_height, s.left = p.bb_left, s.top = p.bb_top, c && _.extend(s, t.utils.getFixedPositionCSS(c, s, 1)), 
                 {
-                    dimensions: i
+                    dimensions: s
                 };
             }
-            o && (_.extend(i, t.utils.getFixedPositionCSS(o, i, t.scale.normalize(a, "transform"))), a >= 1 && t.scale.isAllowed() && t.scale.isZoom() && (i.zoom = a));
-            var d = {
+            c && (_.extend(s, t.utils.getFixedPositionCSS(c, s, t.scale.normalize(o, "transform"))), o >= 1 && t.scale.isAllowed() && t.scale.isZoom() && (s.zoom = o));
+            var u = {
                 rotateX: this.angle && this.antialiasRotation ? "0deg" : "",
                 rotateY: this.angle && this.antialiasRotation ? "0deg" : "",
                 rotateZ: this.angle ? this.angle + "deg" : "",
                 scaleX: this.flip_h ? -1 : 1,
                 scaleY: this.flip_v ? -1 : 1
             };
-            return o && (d.scaleX *= t.scale.normalize(a, "transform"), d.scaleY *= t.scale.normalize(a, "transform")), 
-            Math.abs(d.scaleX - 1) < 1e-6 && (d.scaleX = ""), Math.abs(d.scaleY - 1) < 1e-6 && (d.scaleY = ""), 
+            return c && (u.scaleX *= t.scale.normalize(o, "transform"), u.scaleY *= t.scale.normalize(o, "transform")), 
+            Math.abs(u.scaleX - 1) < 1e-6 && (u.scaleX = ""), Math.abs(u.scaleY - 1) < 1e-6 && (u.scaleY = ""), 
             {
-                dimensions: i,
-                transform: d
+                dimensions: s,
+                transform: u
             };
         },
         applyBoxStyle: function() {
@@ -6063,7 +6065,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             this;
         },
         onJoinButtonClick: function() {
-            !this.$(".join.ljr-panel input").hasClass("err") && this.$(".join.ljr-panel .go").hasClass("active") && t.utils.sendAnalyticsCustomEvent("Final Page", "Final Page Registration");
+            !this.$(".join.ljr-panel input").hasClass("err") && this.$(".join.ljr-panel .go").hasClass("active");
         },
         onClickRecoverSubmit: function() {
             var t = this.$(".recover.ljr-panel .email-input").val();
@@ -6363,7 +6365,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             }
         },
         onFinalPageShow: function() {
-            t.utils.sendAnalyticsCustomEvent("Final Page", "Final Page View"), this.currentPage && this.currentPage.stop({
+            this.currentPage && this.currentPage.stop({
                 widgetTypes: [ "audio", "video", "background", "iframe" ]
             }), "horizontal" == this.viewOpts.viewertype && (this.$pages_container.removeClass("disable-transitions"), 
             this.$pages_container.addClass("fade-last-page-on-final-page"));
@@ -6607,15 +6609,15 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                 this.aboveGlobalAnimations && this.aboveGlobalAnimations.onScroll({
                     forceApply: !0,
                     scroll: this.getScroll()
-                }), this.finalPage) {
-                    var i = t.finalPageShown;
-                    i != !!this.lastFinalPageState && this.trigger(i ? "finalPageShown" : "finalPageHidden"), this.lastFinalPageState = i;
+                }), this.finalPage && this.isStickyVerticalViewer) {
+                    var i = this.getScroll(), s = this.magPagesPos[this.pages.length], n = s.y + s.h - this.getContainerSizeCached().height;
+                    this.trigger(i > n ? "finalPageShown" : "finalPageHidden");
                 }
                 if (this.$bottomArrow && +this.magOpenTime + 2e3 < +new Date()) {
                     this.$bottomArrow.addClass("offscreen");
-                    var s = this.$bottomArrow;
+                    var a = this.$bottomArrow;
                     delete this.$bottomArrow, setTimeout(function() {
-                        s.remove();
+                        a.remove();
                     }, 400);
                 }
             }
@@ -7145,11 +7147,11 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             } else {
                 var h = Math.abs(s);
                 _.each(this.aboveGlobalWidgets, function(s) {
-                    var n = !t.globalwidgets.getUniqueValue("hidden", s, e._id), a = i && !t.globalwidgets.getUniqueValue("hidden", s, i._id), o = n && a && e.pageViewport === i.pageViewport, r = this.getAboveGlobalBoxMemoized(s._id, e, l), d = this.getAboveGlobalBoxMemoized(s._id, i || e, l), p = n && h > r.top + r.height, u = i && a && d.top > h;
-                    if (p || u || o) {
-                        var g = p ? e : u ? i : s.page, m = c(s, g);
-                        s.updatePage(g), m ? (s.rendered = !1, t.globalwidgets.hide(s).then(function() {
-                            this.updateAboveGlobalViewport(s, g), t.globalwidgets.show(s);
+                    var n = !t.globalwidgets.getUniqueValue("hidden", s, e._id), a = i && !t.globalwidgets.getUniqueValue("hidden", s, i._id), o = n && a && e.pageViewport === i.pageViewport, r = this.getAboveGlobalBoxMemoized(s._id, e, l), d = this.getAboveGlobalBoxMemoized(s._id, i || e, l), p = n && h > r.top + r.height, u = i && a && d.top > h, g = !i && n && !e.mag.branding;
+                    if (p || u || o || g) {
+                        var m = p ? e : u ? i : s.page, f = c(s, m);
+                        s.updatePage(m), f ? (s.rendered = !1, t.globalwidgets.hide(s).then(function() {
+                            this.updateAboveGlobalViewport(s, m), t.globalwidgets.show(s);
                         }.bind(this))) : s.wasHidden && t.globalwidgets.show(s);
                     } else !s.wasHidden && t.globalwidgets.hide(s);
                 }.bind(this));
@@ -8809,7 +8811,10 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
                     for (var u = 0; u < r.items.length; u++) $("<option>").attr("value", r.items[u]).text(r.items[u]).appendTo(h);
                     i.parent().append(p).append(h);
                 }
-                "checkbox" === r.tp && (i.wrap('<label class="input-checkbox-wrapper"></label>'), i.after('\t\t\t\t\t\t<div class="input-checkbox-inner"> \t\t\t\t\t\t\t<span class="label">' + i.attr("placeholder") + '</span> \t\t\t\t\t\t\t<span class="tick">' + this.CHECKBOX_TICK.SVG + "</span> \t\t\t\t\t\t</div>"));
+                if ("checkbox" === r.tp) {
+                    var g = Modernizr.isdesktop ? "" : "input-checkbox-wrapper-mobile";
+                    i.wrap('<label class="input-checkbox-wrapper ' + g + '"></label>'), i.after('\t\t\t\t\t\t<div class="input-checkbox-inner"> \t\t\t\t\t\t\t<span class="label">' + i.attr("placeholder") + '</span> \t\t\t\t\t\t\t<span class="tick">' + this.CHECKBOX_TICK.SVG + "</span> \t\t\t\t\t\t</div>");
+                }
             }
             $(this.buttonTemplate()).appendTo(a), this.$el.html(a.html()).addClass("common-form"), this.$button = this.$(".button"), 
             this.$buttonIcons = this.$(".button svg"), this.$inputs = this.$(".input-wrapper"), this.$triangles = this.$(".form-dropdown-triangle"), 
@@ -9161,15 +9166,28 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             this;
         },
         getPictureUrl: function() {
-            return this.picture ? (e = t.scale.isOn(this.page.scale) ? this.picture.unscaledUrl || this.picture.final2xUrl || this.picture.finalUrl : Modernizr.retina && (window.devicePixelRatio >= 3 && this.picture.final3xUrl || this.picture.final2xUrl) || this.picture.finalUrl, 
+            return this.picture ? this.picture.finalUrl && 0 == _.last(this.picture.finalUrl.split(".")).indexOf("svg") ? this.picture.finalUrl : (e = t.scale.isOn(this.page.scale) ? this.picture.unscaledUrl || this.picture.final2xUrl || this.picture.finalUrl : Modernizr.retina && (window.devicePixelRatio >= 3 && this.picture.final3xUrl || this.picture.final2xUrl) || this.picture.finalUrl, 
             (this.is_full_width || this.page.mag.isPreview && this.animation) && (e = this.picture.unscaledUrl || this.picture.final2xUrl || this.picture.finalUrl), 
             e || this.picture.effectUrl || this.picture.editedVectorUrl || this.picture.url) : "";
             var e;
         },
+        cleanupSVG: function(e) {
+            var i = $($(e).find("svg").get(0).cloneNode(!0)), s = i[0].outerHTML;
+            return _.chain(i.find("[id]")).map(function(e) {
+                return {
+                    id: e.getAttribute("id"),
+                    newId: t.utils.generateUUID()
+                };
+            }).sortBy(function(t) {
+                return t.id.length;
+            }).each(function(t) {
+                s = (s = s.split("#" + t.id).join("#" + t.newId)).split('id="' + t.id + '"').join('id="' + t.newId + '"');
+            }), s;
+        },
         loadVector: function(t) {
             this.$el.addClass("svg"), this.svgAjax = $.get(t + "?c", _.bind(function(e) {
-                this.$svg = $(e).find("svg").attr("width", "").attr("height", "");
-                var i = $(e).find("svg").get(0).cloneNode(!0);
+                (e = $(this.cleanupSVG(e))).get(0).removeAttribute("width"), e.get(0).removeAttribute("height"), this.$svg = e;
+                var i = e.get(0).cloneNode(!0);
                 this.$svg.attr("viewBox");
                 this.$svg.find("title").remove();
                 var s = new Image();
@@ -9350,7 +9368,7 @@ var googleMapsAPICallbacks = [], facebookAPICallbacks = [], twitterAPICallbacks 
             }), this) : (this.widgetIsLoaded(), this);
         },
         stop: function() {
-            return this.started = !1, this.$el.empty(), this.innerRendered = !1, this;
+            return this.started = !1, this;
         }
     });
 }(RM);
@@ -9646,13 +9664,13 @@ window.onYouTubeIframeAPIReady = function() {
                 }
             };
             if ("rectangle" != this.tp || 1 != this.opacity || Modernizr.isdesktop && 0 != this.borders) {
-                var s = this.generateShapeSVG("viewer", i, this.$el.width(), this.$el.height());
+                var s = this.generateShapeSVG("viewer-" + t.utils.generateUUID(), i, this.$el.width(), this.$el.height());
                 this.$el.html(s);
             } else {
                 var n = t.utils.hex2rgb(this.bg_color), a = t.utils.hex2rgb(this.color);
-                n.push(this.bg_opacity), this.$el.css({
-                    "background-color": "rgba(" + n.join(",") + ")",
-                    "border-color": "rgb(" + a.join(",") + ")",
+                n && n.push(this.bg_opacity), this.$el.css({
+                    "background-color": n ? "rgba(" + n.join(",") + ")" : "transparent",
+                    "border-color": a ? "rgb(" + a.join(",") + ")" : "transparent",
                     "border-radius": this.radius || 0,
                     "border-style": "solid",
                     "border-width": this.borders,
@@ -9765,7 +9783,7 @@ window.onYouTubeIframeAPIReady = function() {
                         this.widgetIsLoaded();
                     }.bind(this)), "custom" == this.current_type && this.custom_json && this.map.setOptions({
                         styles: JSON.parse(this.custom_json)
-                    }), t.screenshot || t.constructorRouter && t.constructorRouter.preview || t.utils.sendAnalyticsCustomEvent("Google Maps", "Google Maps Widget Rendered", this.page && this.page.mag && this.page.mag.num_id, this.page && this.page.mag && this.page.mag.user && this.page.mag.user.num_id));
+                    }));
                 }.bind(this));
             }.bind(this)), this;
         },

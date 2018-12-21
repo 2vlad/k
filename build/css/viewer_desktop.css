@@ -5683,7 +5683,7 @@ a.goback-link {
 }
 .animation-container {
   position: absolute;
-  pointer-events: none;
+  pointer-events: none !important;
 }
 .animation-container.force3d {
   -webkit-backface-visibility: hidden;
@@ -6415,7 +6415,7 @@ html.no-isdesktop {
   -ms-user-select: none;
   user-select: none;
   height: 0;
-  position: absolute;
+  position: fixed;
   font-size: 0;
   z-index: 120;
   -webkit-transition: -webkit-transform 300ms ease;
@@ -7348,6 +7348,9 @@ html.no-isdesktop {
   cursor: pointer;
   padding-right: 12px;
 }
+.common-form .input-wrapper .input-checkbox-wrapper-mobile > * {
+  pointer-events: none;
+}
 .common-form .input-wrapper .input-checkbox-wrapper input {
   opacity: 0;
   position: absolute;
@@ -7495,6 +7498,9 @@ html.no-isdesktop {
 .common-form .input-line-control-remove:after {
   top: 2px;
   background-image: url('../../img/constructor/blocks/form/minus.png');
+}
+.common-form[data-style="underlined"] .button .caption {
+  padding: 0;
 }
 .common-form[data-style="underlined"] .input-wrapper input,
 .common-form[data-style="underlined"] .input-wrapper textarea {
